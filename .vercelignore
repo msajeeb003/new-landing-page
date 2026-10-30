@@ -1,0 +1,25 @@
+# Files that stay on your computer and are NOT uploaded to Vercel.
+# The live site only needs: index.html, styles.css, main.js, cv.pdf, images/, icons, robots.txt, sitemap.xml, 404.html.
+
+# Original source photos (large, not used by the site)
+*.jfif
+Firefly_RemoveBackground.png
+/hero-pointing.webp
+/about-thumbsup.webp
+/cta-armscrossed.webp
+/spare-thinking.webp
+/spare-thinking (1).webp
+images/spare-thinking.*
+
+# Build notes and sources
+PORTFOLIO_BUILD_PROMPT*.md
+DEPLOY.md
+README.md
+.gitignore
+cv-source/
+
+# Editor / OS clutter
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

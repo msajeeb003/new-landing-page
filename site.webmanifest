@@ -1,0 +1,12 @@
+{
+  "name": "Mostafizur Rahman — Gen AI Engineer & Automation Specialist",
+  "short_name": "Mostafizur",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FFF7F2",
+  "theme_color": "#FFF7F2",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

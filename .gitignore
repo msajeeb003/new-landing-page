@@ -1,0 +1,21 @@
+# Original source photos — large, and not used by the site
+# (the site uses the optimised copies in images/)
+*.jfif
+Firefly_RemoveBackground.png
+/hero-pointing.webp
+/about-thumbsup.webp
+/cta-armscrossed.webp
+/spare-thinking*.webp
+images/spare-thinking.*
+
+# Duplicate of the build spec
+PORTFOLIO_BUILD_PROMPT (1).md
+
+# Vercel CLI local link folder
+.vercel/
+
+# Editor / OS clutter
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
