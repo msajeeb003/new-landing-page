@@ -420,8 +420,8 @@
      ========================================================= */
 
   /* --- Count-up helper (M15, M18) --- */
-  const countUp = (el, target, { decimals = 0, prefix = '', suffix = '', duration = 1400, delay = 0 } = {}) => {
-    const write = (v) => { el.textContent = prefix + v.toFixed(decimals) + suffix; };
+  const countUp = (el, target, { decimals = 0, prefix = '', suffix = '', duration = 1400, delay = 0, format = null } = {}) => {
+    const write = (v) => { el.textContent = prefix + (format ? format(v) : v.toFixed(decimals)) + suffix; };
     if (reduce) { write(target); return; }
     setTimeout(() => {
       const start = performance.now();
@@ -558,6 +558,48 @@
     }).observe(hero);
   } else if (mobileCta) {
     mobileCta.classList.add('is-visible');
+  }
+
+  /* --- Total visitor counter (footer) ---
+     Uses Abacus (abacus.jasoncameron.dev), a free no-signup counter service.
+     Each browser is counted once per 24 hours; local testing and bots only read the number. */
+  const visitsBox = $('.footer__visits');
+  if (visitsBox && 'fetch' in window) {
+    const VISITS_API = 'https://abacus.jasoncameron.dev';
+    const VISITS_NS = 'mostafizur-ai-portfolio';
+    const VISITS_KEY = 'visitors';
+    const DAY = 24 * 60 * 60 * 1000;
+    const numEl = $('[data-visits]', visitsBox);
+    const fmt = new Intl.NumberFormat('en-US');
+
+    const isLocal = location.protocol === 'file:' || /^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(location.hostname);
+    const isBot = navigator.webdriver || /bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent);
+    let countedToday = false;
+    try { countedToday = Date.now() - Number(localStorage.getItem('mr-visit-at') || 0) < DAY; } catch (e) { /* storage blocked */ }
+    const action = isLocal || isBot || countedToday ? 'get' : 'hit';
+
+    fetch(`${VISITS_API}/${action}/${VISITS_NS}/${VISITS_KEY}`, { cache: 'no-store' })
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`HTTP ${res.status}`))))
+      .then((data) => {
+        const total = Number(data.value);
+        if (!Number.isFinite(total) || total < 1) return;
+        if (action === 'hit') { try { localStorage.setItem('mr-visit-at', String(Date.now())); } catch (e) { /* ignore */ } }
+        numEl.textContent = fmt.format(total);
+        visitsBox.setAttribute('aria-label', `${fmt.format(total)} total visitors`);
+        visitsBox.hidden = false;
+        visitsBox.classList.add('is-shown');
+        // Count up once the footer scrolls into view
+        if ('IntersectionObserver' in window && !reduce) {
+          numEl.textContent = '0';
+          const io = new IntersectionObserver(([entry]) => {
+            if (!entry.isIntersecting) return;
+            io.disconnect();
+            countUp(numEl, total, { duration: 1600, format: (v) => fmt.format(Math.round(v)) });
+          }, { threshold: 0.6 });
+          io.observe(visitsBox);
+        }
+      })
+      .catch(() => { /* service unreachable: keep the badge hidden */ });
   }
 
   /* --- Pause loops: hidden tab + off-screen elements --- */

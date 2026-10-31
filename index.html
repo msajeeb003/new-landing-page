@@ -78,6 +78,7 @@
   <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
   <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
   <symbol id="i-screenrec" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17v4"/><path d="M8 21h8"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0"/><circle cx="12" cy="12" r="3"/></symbol>
 </svg>
 
 <a class="skip-link" href="#main">Skip to content</a>
@@ -908,6 +909,12 @@
   </div>
   <div class="container footer__row footer__row--small">
     <p>© 2026 Mostafizur Rahman. All rights reserved.</p>
+    <!-- Total visitor counter (filled in by main.js; stays hidden if the counter service is unreachable) -->
+    <p class="footer__visits" hidden>
+      <svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg>
+      <strong class="footer__visits-num" data-visits>0</strong>
+      <span>total visitors</span>
+    </p>
     <p class="footer__avail"><span class="pulse-dot loop" aria-hidden="true"></span>Available for new projects · Kushtia, Bangladesh · Open to EU relocation</p>
   </div>
 </footer>
