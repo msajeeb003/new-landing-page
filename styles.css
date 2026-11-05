@@ -1193,6 +1193,8 @@ html:not(.js) .work-more { display: none; }
 
 /* --- M0 Hero load sequence --- */
 .js .hero [data-load] { opacity: 0; }
+/* LCP candidates (title, intro, portrait) are painted immediately: they still slide in, but never start invisible */
+.js .hero .hero__title [data-load], .js .hero .hero__intro[data-load], .js .hero .stage__portrait[data-load] { opacity: 1; }
 .js .hero [data-load="up"]   { transform: translateY(28px); }
 .js .hero [data-load="arch"] { transform: scale(.92); }
 .js .hero [data-load="rise"] { transform: translateY(40px); }
@@ -1438,7 +1440,9 @@ html:not(.js) .work-more { display: none; }
   .js.is-loaded .site-header .logo:hover .logo__mark { transform: rotate(-12deg) scale(1.08); }
 }
 
-/* --- Pausing loops: tab hidden / element off-screen --- */
+/* --- Pausing loops: until the page has loaded (main.js adds .loops-on), tab hidden, element off-screen --- */
+.js:not(.loops-on) .loop, .js:not(.loops-on) .loop::before, .js:not(.loops-on) .loop::after,
+.js:not(.loops-on) .loop *, .js:not(.loops-on) .loop *::before,
 .is-paused *, .is-paused *::before, .is-paused *::after,
 .loop.is-offscreen, .loop.is-offscreen::before, .loop.is-offscreen::after,
 .loop.is-offscreen *, .loop.is-offscreen *::before { animation-play-state: paused !important; }

@@ -192,7 +192,7 @@
     pill.style.transform = `translate(${active.offsetLeft}px, ${active.offsetTop}px)`;
   };
   tabsWrap.classList.add('has-pill');
-  placePill();
+  requestAnimationFrame(placePill);
   requestAnimationFrame(() => requestAnimationFrame(() => pill.classList.add('is-ready')));
   document.fonts?.ready.then(placePill);
   if ('ResizeObserver' in window) new ResizeObserver(placePill).observe(track);
@@ -470,7 +470,7 @@
     logoViewport.classList.add('is-marquee');
     // Keep the speed constant (~40px per second) whatever the row width.
     const setSpeed = () => track.style.setProperty('--marquee-dur', `${Math.max(20, row.scrollWidth / 40)}s`);
-    setSpeed();
+    requestAnimationFrame(setSpeed);
     document.fonts?.ready.then(setSpeed);
   }
 
@@ -507,8 +507,7 @@
     activeLink = link;
     placeDot();
   };
-  placeDot();
-  requestAnimationFrame(() => navDot.classList.add('is-ready'));
+  requestAnimationFrame(() => { placeDot(); if (navDot) navDot.classList.add('is-ready'); });
   document.fonts?.ready.then(placeDot);
   window.addEventListener('resize', placeDot, { passive: true });
 
@@ -564,7 +563,11 @@
      Uses Abacus (abacus.jasoncameron.dev), a free no-signup counter service.
      Each browser is counted once per 24 hours; local testing and bots only read the number. */
   const visitsBox = $('.footer__visits');
-  if (visitsBox && 'fetch' in window) {
+  const afterLoad = (fn, delay = 0) => {
+    const run = () => setTimeout(fn, delay);
+    if (document.readyState === 'complete') run(); else window.addEventListener('load', run, { once: true });
+  };
+  if (visitsBox && 'fetch' in window) afterLoad(() => {
     const VISITS_API = 'https://abacus.jasoncameron.dev';
     const VISITS_NS = 'mostafizur-ai-portfolio';
     const VISITS_KEY = 'visitors';
@@ -600,9 +603,10 @@
         }
       })
       .catch(() => { /* service unreachable: keep the badge hidden */ });
-  }
+  }, 1000);
 
-  /* --- Pause loops: hidden tab + off-screen elements --- */
+  /* --- Pause loops: until the page has loaded, hidden tab, off-screen elements --- */
+  afterLoad(() => root.classList.add('loops-on'), 1200);
   document.addEventListener('visibilitychange', () => root.classList.toggle('is-paused', document.hidden));
   if ('IntersectionObserver' in window) {
     const loopObs = new IntersectionObserver((entries) => {
