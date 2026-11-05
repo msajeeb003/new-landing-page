@@ -243,6 +243,7 @@
 <h2>How I built it</h2>
 <p>I built SignPro with AI-assisted development, using Claude Code as a pair programmer. The work followed the real user journey screen by screen: login, dashboard, upload, document detail and the public signing page. Because the product handles legal documents, the security pieces are written in explicitly: hashed passwords, signed session tokens, API rate limiting and an audit trail. I also produced a design system for the app that documents its current look and a second, editorial "Luxe" direction for premium surfaces.</p>
 <h2>Result</h2>
+<p>SignPro covers the whole signing loop end to end. A sender uploads a document, sends it by email or SMS and gets it back signed, while the recipient signs from a link without creating an account. Every signature is backed by an evidence hash and an audit record, the dashboard shows where each document stands, and the API and signing flow are covered by automated tests with Jest, Supertest and Puppeteer.</p>
 <p>SignPro runs as a live demo, and its full source code is public on GitHub, so you can try the signing flow and read how it works.</p>
       </article>
       <aside class="pg-aside" aria-label="Project details">
