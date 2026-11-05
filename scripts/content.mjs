@@ -276,6 +276,7 @@ export const PROJECTS = [
     summary: 'A scholarship platform for international students. An n8n and Google Gemini pipeline collects the listings; students search, compare, practise IELTS and plan their student visa in one place.',
     stack: ['Next.js 15', 'TypeScript', 'Supabase', 'n8n', 'Google Gemini', 'Tailwind CSS'],
     live: 'https://eureka-edu-gules.vercel.app',
+    other: { label: 'See on Upwork', url: 'https://www.upwork.com/freelancers/~01943718b97948812b/' },
     schemaType: 'SoftwareApplication', appCategory: 'EducationalApplication',
     service: 'ai-app-development', related: ['socipro', 'signpro'],
     body: `
