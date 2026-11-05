@@ -1,0 +1,36 @@
+# Mostafizur Rahman
+
+> Mostafizur Rahman is an AI builder and Gen AI engineer based in Kushtia, Bangladesh. He builds AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU, and has worked remotely for US companies since 2021.
+
+Key facts:
+- Role: AI Builder & Gen AI Engineer (AI app development, AI automation, SaaS MVPs)
+- Based in: Kushtia, Bangladesh; works remotely with clients in the USA, UK and EU; open to EU relocation
+- Experience: remote work for US companies since 2021; currently Junior Full Stack Developer & Executive Assistant at Artech Digital
+- Results: +25% organic search rankings (ICMG LLC), +15% qualified leads (Digital Gregg), +20% audience engagement (Crushvertise LLC)
+- Education: BSc in Computer Science & Engineering, Dhaka International University (2026); Google Prompting Essentials certificate (2025)
+- Tools: Claude Code, Cursor, Claude, Google Gemini, n8n, Zapier, Make.com, React, Node.js, PostgreSQL, Supabase, Python
+- Contact: mostafizur.contacts@gmail.com or https://www.mostafizur.me/contact
+
+## Services
+- [AI automation with n8n, Zapier and Make.com](https://www.mostafizur.me/services/ai-automation): I build n8n, Zapier and Make.com automations with AI steps (Claude, Gemini) that connect your CRM, tools and inbox and remove manual hand-offs.
+- [AI app and SaaS MVP development](https://www.mostafizur.me/services/ai-app-development): I build AI-powered web apps and SaaS MVPs end to end with AI-assisted development (Claude Code, Cursor), from idea to a launched, tested product.
+- [SEO, social media and lead generation](https://www.mostafizur.me/services/seo-social-media): Keyword research, on-page SEO, WordPress, social content and B2B lead generation, with real results: +25% organic rankings, +15% qualified leads.
+
+## Case studies
+- [SignPro — e-signature platform](https://www.mostafizur.me/projects/signpro): Legally binding document signing: upload PDF or DOCX, send signing requests by email or SMS, recipients draw their signature, and each signing is sealed with an evidence hash.
+- [SociPRO — autonomous social media agent](https://www.mostafizur.me/projects/socipro): Finds trending topics, writes posts with Google Gemini, renders video with FFmpeg and queues publishing on a schedule, all from one dashboard.
+- [Operations automation engine](https://www.mostafizur.me/projects/operations-automation): n8n, Zapier and Make.com flows at Artech Digital that connect CRMs, SaaS tools and marketing systems, removing manual hand-offs.
+- [B2B lead-generation pipeline](https://www.mostafizur.me/projects/b2b-lead-generation): +15% qualified leads at Digital Gregg for white-label partnerships, using Sales Navigator, Apollo.io, HubSpot and Trello.
+- [SEO content program](https://www.mostafizur.me/projects/seo-content-program): +25% organic search rankings at ICMG LLC across multiple WordPress sites through keyword research and on-page SEO.
+- [Social content system](https://www.mostafizur.me/projects/social-content-system): +20% audience engagement at Crushvertise from Photoshop and Illustrator visuals for a lead-generation agency.
+
+## About
+- [About Mostafizur Rahman](https://www.mostafizur.me/about): background, experience, education and tools
+- [FAQ](https://www.mostafizur.me/#faq): what an AI builder does, how to hire a gen AI engineer, vibe coding, tools
+- [Contact](https://www.mostafizur.me/contact): hire for a project
+
+## Profiles
+- LinkedIn: https://www.linkedin.com/in/mostafiz9221
+- GitHub: https://github.com/msajeeb003
+- Upwork: https://www.upwork.com/freelancers/~01943718b97948812b/
+- Fiverr: https://www.fiverr.com/sb4059

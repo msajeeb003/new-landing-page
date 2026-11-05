@@ -18,115 +18,25 @@
   reduceMQ.addEventListener?.('change', syncMotionPref);
 
   /* ---------------------------------------------------------
-     DATA — Education & certifications
-     Edit this array; the cards are rendered from it.
-     Photos: export each institute photo at 2400w (edu-N.jpg),
-     1600w (edu-N-1600.jpg) and 800w (edu-N-800.jpg).
-     Until a photo exists, the styled placeholder shows instead.
-     score: null shows a full ring with a check mark (for certificates without a grade).
-     years: "" hides the year chip.
+     EDUCATION — cards are static HTML in index.html, generated from
+     scripts/content.mjs by scripts/build.mjs, so crawlers can read them.
+     Here we only fade photos in and reset the result rings so they can
+     animate from zero when the card scrolls into view.
      --------------------------------------------------------- */
-  const education = [
-    { type: "Degree", title: "BSc in Computer Science & Engineering",
-      institute: "Dhaka International University", location: "Dhaka, Bangladesh", years: "2022 – 2026",
-      detail: "Focus: programming, algorithms, software development, web technologies",
-      label: "CGPA", score: 3.49, scale: 4.00,
-      result: "Graduated April 2026", photo: "images/edu-1.jpg",
-      color: "var(--accent)", soft: "var(--accent-soft)", text: "var(--accent-text)" },
-    { type: "Diploma", title: "Diploma in Engineering — Computer Technology",
-      institute: "Jhenaidah Polytechnic Institute", location: "Jhenaidah, Bangladesh", years: "2017 – 2021",
-      detail: "Specialisation: software development, graphic design, data management",
-      label: "CGPA", score: 3.55, scale: 4.00,
-      result: "4-year engineering diploma", photo: "images/edu-2.jpg",
-      color: "var(--lilac)", soft: "var(--lilac-soft)", text: "var(--lilac-text)" },
-    { type: "Certification", title: "Google Prompting Essentials",
-      institute: "Google · Coursera", location: "Online", years: "Nov 2025",
-      detail: "4 courses: writing prompts, everyday work tasks, data analysis & presentations, AI as a creative or expert partner",
-      label: "Status", score: null, scale: null,
-      result: "Completed · 4 courses", photo: "images/edu-3-certificate.png",
-      alt: "Google Prompting Essentials certificate awarded to Md Mostafizur Rahman",
-      srcset: false, fit: "contain", link: "images/edu-3-certificate.png",
-      color: "var(--mint-deep)", soft: "var(--mint-soft)", text: "var(--mint-text)" }
-  ];
-
-  // Scores on a small scale (4.00, 5.00) show two decimals; percentages show integers.
-  const decimalsFor = (scale) => (scale <= 10 ? 2 : 0);
-  const icon = (id) => `<svg class="icon" aria-hidden="true"><use href="#${id}"/></svg>`;
-
-  function renderEducation() {
-    const list = $('#edu-list');
-    if (!list) return;
-
-    const html = education.map((e) => {
-      const graded = typeof e.score === 'number' && typeof e.scale === 'number';
-      const pct = graded ? Math.max(0, Math.min(100, (e.score / e.scale) * 100)) : 100;
-      const dec = graded ? decimalsFor(e.scale) : 0;
-      const ringInner = graded
-        ? `<span class="result-ring__score">${(reduce ? e.score : 0).toFixed(dec)}</span>
-           <span class="result-ring__scale">of ${e.scale.toFixed(dec)}</span>`
-        : `<svg class="icon result-ring__check" aria-hidden="true"><use href="#i-check"/></svg>`;
-      const ringLabel = graded ? `${e.label} ${e.score.toFixed(dec)} of ${e.scale.toFixed(dec)}` : `${e.label}: ${e.result}`;
-      const base = e.photo.replace(/\.(jpe?g|webp|png)$/i, '');
-      const ext = (e.photo.match(/\.(jpe?g|webp|png)$/i) || ['.jpg'])[0];
-      return `
-      <article class="card card--float edu-card" data-reveal="right"
-               style="--c:${e.color};--soft:${e.soft};--t:${e.text}">
-        <span class="edu-dot" aria-hidden="true"></span>
-
-        <figure class="edu-photo${e.fit === 'contain' ? ' edu-photo--contain' : ''}">
-          <div class="edu-photo__ph" aria-hidden="true">
-            ${icon('i-building')}
-            <strong>Institute HQ photo</strong>
-            <span>UHD · 16:10 · min 2400 × 1500</span>
-          </div>
-          ${e.link ? `<a class="edu-photo__link" href="${e.link}" target="_blank" rel="noopener">` : ''}
-          <img src="${e.photo}"
-               ${e.srcset === false ? '' : `srcset="${base}-800${ext} 800w, ${base}-1600${ext} 1600w, ${e.photo} 2400w"
-               sizes="(max-width: 767px) 92vw, 440px"`}
-               alt="${e.alt || `${e.institute} main building`}" width="2400" height="1500"
-               loading="lazy" decoding="async">
-          ${e.link ? `<span class="sr-only"> (opens full size in a new tab)</span></a>` : ''}
-        </figure>
-
-        <div class="edu-details">
-          <div class="edu-chips">
-            <span class="chip" style="--soft:${e.soft};--text:${e.text}">${e.type}</span>
-            ${e.years ? `<span class="chip chip--year">${icon('i-calendar')}${e.years}</span>` : ''}
-          </div>
-          <h3 class="edu-title">${e.title}</h3>
-          <p class="edu-row edu-inst">${icon('i-cap')}${e.institute}</p>
-          <p class="edu-row edu-loc sm">${icon('i-pin')}${e.location}</p>
-          <p class="sm edu-detail">${e.detail}</p>
-        </div>
-
-        <div class="edu-result">
-          <div class="result-ring" role="img" aria-label="${ringLabel}"
-               style="--p:${reduce ? pct : 0}" data-pct="${pct}" data-score="${graded ? e.score : ''}" data-dec="${dec}">
-            <div class="result-ring__inner" aria-hidden="true">
-              ${ringInner}
-            </div>
-          </div>
-          <div class="edu-result__text">
-            <span class="edu-result__label">${e.label}</span>
-            <span class="edu-result__line">${e.result}</span>
-            <span class="edu-result__line edu-detail-m">${e.detail}</span>
-          </div>
-        </div>
-      </article>`;
-    }).join('');
-
-    list.insertAdjacentHTML('beforeend', html);
-
-    // Show the real photo once it loads; drop it (keep the placeholder) if it is missing.
-    $$('.edu-photo img', list).forEach((img) => {
-      const ok = () => img.classList.add('is-loaded');
-      const fail = () => img.remove();
-      if (img.complete) { img.naturalWidth ? ok() : null; }
-      img.addEventListener('load', ok);
-      img.addEventListener('error', fail);
+  $$('.edu-photo img').forEach((img) => {
+    const ok = () => img.classList.add('is-loaded');
+    const fail = () => img.remove();
+    if (img.complete) { if (img.naturalWidth) ok(); }
+    img.addEventListener('load', ok);
+    img.addEventListener('error', fail);
+  });
+  if (!reduce) {
+    $$('.edu-card .result-ring').forEach((ring) => {
+      ring.style.setProperty('--p', 0);
+      const scoreEl = $('.result-ring__score', ring);
+      if (scoreEl && ring.dataset.score !== '') scoreEl.textContent = (0).toFixed(Number(ring.dataset.dec));
     });
   }
-  renderEducation();
 
   /* ---------------------------------------------------------
      NAV — mobile menu (M11 visuals in CSS)
@@ -158,7 +68,7 @@
   const nextBtn = $('.svc-next');
   let featured = 0;
   let chevronTurn = 0;
-  nextBtn.addEventListener('click', () => {
+  if (nextBtn) nextBtn.addEventListener('click', () => {
     services[featured].classList.remove('is-featured');
     featured = (featured + 1) % services.length;
     const card = services[featured];
@@ -176,6 +86,8 @@
   /* ---------------------------------------------------------
      WORK — filter tabs (M19)
      --------------------------------------------------------- */
+  (function initWork() {
+  if (!$('.tabs')) return;
   const tabsWrap = $('.tabs');
   const track = $('.tabs__track');
   const pill = $('.tabs__pill');
@@ -298,13 +210,16 @@
     placePill();
     applyFilter(tab.dataset.filter);
   }));
+  })();
 
   /* ---------------------------------------------------------
      CTA — contact form (M21)
      Sends name, email and message to your inbox through FormSubmit (formsubmit.co).
      First use: FormSubmit emails an "Activate form" link to data-to. Click it once.
      --------------------------------------------------------- */
+  (function initForm() {
   const form = $('.cta-form');
+  if (!form) return;
   const fieldsWrap = $('.cta-form__fields', form);
   const nameIn = $('#cta-name');
   const emailIn = $('#cta-email');
@@ -414,6 +329,7 @@
     success.classList.add('is-shown');
     success.focus();
   }
+  })();
 
   /* =========================================================
      ===== MOTION =====
@@ -494,10 +410,10 @@
   const navLinks = $$('.nav__links a');
   const navDot = $('.nav__dot');
   const linkFor = (id) => navLinks.find((a) => a.getAttribute('href') === `#${id}`);
-  let activeLink = navLinks[0];
+  let activeLink = navLinks.find((a) => a.classList.contains('is-active')) || navLinks[0];
 
   const placeDot = () => {
-    if (!activeLink || !activeLink.offsetWidth) return;
+    if (!navDot || !activeLink || !activeLink.offsetWidth) return;
     navDot.style.transform = `translateX(${activeLink.offsetLeft + activeLink.offsetWidth / 2 - 3}px)`;
   };
   const setActive = (link) => {
