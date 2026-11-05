@@ -57,7 +57,8 @@ Re-run https://pagespeed.web.dev/ on `https://www.mostafizur.me/` after big chan
 
 New URLs (none of the old URLs changed, so no redirects were needed):
 `/about`, `/contact`, `/services`, `/services/ai-automation`, `/services/ai-app-development`, `/services/seo-social-media`, `/projects`, `/projects/signpro`, `/projects/socipro`, `/projects/operations-automation`, `/projects/b2b-lead-generation`, `/projects/seo-content-program`, `/projects/social-content-system`.
-Drafts (noindex, not in the sitemap, not linked): `/projects/eurekaedu`, `/projects/linkedin-bioster`, `/projects/leads-generation-app`.
+Published later: `/projects/eurekaedu` (5 Nov 2026).
+Drafts (noindex, not in the sitemap, not linked): `/projects/linkedin-bioster`, `/projects/leads-generation-app`.
 
 ---
 
@@ -65,8 +66,9 @@ Drafts (noindex, not in the sitemap, not linked): `/projects/eurekaedu`, `/proje
 
 Edit `scripts/content.mjs`, then run `node scripts/build.mjs`.
 
-1. **Results for SignPro, SociPRO and the operations automation work.** Each page shows one [ADD REAL DETAIL] marker, for example documents signed, posts published or hours saved.
-2. **EurekaEDU, LinkedIn Bioster and the leads app.** Each needs who it's for, the stack, how it works, a result and a live URL. Then remove the slug from `DRAFTS` so the page goes live and gets linked.
+1. **Results for SignPro, SociPRO, EurekaEDU and the operations automation work.** Each page shows one [ADD REAL DETAIL] marker, for example documents signed, posts published, sign-ups or hours saved.
+2. **LinkedIn Bioster and the leads app.** Each needs who it's for, the stack, how it works, a result and a live URL. Then remove the slug from `DRAFTS` so the page goes live and gets linked. (EurekaEDU was published on 5 Nov 2026 from its live app.)
+2a. **EurekaEDU's live app shows 0 scholarships** (https://eureka-edu-gules.vercel.app/find, checked 5 Nov 2026). The database may be empty or paused. Visitors from the case study will see an empty search until it's fixed.
 3. **More profiles.** If you have X/Twitter, Medium, Dev.to or Product Hunt, add the URLs to `SITE.profiles`. They feed the `sameAs` links that tie your accounts together for Google and AI assistants.
 4. **"Vibe coder" wording.** It appears in the FAQ and on the AI app development page, but not in the homepage headline. Tell me if you want it more prominent.
 5. **Testimonials.** The section is commented out in `index.html` until you have real client quotes.

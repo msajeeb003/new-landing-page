@@ -19,6 +19,7 @@ Key facts:
 ## Case studies
 - [SignPro — e-signature platform](https://www.mostafizur.me/projects/signpro): Legally binding document signing: upload PDF or DOCX, send signing requests by email or SMS, recipients draw their signature, and each signing is sealed with an evidence hash.
 - [SociPRO — autonomous social media agent](https://www.mostafizur.me/projects/socipro): Finds trending topics, writes posts with Google Gemini, renders video with FFmpeg and queues publishing on a schedule, all from one dashboard.
+- [EurekaEDU — scholarship finder](https://www.mostafizur.me/projects/eurekaedu): A web app where international students find fully funded scholarships, compare universities, practise IELTS with AI feedback and follow student-visa guidance for their country.
 - [Operations automation engine](https://www.mostafizur.me/projects/operations-automation): n8n, Zapier and Make.com flows at Artech Digital that connect CRMs, SaaS tools and marketing systems, removing manual hand-offs.
 - [B2B lead-generation pipeline](https://www.mostafizur.me/projects/b2b-lead-generation): +15% qualified leads at Digital Gregg for white-label partnerships, using Sales Navigator, Apollo.io, HubSpot and Trello.
 - [SEO content program](https://www.mostafizur.me/projects/seo-content-program): +25% organic search rankings at ICMG LLC across multiple WordPress sites through keyword research and on-page SEO.

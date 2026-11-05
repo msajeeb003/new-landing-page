@@ -10,7 +10,7 @@ export const todo = (what) => `<mark class="todo">[ADD REAL DETAIL: ${what}]</ma
 // Case studies that still need real details. They are built (noindex, not in the
 // sitemap) so you can preview them, but nothing links to them until you remove
 // them from this list.
-export const DRAFTS = new Set(['eurekaedu', 'linkedin-bioster', 'leads-generation-app']);
+export const DRAFTS = new Set(['linkedin-bioster', 'leads-generation-app']);
 const plink = (slug, text) => (DRAFTS.has(slug) ? text : `<a href="/projects/${slug}">${text}</a>`);
 
 export const SITE = {
@@ -269,23 +269,30 @@ export const PROJECTS = [
   {
     slug: 'eurekaedu', name: 'EurekaEDU', title: 'EurekaEDU — scholarship finder', cat: CAT.web, img: 'eurekaedu',
     alt: 'EurekaEDU home page: Find your scholarship. Get into your dream university, with a search bar and scholarship results',
-    metaTitle: 'EurekaEDU Scholarship Finder SaaS MVP | Mostafizur Rahman',
-    metaDesc: 'EurekaEDU is a fully automated web app that helps students find scholarships and get into their dream university, offered as a SaaS MVP on Fiverr.',
-    summary: 'A fully automated web app that helps students find scholarships and get into their dream university. Offered as a SaaS MVP service on Fiverr.',
-    stack: ['Web app', 'SaaS MVP'],
+    metaTitle: 'EurekaEDU Scholarship Finder Case Study | Mostafizur Rahman',
+    metaDesc: 'How I built EurekaEDU, a web app where international students find fully funded scholarships, check IELTS requirements and follow visa guidance.',
+    summary: 'A web app where international students find fully funded scholarships, compare universities, practise IELTS with AI feedback and follow student-visa guidance for their country.',
+    stack: ['Next.js', 'Vercel', 'AI feedback', 'User accounts'],
+    live: 'https://eureka-edu-gules.vercel.app',
     other: { label: 'See on Fiverr', url: 'https://www.fiverr.com/sb4059' },
-    schemaType: 'CreativeWork', service: 'ai-app-development', related: ['signpro', 'linkedin-bioster'],
+    schemaType: 'SoftwareApplication', appCategory: 'EducationalApplication',
+    service: 'ai-app-development', related: ['signpro', 'socipro'],
     body: `
-<h2>What it is</h2>
-<p>EurekaEDU is a fully automated web app that helps students find scholarships and get into their dream university. Students search from a single search bar on the home page and get a list of matching scholarships. I offer it as a SaaS MVP service on Fiverr.</p>
 <h2>The problem</h2>
-<p>${todo('who the app is for and what was hard for them before')}</p>
+<p>Students who want to study abroad on a scholarship have to piece their plan together from dozens of websites: scholarship listings, university entry requirements, English test scores and embassy rules, often out of date or misleading. EurekaEDU puts all of it in one place, so a first-time applicant can find a scholarship they qualify for, see exactly what it takes and apply without paying an agent.</p>
+<h2>What EurekaEDU does</h2>
+<ul>
+  <li>A scholarship finder that filters by country, study level (bachelor to PhD, diploma and language courses), funding type and the highest IELTS score the student can reach, including scholarships that accept MOI instead of IELTS or TOEFL.</li>
+  <li>Side-by-side comparison of programs, sorted by the nearest deadline. Each listing shows the funding, the deadline and the exact test requirement, and links to the official source.</li>
+  <li>University and degree pages, plus a visa and documents roadmap for the student's home country and embassy.</li>
+  <li>Free IELTS practice: auto-scored reading tests, and writing tasks with an AI band estimate, criterion-by-criterion feedback and a model answer.</li>
+  <li>Free accounts with a dashboard to save scholarships, set a target country, track deadlines and work on a CV.</li>
+  <li>Paid one-to-one consultations in 30, 60 and 90-minute packages, booked from the site.</li>
+</ul>
 <h2>Tools used</h2>
-<p>${todo('the stack, for example frontend, database and any AI or data sources')}</p>
-<h2>How I built it</h2>
-<p>${todo('how the scholarship data is collected and how the matching works')}</p>
+<p>EurekaEDU is a Next.js app (App Router) deployed on Vercel. Search, universities, the visa roadmap and IELTS practice work without an account; the deadline tracker and CV tools sit behind sign-in. The IELTS writing practice uses an AI model to estimate a band score and explain it against each marking criterion.</p>
 <h2>Result</h2>
-<p>${todo('live URL and results, such as users, searches or Fiverr orders')}</p>`,
+<p>EurekaEDU is live, and I also offer it as a SaaS MVP service on Fiverr. ${todo('results, such as sign-ups, saved scholarships or consultation bookings')}</p>`,
   },
   {
     slug: 'operations-automation', name: 'Operations automation engine', title: 'Operations automation engine', cat: CAT.automation, img: 'automation',

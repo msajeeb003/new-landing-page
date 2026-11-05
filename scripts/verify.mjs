@@ -17,7 +17,8 @@ const sm = await get('/sitemap.xml');
 const locs = [...sm.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 if (!locs.length) fail('/sitemap.xml', 'no URLs');
 const paths = locs.map((u) => u.replace(SITE, '') || '/');
-const drafts = ['/projects/eurekaedu', '/projects/linkedin-bioster', '/projects/leads-generation-app'];
+const { DRAFTS } = await import('./content.mjs');
+const drafts = [...DRAFTS].map((slug) => `/projects/${slug}`);
 
 const pages = {};
 for (const path of [...paths, ...drafts]) {
