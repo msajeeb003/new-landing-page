@@ -69,7 +69,7 @@ Edit `scripts/content.mjs`, then run `node scripts/build.mjs`.
 
 1. **Real numbers, when you have them (optional).** The SignPro, SociPRO, EurekaEDU and operations automation case studies end with a factual result and no placeholders. If you get figures such as documents signed, posts published, sign-ups or hours saved, send them and I'll add them.
 2. **LinkedIn Bioster and the leads app.** Each needs who it's for, the stack, how it works, a result and a live URL. Then remove the slug from `DRAFTS` so the page is built and linked. (EurekaEDU was published on 5 Nov 2026 from its live app and private repo.)
-2a. **EurekaEDU's live app shows 0 scholarships** (https://eureka-edu-gules.vercel.app/find, checked 5 Nov 2026). Likely cause: records from the n8n pipeline arrive as drafts and only appear after you publish them in `/admin`. Also check that the n8n workflow is active and the Supabase project isn't paused.
+2a. **EurekaEDU's live app shows 0 scholarships** (https://eureka-edu-gules.vercel.app/find, checked 5 Nov 2026). The n8n pipeline publishes valid listings automatically, so check that the n8n workflow is active and running, that the Supabase project isn't paused, and publish any open drafts in `/admin`.
 3. **More profiles.** If you have X/Twitter, Medium, Dev.to or Product Hunt, add the URLs to `SITE.profiles`. They feed the `sameAs` links that tie your accounts together for Google and AI assistants.
 4. **"Vibe coder" wording.** It appears in the FAQ and on the AI app development page, but not in the homepage headline. Tell me if you want it more prominent.
 5. **Testimonials.** The section is commented out in `index.html` until you have real client quotes.

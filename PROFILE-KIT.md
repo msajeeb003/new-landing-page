@@ -88,7 +88,7 @@ WHAT I CAN BUILD FOR YOU
 RECENT WORK
 • SignPro: a legally binding e-signature platform. Upload PDF or Word documents, request signatures by email or SMS, and every signing is sealed with an evidence hash.
 • SociPRO: an autonomous social media agent. It finds trending topics, writes posts with Google Gemini, renders video with FFmpeg and schedules publishing.
-• EurekaEDU: a scholarship platform for international students. An n8n and Google Gemini pipeline collects and structures the listings, and an admin approves each one before students see it.
+• EurekaEDU: a scholarship platform for international students. An n8n and Google Gemini pipeline collects, structures and publishes the listings automatically.
 • Results in earlier roles for US companies: +25% organic search rankings (ICMG LLC), +15% qualified leads (Digital Gregg), +20% audience engagement (Crushvertise).
 
 HOW I WORK
@@ -130,7 +130,7 @@ EurekaEDU: Scholarship Finder for Study Abroad
 ```
 Description:
 ```
-Web app that helps international students find fully funded scholarships. Filter by country, study level, funding and IELTS score, compare programs side by side, practise IELTS writing with AI band estimates and feedback, and follow visa and document guidance for your home country. Listings are collected by an n8n and Google Gemini pipeline and approved by an admin before they go live. Built with Next.js 15, TypeScript and Supabase. Live: https://eureka-edu-gules.vercel.app Case study: https://www.mostafizur.me/projects/eurekaedu
+Web app that helps international students find fully funded scholarships. Filter by country, study level, funding and IELTS score, compare programs side by side, practise IELTS writing with AI band estimates and feedback, and follow visa and document guidance for your home country. Listings are collected, structured and published automatically by an n8n and Google Gemini pipeline. Built with Next.js 15, TypeScript and Supabase. Live: https://eureka-edu-gules.vercel.app Case study: https://www.mostafizur.me/projects/eurekaedu
 ```
 
 ---
