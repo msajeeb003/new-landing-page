@@ -1,0 +1,139 @@
+# SEO & GEO plan — mostafizur.me
+
+Status on 5 Nov 2026. Phase 2 is committed locally on `main` and **not pushed yet**. The only change already live is the canonical/domain fix (commit `dc4a3fa`).
+
+---
+
+## 1. Results (Phase 3)
+
+### Lighthouse, mobile
+
+Measured on this computer against a local copy of the site. The computer's speed changed a lot between runs, so the old and new sites were run in turns (old, new, old, new…) and the median is shown.
+
+| Homepage | Performance | Accessibility | Best Practices | SEO | LCP | FCP | Total Blocking Time |
+|---|---|---|---|---|---|---|---|
+| Before | 40 | 97 | 100 | 100 | 5.0 s | 3.0 s | 1,990 ms |
+| After | 63 | 97 | 100 | 100 | 3.6 s | 2.8 s | 820 ms |
+
+On single runs at quieter moments, the new inner pages scored 80–91 for performance and 96–97 for accessibility. The homepage LCP dropped from about 4.1 s to about 2.6 s.
+
+**Not reached yet: 95+ performance on mobile.** What still holds it back is the design itself: about 20 looping animations, a 1,150-element homepage with large inline SVG logos, and a blurred-glass sticky header. Getting further means design trade-offs, such as fewer looping animations on phones, no header blur on phones, or a lighter logo strip. Those need your OK first.
+
+**Accessibility 96–97, not 100:** white text on the brand orange (`#F26B21`) has a contrast of 3.0:1, and the minimum is 4.5:1. A darker orange such as `#C2500C` passes at 4.7:1. It's a brand color change, so it's your call.
+
+**Get the real numbers after deploying:** https://pagespeed.web.dev/ → `https://www.mostafizur.me/`. Google's servers give steadier numbers than this computer.
+
+### Validation
+
+- `node scripts/verify.mjs`: all checks pass. That covers 17 pages, 80 JSON-LD nodes (all parse, standard schema.org types and properties), canonicals, one H1 per page, alt text, every internal link and #anchor, the sitemap (14 URLs, well-formed XML), robots.txt, llms.txt and the 404 page.
+- After deploying, also run https://search.google.com/test/rich-results and https://validator.schema.org/ on `/`, `/about` and `/projects/signpro`.
+
+---
+
+## 2. Changelog (all commits)
+
+| Commit | What changed | Files |
+|---|---|---|
+| `dc4a3fa` (live) | Canonical, Open Graph, robots and sitemap now point to www.mostafizur.me instead of the dead vercel.app address | `index.html`, `robots.txt`, `sitemap.xml`, `README.md`, `DEPLOY.md` |
+| `a07234e` | Self-hosted fonts; AVIF/WebP portraits in 480/800/1200 px | `fonts/*`, `images/*-480/800/1200.*`, `scripts/make-images.py` |
+| `f627000` | Faster first paint: hero no longer starts invisible, no forced layout at startup, visitor counter and looping animations start after load | `main.js`, `styles.css` |
+| `68b6fab` | New title/description/H1, JSON-LD (Person, WebSite, FAQPage, ProfilePage, Service, SoftwareApplication, CreativeWork, BreadcrumbList), static education, FAQ, 16 new pages, sitemap, llms.txt | `index.html`, `styles.css`, `main.js`, `about.html`, `contact.html`, `services/*`, `projects/*`, `sitemap.xml`, `llms.txt`, `scripts/content.mjs`, `scripts/build.mjs` |
+| `5ab76c5` | AI crawlers named in robots.txt, 308 redirect from the vercel.app duplicate, font caching, CSP without Google Fonts, better 404 page | `robots.txt`, `vercel.json`, `404.html`, `.vercelignore` |
+| `d935280` | Local preview server and site checker | `scripts/serve.mjs`, `scripts/verify.mjs` |
+| (docs) | New link-preview image with the new title, README, this plan | `images/og.jpg`, `og-source/og.html`, `README.md`, `SEO-PLAN.md`, `.vercelignore` |
+
+New URLs (none of the old URLs changed, so no redirects were needed):
+`/about`, `/contact`, `/services`, `/services/ai-automation`, `/services/ai-app-development`, `/services/seo-social-media`, `/projects`, `/projects/signpro`, `/projects/socipro`, `/projects/operations-automation`, `/projects/b2b-lead-generation`, `/projects/seo-content-program`, `/projects/social-content-system`.
+Drafts (noindex, not in the sitemap, not linked): `/projects/eurekaedu`, `/projects/linkedin-bioster`, `/projects/leads-generation-app`.
+
+---
+
+## 3. Needs your input
+
+Edit `scripts/content.mjs`, then run `node scripts/build.mjs`.
+
+1. **Results for SignPro, SociPRO and the operations automation work.** Each page shows one [ADD REAL DETAIL] marker, for example documents signed, posts published or hours saved.
+2. **EurekaEDU, LinkedIn Bioster and the leads app.** Each needs who it's for, the stack, how it works, a result and a live URL. Then remove the slug from `DRAFTS` so the page goes live and gets linked.
+3. **More profiles.** If you have X/Twitter, Medium, Dev.to or Product Hunt, add the URLs to `SITE.profiles`. They feed the `sameAs` links that tie your accounts together for Google and AI assistants.
+4. **"Vibe coder" wording.** It appears in the FAQ and on the AI app development page, but not in the homepage headline. Tell me if you want it more prominent.
+5. **Testimonials.** The section is commented out in `index.html` until you have real client quotes.
+6. **Your CV** (`cv-source/cv.html` → `cv.pdf`) still says "Gen AI Engineer · Automation Specialist". Update it to match the site if you're happy with the new title.
+7. **Optional:** the darker button orange for contrast (see section 1).
+8. **Optional:** the design trade-offs for 95+ mobile performance (see section 1).
+
+---
+
+## 4. Deploy
+
+```
+git push origin main
+```
+
+Vercel redeploys in about a minute. Then check that https://www.mostafizur.me/about, /services, /projects/signpro and /llms.txt load, and that https://new-landing-page-coral-zeta.vercel.app/ redirects to www.mostafizur.me.
+
+---
+
+## 5. Off-site plan (Phase 4)
+
+### 5.1 Google Search Console (day 1)
+1. https://search.google.com/search-console → **Add property → Domain** → `mostafizur.me`.
+2. Copy the TXT record. In Namecheap → Domain List → Manage → Advanced DNS, add **TXT Record**, Host `@`, Value = the record. Save, wait 5–30 minutes, then click **Verify**. A domain property covers both `mostafizur.me` and `www`.
+3. **Sitemaps** → submit `https://www.mostafizur.me/sitemap.xml`.
+4. **URL Inspection** → paste each URL → **Request indexing**: `/`, `/about`, `/services`, `/projects`, `/projects/signpro`, `/projects/socipro`. Google limits how many requests you can make a day, so spread them over two days if needed.
+5. Check back after 7 days: **Pages** (indexed vs not) and **Performance** (searches for your name).
+
+### 5.2 Bing Webmaster Tools (day 1, 5 minutes)
+https://www.bing.com/webmasters → **Import from Google Search Console**. This verifies the site and imports the sitemap. Bing's index is also used by Microsoft Copilot and by several AI search tools.
+
+### 5.3 Profile consistency (week 1)
+Use the same name, title and link everywhere: **Mostafizur Rahman · AI Builder & Gen AI Engineer · https://www.mostafizur.me**
+
+**Headline** (LinkedIn headline, Upwork title, Fiverr tagline):
+> AI Builder & Gen AI Engineer | AI apps, SaaS MVPs and n8n, Zapier & Make.com automations for teams in the USA, UK & EU
+
+**Short bio** (GitHub, X, Product Hunt, Dev.to; under 160 characters):
+> AI builder & Gen AI engineer in Bangladesh. I build AI apps, SaaS MVPs and n8n/Zapier/Make automations for US, UK & EU teams. mostafizur.me
+
+**Long bio** (LinkedIn About, Medium, Dev.to, Upwork overview):
+> I'm Mostafizur Rahman, an AI builder and Gen AI engineer based in Kushtia, Bangladesh. I build AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU.
+>
+> I've worked remotely for US companies since 2021. Today I'm a Junior Full Stack Developer & Executive Assistant at Artech Digital, building web apps, automations and LLM integrations. Earlier roles brought +25% organic search rankings (ICMG LLC), +15% qualified leads (Digital Gregg) and +20% audience engagement (Crushvertise).
+>
+> Recent builds: SignPro, an e-signature platform (React, Node.js, PostgreSQL), and SociPRO, an autonomous social media agent (Node.js, Google Gemini, FFmpeg). BSc in Computer Science & Engineering; Google Prompting Essentials certified.
+>
+> Portfolio and case studies: https://www.mostafizur.me
+
+Where to paste:
+- **LinkedIn** (linkedin.com/in/mostafiz9221): headline, About (long bio), Contact info → Website → `https://www.mostafizur.me`, and a **Featured** link to `/projects/signpro`.
+- **GitHub** (msajeeb003): Bio = short bio, Website = `https://www.mostafizur.me`. Add a profile README (a repo named `msajeeb003`) with the long bio and links to the case studies. Add the website to the SignPro and SociPRO repo "About" boxes too.
+- **Upwork / Fiverr**: title = headline, overview = long bio, portfolio items linking to the case study pages.
+- **X, Product Hunt, Dev.to, Medium**: create them with the short bio and website, then add the URLs to `SITE.profiles` in `scripts/content.mjs`.
+
+### 5.4 Five articles to publish
+Publish on Dev.to, Hashnode or Medium and share on LinkedIn. Each article is new writing (not a copy of the case study) and links to its case study with descriptive anchor text.
+
+| # | Title | Target keyword | Links to |
+|---|---|---|---|
+| 1 | How I built a legally binding e-signature app with Claude Code | build SaaS with AI | /projects/signpro |
+| 2 | Building an autonomous social media agent with Google Gemini and FFmpeg | AI automation developer | /projects/socipro |
+| 3 | Vibe coding a real product: what I test before anything goes live | vibe coder | /services/ai-app-development |
+| 4 | n8n vs Zapier vs Make.com for AI lead qualification | AI automation freelancer | /projects/operations-automation |
+| 5 | From virtual assistant to Gen AI engineer: four years of remote work from Bangladesh | gen AI developer Bangladesh | /about |
+
+### 5.5 Where to list the portfolio
+Most profile links are "nofollow", so their value is consistent identity signals, referral traffic and being findable by AI assistants, not ranking power on their own. The articles and launches carry more weight.
+
+- **Launch platforms (one project each, spaced out):** Product Hunt (SociPRO), Hacker News "Show HN" (SignPro, since the code is open source), Peerlist, Uneed, DevHunt, Indie Hackers.
+- **Communities:** n8n community forum (share a workflow template, which links to your profile), Make and Zapier communities, Reddit r/SideProject, r/n8n and r/nocode (follow each subreddit's self-promotion rules).
+- **Freelance and talent profiles:** Upwork and Fiverr (update), Contra, Wellfound, Arc.dev.
+- **Developer profiles:** Dev.to, Hashnode, Medium, GitHub profile README.
+
+### 5.6 30-day schedule
+
+| Week | Publish | Post / do |
+|---|---|---|
+| 1 | — | Deploy. Search Console + Bing. Update LinkedIn, GitHub, Upwork, Fiverr with the bios above. Create Dev.to/Hashnode and Peerlist profiles. |
+| 2 | Article 1 (SignPro) | LinkedIn post with a 30-second demo clip of the signing flow. Show HN for SignPro. Add the GitHub website links. |
+| 3 | Article 2 (SociPRO) | Launch SociPRO on Product Hunt (Tuesday–Thursday). Share in r/SideProject and the n8n community. LinkedIn post. |
+| 4 | Articles 3 and 4 | List on Uneed and DevHunt. LinkedIn post on vibe coding. Check Search Console for searches on your name, and request indexing for any page that is still "Discovered – not indexed". |
+| After | Article 5, then one article a month | Fill the [ADD REAL DETAIL] items and publish the three draft case studies as their details arrive. |

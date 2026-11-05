@@ -1,6 +1,6 @@
 # Mostafizur Rahman — Portfolio
 
-Personal portfolio of **Mostafizur Rahman**, Gen AI Engineer & Automation Specialist.
+Personal portfolio of **Mostafizur Rahman**, AI Builder & Gen AI Engineer.
 
 **Live:** https://www.mostafizur.me
 
@@ -8,49 +8,69 @@ Personal portfolio of **Mostafizur Rahman**, Gen AI Engineer & Automation Specia
 
 Plain, fast and dependency-free:
 
-- **HTML** — one semantic `index.html`
+- **HTML** — static pages: `index.html` (hand-written) plus generated `about.html`, `contact.html`, `services/` and `projects/`
 - **CSS** — `styles.css` with design tokens, responsive layout and a motion system (respects `prefers-reduced-motion`)
-- **JavaScript** — `main.js`, vanilla, no frameworks
-- **Fonts** — Sora and DM Sans (Google Fonts)
+- **JavaScript** — `main.js`, vanilla, no frameworks; every page works and is readable without it
+- **Fonts** — Sora and DM Sans, self-hosted in `fonts/`
 - **Contact form** — delivered by email through [FormSubmit](https://formsubmit.co)
-- **Hosting** — Vercel (static), configured in `vercel.json`
+- **Hosting** — Vercel (static, no build step), configured in `vercel.json`
 
-## Features
+## Editing content
 
-- Animated hero, scroll reveals, count-ups and a looping platform-logo marquee
-- Project grid with category filters and a "View all work" expander
-- Education timeline rendered from data in `main.js`
-- Working contact form with validation and a spam trap
-- Downloadable one-page CV (`cv.pdf`, generated from `cv-source/cv.html`)
-- Security headers (CSP), SEO meta, link previews, sitemap, favicon set and a 404 page
+Most text lives in **`scripts/content.mjs`**: services, case studies, FAQ, experience, education and the
+structured data facts. After editing it, regenerate the pages:
+
+```
+node scripts/build.mjs
+```
+
+This rewrites `about.html`, `contact.html`, `services/`, `projects/`, `sitemap.xml`, `llms.txt` and the
+generated blocks inside `index.html` (everything between `<!-- build:NAME -->` and `<!-- /build:NAME -->`).
+Edit the rest of `index.html` by hand as before. Commit the generated files: Vercel serves them as they are.
+
+- Missing facts are written as `todo('...')` and show on the page as **[ADD REAL DETAIL: …]**.
+- Case studies listed in `DRAFTS` (top of `content.mjs`) are built with `noindex`, left out of the sitemap
+  and not linked anywhere. Remove a slug from `DRAFTS` once its page has real details.
+- The build fails if a title is over 60 characters or a description over 155.
+
+## Run and check locally
+
+```
+node scripts/serve.mjs 4173
+```
+
+Then open http://localhost:4173. It behaves like Vercel (clean URLs such as `/about`, gzip, the 404 page).
+With the server running, check the whole site:
+
+```
+node scripts/verify.mjs
+```
+
+It checks JSON-LD, canonical URLs, one H1 per page, alt text, internal links, the sitemap, robots.txt and llms.txt.
+
+To regenerate the responsive portrait images (needs Python with Pillow): `python scripts/make-images.py`.
 
 ## Project structure
 
 ```
-index.html        page markup
-styles.css        all styles (MOTION block at the end)
-main.js           interactions, education data, form, animations
-images/           portraits, education photos, project covers, og.jpg
-cv.pdf            downloadable CV (privacy-safe)
-cv-source/        HTML source of the CV
-vercel.json       hosting config (headers, caching, clean URLs)
-404.html          not-found page
-DEPLOY.md         step-by-step deployment guide
+index.html          homepage
+about.html, contact.html, services/, projects/   generated pages
+styles.css          all styles (MOTION block, then inner-page styles at the end)
+main.js             interactions, form, animations
+fonts/              self-hosted WOFF2 fonts
+images/             portraits (AVIF/WebP sizes), education photos, project covers, og.jpg
+scripts/            content + page generator, local server, site checks (not deployed)
+sitemap.xml, robots.txt, llms.txt   for search engines and AI assistants
+cv.pdf, cv-source/  downloadable CV and its HTML source
+vercel.json         hosting config (headers, caching, clean URLs, redirects)
+404.html            not-found page
+DEPLOY.md           deployment guide
+SEO-PLAN.md         SEO changelog, open items and the off-site plan
 ```
-
-## Run locally
-
-Any static server works, for example:
-
-```
-python -m http.server 5500
-```
-
-Then open http://127.0.0.1:5500.
 
 ## Deploy
 
-See [DEPLOY.md](DEPLOY.md). In short: `npx vercel` (project name `mostafizur-ai`), then `npx vercel --prod`.
+Every push to `main` on GitHub (`msajeeb003/new-landing-page`) redeploys the site. See [DEPLOY.md](DEPLOY.md).
 
 ---
 

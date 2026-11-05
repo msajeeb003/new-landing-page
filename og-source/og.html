@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG image source</title>
+<!-- Source of images/og.jpg (1200x630 link-preview image).
+     Render (from the repo root, with Chrome installed):
+       chrome --headless=new --hide-scrollbars --allow-file-access-from-files --force-device-scale-factor=1
+              --window-size=1200,630 --screenshot=og.png og-source/og.html
+     then save og.png as images/og.jpg (JPEG, quality ~86). -->
+<style>
+  @font-face { font-family: 'Sora'; font-weight: 600 800; src: url(../fonts/sora-latin.woff2) format('woff2'); }
+  @font-face { font-family: 'DM Sans'; font-weight: 400 700; src: url(../fonts/dm-sans-latin.woff2) format('woff2'); }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative; font-family: 'DM Sans', sans-serif; color: #16193A;
+    background: linear-gradient(120deg, #FFE9DD 0%, #FFF5EF 48%, #EDE6FF 100%);
+  }
+  .copy { position: absolute; left: 64px; top: 150px; width: 640px; }
+  h1 { margin: 0; font-family: 'Sora', sans-serif; font-weight: 800; font-size: 74px; line-height: 1.02; letter-spacing: -0.02em; color: #F26B21; }
+  .role { margin-top: 26px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.01em; }
+  .tools { margin-top: 14px; font-size: 26px; color: #5C6180; }
+  .chip { display: inline-flex; align-items: center; gap: 12px; margin-top: 34px; padding: 0 22px; height: 52px; border-radius: 999px; background: #fff; font-size: 21px; font-weight: 700; box-shadow: 0 10px 24px rgba(22, 25, 58, .06); }
+  .chip i { width: 14px; height: 14px; border-radius: 50%; background: #3ECF8E; }
+  .url { position: absolute; left: 64px; bottom: 40px; font-size: 20px; font-weight: 700; color: #C2500C; letter-spacing: .02em; }
+  .arch { position: absolute; right: 60px; bottom: -40px; width: 400px; height: 500px; border-radius: 200px 200px 28px 28px; background: linear-gradient(180deg, #FFD6C2 0%, #FFE4D6 55%, #E6DDFF 100%); }
+  .photo { position: absolute; right: 10px; bottom: 0; height: 560px; filter: drop-shadow(0 24px 40px rgba(22, 25, 58, .18)); }
+</style>
+</head>
+<body>
+  <div class="copy">
+    <h1>Mostafizur<br>Rahman</h1>
+    <div class="role">AI Builder &amp; Gen AI Engineer</div>
+    <div class="tools">AI apps · SaaS MVPs · n8n · Zapier · Make.com</div>
+    <div class="chip"><i></i>Available for new projects</div>
+  </div>
+  <div class="url">mostafizur.me</div>
+  <div class="arch"></div>
+  <img class="photo" src="../images/hero-pointing-1200.webp" alt="">
+</body>
+</html>
