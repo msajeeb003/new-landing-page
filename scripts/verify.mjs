@@ -21,17 +21,23 @@ const { DRAFTS } = await import('./content.mjs');
 const drafts = [...DRAFTS].map((slug) => `/projects/${slug}`);
 
 const pages = {};
-for (const path of [...paths, ...drafts]) {
+for (const path of paths) {
   const r = await get(path);
   if (r.status !== 200) { fail(path, `HTTP ${r.status}`); continue; }
   pages[path] = r.text;
+}
+// Drafts are not built, so their URLs must not be served
+for (const path of drafts) {
+  const r = await get(path);
+  if (r.status !== 404) fail(path, `draft page is served (HTTP ${r.status})`);
 }
 
 const titles = new Map();
 const linkTargets = new Set();
 let schemaCount = 0;
 for (const [path, html] of Object.entries(pages)) {
-  const isDraft = drafts.includes(path);
+  const isDraft = false; // only sitemap pages are checked here; drafts must 404 (above)
+  if (html.includes('ADD REAL DETAIL')) fail(path, 'placeholder text [ADD REAL DETAIL] on a public page');
   // Canonical
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
   if (canonical !== SITE + (path === '/' ? '/' : path)) fail(path, `canonical is ${canonical}`);

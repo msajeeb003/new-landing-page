@@ -28,9 +28,10 @@ This rewrites `about.html`, `contact.html`, `services/`, `projects/`, `sitemap.x
 generated blocks inside `index.html` (everything between `<!-- build:NAME -->` and `<!-- /build:NAME -->`).
 Edit the rest of `index.html` by hand as before. Commit the generated files: Vercel serves them as they are.
 
-- Missing facts are written as `todo('...')` and show on the page as **[ADD REAL DETAIL: …]**.
-- Case studies listed in `DRAFTS` (top of `content.mjs`) are built with `noindex`, left out of the sitemap
-  and not linked anywhere. Remove a slug from `DRAFTS` once its page has real details.
+- Missing facts are written as `todo('...')`, which renders as **[ADD REAL DETAIL: …]**. It's only allowed in
+  case studies listed in `DRAFTS` (top of `content.mjs`): drafts are not built, not linked and not in the
+  sitemap, so no placeholder reaches the live site. The build and `verify.mjs` fail if one does.
+- Remove a slug from `DRAFTS` once its case study has real details, then rebuild.
 - The build fails if a title is over 60 characters or a description over 155.
 
 ## Run and check locally

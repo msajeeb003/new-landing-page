@@ -528,6 +528,7 @@ for (const s of SERVICES) {
 // --- Project pages ---
 for (const p of PROJECTS) {
   const draft = isDraft(p.slug);
+  if (draft) continue; // drafts are not built, so their placeholder text never goes live
   const page = {
     path: projectPage(p), section: 'projects', title: p.metaTitle, description: p.metaDesc, noindex: draft, ogType: 'article',
     crumbs: [['Home', '/'], ['Projects', '/projects'], [p.name]],
@@ -812,3 +813,10 @@ for (const r of report) {
   console.log(r.path.padEnd(36), String(r.words).padStart(5), String(r.title).padStart(5), String(r.desc).padStart(4), String(r.todos).padStart(5), r.noindex ? ' noindex' : '  yes', warn);
 }
 if (report.some((r) => r.title > 60 || r.desc > 155)) process.exitCode = 1;
+// No placeholder text on the live site: todo() is only allowed in DRAFTS, which are not built.
+const placeholders = [...report.filter((r) => r.todos).map((r) => r.path), ...(home.includes('ADD REAL DETAIL') ? ['/'] : [])];
+if (placeholders.length) {
+  console.log(`
+Placeholder text on a published page: ${placeholders.join(', ')}. Write the real detail, or add the project to DRAFTS.`);
+  process.exitCode = 1;
+}

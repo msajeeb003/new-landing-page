@@ -34,6 +34,7 @@ What I build:
 Recent builds:
 • SignPro: a legally binding e-signature platform (React, Node.js, PostgreSQL)
 • SociPRO: an autonomous social media agent (Node.js, Google Gemini, FFmpeg)
+• EurekaEDU: a scholarship platform whose listings are collected by an n8n and Google Gemini pipeline (Next.js, Supabase)
 
 BSc in Computer Science & Engineering; Google Prompting Essentials certified.
 
@@ -87,6 +88,7 @@ WHAT I CAN BUILD FOR YOU
 RECENT WORK
 • SignPro: a legally binding e-signature platform. Upload PDF or Word documents, request signatures by email or SMS, and every signing is sealed with an evidence hash.
 • SociPRO: an autonomous social media agent. It finds trending topics, writes posts with Google Gemini, renders video with FFmpeg and schedules publishing.
+• EurekaEDU: a scholarship platform for international students. An n8n and Google Gemini pipeline collects and structures the listings, and an admin approves each one before students see it.
 • Results in earlier roles for US companies: +25% organic search rankings (ICMG LLC), +15% qualified leads (Digital Gregg), +20% audience engagement (Crushvertise).
 
 HOW I WORK
@@ -128,7 +130,7 @@ EurekaEDU: Scholarship Finder for Study Abroad
 ```
 Description:
 ```
-Web app that helps international students find fully funded scholarships. Filter by country, study level, funding and IELTS score, compare programs side by side, practise IELTS writing with AI band estimates and feedback, and follow visa and document guidance for your home country. Built with Next.js on Vercel. Live: https://eureka-edu-gules.vercel.app Case study: https://www.mostafizur.me/projects/eurekaedu
+Web app that helps international students find fully funded scholarships. Filter by country, study level, funding and IELTS score, compare programs side by side, practise IELTS writing with AI band estimates and feedback, and follow visa and document guidance for your home country. Listings are collected by an n8n and Google Gemini pipeline and approved by an admin before they go live. Built with Next.js 15, TypeScript and Supabase. Live: https://eureka-edu-gules.vercel.app Case study: https://www.mostafizur.me/projects/eurekaedu
 ```
 
 ---
@@ -137,7 +139,7 @@ Web app that helps international students find fully funded scholarships. Filter
 
 ### Profile description [600]
 ```
-I'm an AI builder and Gen AI engineer. I build AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for teams in the USA, UK and EU, and I've worked remotely with US companies since 2021. Recent builds: SignPro, a legally binding e-signature platform, and SociPRO, an autonomous social media agent built with Google Gemini. Every project starts with your goal and the metric we'll measure success by. Case studies: mostafizur.me
+I'm an AI builder and Gen AI engineer. I build AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for teams in the USA, UK and EU, and I've worked remotely with US companies since 2021. Recent builds: SignPro (e-signatures), SociPRO (an AI social media agent) and EurekaEDU (a scholarship platform powered by n8n and Gemini). Every project starts with your goal and the metric we'll measure success by. Case studies: mostafizur.me
 ```
 
 ### Gig titles, if you add new gigs [80]
@@ -170,7 +172,7 @@ AI builder & Gen AI engineer in Bangladesh. I build AI apps, SaaS MVPs and n8n/Z
 
 ### Medium bio [600] (Peerlist "About", Contra "About", Wellfound bio)
 ```
-I'm an AI builder and Gen AI engineer based in Kushtia, Bangladesh. I build AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU. I've worked remotely for US companies since 2021; today I build web apps, automations and LLM integrations at Artech Digital. Recent builds: SignPro, a legally binding e-signature platform, and SociPRO, an autonomous social media agent. Portfolio: https://www.mostafizur.me
+I'm an AI builder and Gen AI engineer based in Kushtia, Bangladesh. I build AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU. I've worked remotely for US companies since 2021; today I build web apps, automations and LLM integrations at Artech Digital. Recent builds: SignPro, a legally binding e-signature platform; SociPRO, an autonomous social media agent; and EurekaEDU, a scholarship platform. Portfolio: https://www.mostafizur.me
 ```
 
 ### Dev.to extra fields
@@ -183,4 +185,4 @@ I'm an AI builder and Gen AI engineer based in Kushtia, Bangladesh. I build AI-p
 |---|---|---|
 | SignPro | Legally binding e-signatures by email or SMS, with an evidence hash for every signing | `https://www.mostafizur.me/projects/signpro` |
 | SociPRO | AI agent that finds trends, writes posts with Gemini, renders video and schedules publishing | `https://www.mostafizur.me/projects/socipro` |
-| EurekaEDU | Scholarship finder for international students, with IELTS practice and visa guidance | `https://www.mostafizur.me/projects/eurekaedu` |
+| EurekaEDU | Scholarship platform with listings collected by n8n and Gemini, IELTS practice and visa guidance | `https://www.mostafizur.me/projects/eurekaedu` |

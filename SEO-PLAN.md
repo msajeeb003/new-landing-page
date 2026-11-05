@@ -53,12 +53,13 @@ Re-run https://pagespeed.web.dev/ on `https://www.mostafizur.me/` after big chan
 | `d935280` | Local preview server and site checker | `scripts/serve.mjs`, `scripts/verify.mjs` |
 | `9a5ab18` | New link-preview image with the new title, README, this plan | `images/og.jpg`, `og-source/og.html`, `README.md`, `SEO-PLAN.md`, `.vercelignore` |
 | `ded2605` | The vercel.app homepage now redirects too | `vercel.json` |
+| (placeholders) | No [ADD REAL DETAIL] text on public pages: results rewritten from facts, drafts no longer built, build and checker fail on placeholders. EurekaEDU expanded with its real stack and pipeline; Fiverr button removed | `scripts/content.mjs`, `scripts/build.mjs`, `scripts/verify.mjs`, generated pages |
 | (IndexNow) | IndexNow key file and `node scripts/indexnow.mjs`, which tells Bing and Copilot which pages changed | `d5fae8ef4241de774725087c261af3c3.txt`, `scripts/indexnow.mjs`, `scripts/verify.mjs`, `README.md`, `SEO-PLAN.md`, `.vercelignore` |
 
 New URLs (none of the old URLs changed, so no redirects were needed):
 `/about`, `/contact`, `/services`, `/services/ai-automation`, `/services/ai-app-development`, `/services/seo-social-media`, `/projects`, `/projects/signpro`, `/projects/socipro`, `/projects/operations-automation`, `/projects/b2b-lead-generation`, `/projects/seo-content-program`, `/projects/social-content-system`.
 Published later: `/projects/eurekaedu` (5 Nov 2026).
-Drafts (noindex, not in the sitemap, not linked): `/projects/linkedin-bioster`, `/projects/leads-generation-app`.
+Drafts (not built, so these URLs return 404 until published): `/projects/linkedin-bioster`, `/projects/leads-generation-app`. No public page shows [ADD REAL DETAIL] placeholders.
 
 ---
 
@@ -66,9 +67,9 @@ Drafts (noindex, not in the sitemap, not linked): `/projects/linkedin-bioster`, 
 
 Edit `scripts/content.mjs`, then run `node scripts/build.mjs`.
 
-1. **Results for SignPro, SociPRO, EurekaEDU and the operations automation work.** Each page shows one [ADD REAL DETAIL] marker, for example documents signed, posts published, sign-ups or hours saved.
-2. **LinkedIn Bioster and the leads app.** Each needs who it's for, the stack, how it works, a result and a live URL. Then remove the slug from `DRAFTS` so the page goes live and gets linked. (EurekaEDU was published on 5 Nov 2026 from its live app.)
-2a. **EurekaEDU's live app shows 0 scholarships** (https://eureka-edu-gules.vercel.app/find, checked 5 Nov 2026). The database may be empty or paused. Visitors from the case study will see an empty search until it's fixed.
+1. **Real numbers, when you have them (optional).** The SignPro, SociPRO, EurekaEDU and operations automation case studies end with a factual result and no placeholders. If you get figures such as documents signed, posts published, sign-ups or hours saved, send them and I'll add them.
+2. **LinkedIn Bioster and the leads app.** Each needs who it's for, the stack, how it works, a result and a live URL. Then remove the slug from `DRAFTS` so the page is built and linked. (EurekaEDU was published on 5 Nov 2026 from its live app and private repo.)
+2a. **EurekaEDU's live app shows 0 scholarships** (https://eureka-edu-gules.vercel.app/find, checked 5 Nov 2026). Likely cause: records from the n8n pipeline arrive as drafts and only appear after you publish them in `/admin`. Also check that the n8n workflow is active and the Supabase project isn't paused.
 3. **More profiles.** If you have X/Twitter, Medium, Dev.to or Product Hunt, add the URLs to `SITE.profiles`. They feed the `sameAs` links that tie your accounts together for Google and AI assistants.
 4. **"Vibe coder" wording.** It appears in the FAQ and on the AI app development page, but not in the homepage headline. Tell me if you want it more prominent.
 5. **Testimonials.** The section is commented out in `index.html` until you have real client quotes.

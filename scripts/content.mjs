@@ -7,9 +7,9 @@
 
 export const todo = (what) => `<mark class="todo">[ADD REAL DETAIL: ${what}]</mark>`;
 
-// Case studies that still need real details. They are built (noindex, not in the
-// sitemap) so you can preview them, but nothing links to them until you remove
-// them from this list.
+// Case studies that still need real details. They are not built at all and nothing
+// links to them, so no placeholder text reaches the live site. Remove a slug from
+// this list once its case study has real details.
 export const DRAFTS = new Set(['linkedin-bioster', 'leads-generation-app']);
 const plink = (slug, text) => (DRAFTS.has(slug) ? text : `<a href="/projects/${slug}">${text}</a>`);
 
@@ -165,7 +165,7 @@ export const SERVICES = [
 <p>Speed is not the whole job. Every build is tested on real data and handed over with documentation, and security pieces such as password hashing, session tokens and rate limiting are written in explicitly, not left to chance.</p>
 <h2>Examples</h2>
 <p><a href="/projects/signpro">SignPro</a> is a legally binding e-signature platform built with React, Node.js and PostgreSQL. Senders upload PDF or Word documents and request signatures by email or SMS; every signing is sealed with an evidence hash. <a href="/projects/socipro">SociPRO</a> is an autonomous social media agent built with Node.js, Google Gemini, Supabase and FFmpeg. Both have live demos and public source code.</p>
-<p>I also built ${plink('eurekaedu', 'EurekaEDU')}, a scholarship finder offered as a SaaS MVP service on Fiverr, and ${plink('linkedin-bioster', 'LinkedIn Bioster')}, an AI app that rewrites LinkedIn headlines and bios.</p>
+<p>I also built ${plink('eurekaedu', 'EurekaEDU')}, a scholarship platform whose listings are collected by an n8n and Google Gemini pipeline, and ${plink('linkedin-bioster', 'LinkedIn Bioster')}, an AI app that rewrites LinkedIn headlines and bios.</p>
 <h2>Who it's for</h2>
 <p>Founders who want to test an idea with a real product instead of slides, and teams that need an internal tool built around how they already work.</p>`,
   },
@@ -230,7 +230,7 @@ export const PROJECTS = [
 <h2>How I built it</h2>
 <p>I built SignPro with AI-assisted development, using Claude Code as a pair programmer. The work followed the real user journey screen by screen: login, dashboard, upload, document detail and the public signing page. Because the product handles legal documents, the security pieces are written in explicitly: hashed passwords, signed session tokens, API rate limiting and an audit trail. I also produced a design system for the app that documents its current look and a second, editorial "Luxe" direction for premium surfaces.</p>
 <h2>Result</h2>
-<p>SignPro runs as a live demo, and its full source code is public on GitHub, so you can try the signing flow and read how it works. ${todo('usage numbers, such as documents signed or active users')}</p>`,
+<p>SignPro runs as a live demo, and its full source code is public on GitHub, so you can try the signing flow and read how it works.</p>`,
   },
   {
     slug: 'socipro', name: 'SociPRO', title: 'SociPRO — autonomous social media agent', cat: CAT.automation, img: 'socipro',
@@ -264,19 +264,18 @@ export const PROJECTS = [
 <h2>How I built it</h2>
 <p>SociPRO is built as separate modules for discovery, selection, script writing, asset generation, video editing, formatting, publishing and analytics, wired together by one pipeline. Each step can be tested on its own, and swapping a news source or an AI model only changes one module. The risky step, publishing to real accounts, sits behind an explicit switch that is off by default.</p>
 <h2>Result</h2>
-<p>SociPRO runs as a live demo, and its source code is public on GitHub. ${todo('results, such as posts published, accounts run or hours saved per week')}</p>`,
+<p>SociPRO runs as a live demo, and its source code is public on GitHub.</p>`,
   },
   {
     slug: 'eurekaedu', name: 'EurekaEDU', title: 'EurekaEDU — scholarship finder', cat: CAT.web, img: 'eurekaedu',
     alt: 'EurekaEDU home page: Find your scholarship. Get into your dream university, with a search bar and scholarship results',
     metaTitle: 'EurekaEDU Scholarship Finder Case Study | Mostafizur Rahman',
-    metaDesc: 'How I built EurekaEDU, a web app where international students find fully funded scholarships, check IELTS requirements and follow visa guidance.',
-    summary: 'A web app where international students find fully funded scholarships, compare universities, practise IELTS with AI feedback and follow student-visa guidance for their country.',
-    stack: ['Next.js', 'Vercel', 'AI feedback', 'User accounts'],
+    metaDesc: 'How I built EurekaEDU, a scholarship platform where n8n and Google Gemini collect the listings and students search, compare and plan studying abroad.',
+    summary: 'A scholarship platform for international students. An n8n and Google Gemini pipeline collects the listings; students search, compare, practise IELTS and plan their student visa in one place.',
+    stack: ['Next.js 15', 'TypeScript', 'Supabase', 'n8n', 'Google Gemini', 'Tailwind CSS'],
     live: 'https://eureka-edu-gules.vercel.app',
-    other: { label: 'See on Fiverr', url: 'https://www.fiverr.com/sb4059' },
     schemaType: 'SoftwareApplication', appCategory: 'EducationalApplication',
-    service: 'ai-app-development', related: ['signpro', 'socipro'],
+    service: 'ai-app-development', related: ['socipro', 'signpro'],
     body: `
 <h2>The problem</h2>
 <p>Students who want to study abroad on a scholarship have to piece their plan together from dozens of websites: scholarship listings, university entry requirements, English test scores and embassy rules, often out of date or misleading. EurekaEDU puts all of it in one place, so a first-time applicant can find a scholarship they qualify for, see exactly what it takes and apply without paying an agent.</p>
@@ -290,9 +289,12 @@ export const PROJECTS = [
   <li>Paid one-to-one consultations in 30, 60 and 90-minute packages, booked from the site.</li>
 </ul>
 <h2>Tools used</h2>
-<p>EurekaEDU is a Next.js app (App Router) deployed on Vercel. Search, universities, the visa roadmap and IELTS practice work without an account; the deadline tracker and CV tools sit behind sign-in. The IELTS writing practice uses an AI model to estimate a band score and explain it against each marking criterion.</p>
+<p>Next.js 15 (App Router, Server Components and Server Actions) with React 19 and TypeScript; Supabase for the PostgreSQL database and sign-in; Tailwind CSS and Framer Motion for the interface. n8n runs the data pipeline and Google Gemini turns raw scholarship pages into structured records. Zod validates every form and API request, and DOMPurify cleans any HTML content. It is deployed on Vercel.</p>
+<h2>How I built it</h2>
+<p>The listings come from an automated pipeline instead of manual data entry. On a nightly schedule, an n8n workflow fetches official university and scholarship pages, Google Gemini extracts the title, deadline, funding and requirements as structured JSON, and the records are posted to a webhook protected by a shared secret. New records always arrive as drafts: an admin reviews them in a built-in CMS and publishes them, so students only see checked listings.</p>
+<p>Security is part of the design. Row Level Security on every database table means the public can only read published listings and each user can only see their own saved items. Middleware guards the dashboard and admin areas, the admin role is checked again on the server for every action, and secret keys never reach the browser.</p>
 <h2>Result</h2>
-<p>EurekaEDU is live, and I also offer it as a SaaS MVP service on Fiverr. ${todo('results, such as sign-ups, saved scholarships or consultation bookings')}</p>`,
+<p>EurekaEDU is live. Students can search and compare scholarships, practise IELTS and plan their visa steps without an account, and signing up adds saved scholarships and a deadline tracker. Because every listing passes through the same review step, nothing reaches students without an admin's approval.</p>`,
   },
   {
     slug: 'operations-automation', name: 'Operations automation engine', title: 'Operations automation engine', cat: CAT.automation, img: 'automation',
@@ -318,7 +320,7 @@ export const PROJECTS = [
 <h2>Tools used</h2>
 <p>n8n, Zapier and Make.com for orchestration, Claude for the AI steps, HubSpot as the CRM, Trello for task boards, plus webhooks and direct API calls where a ready-made connector does not exist.</p>
 <h2>Result</h2>
-<p>The flows remove manual hand-offs between the team's tools. ${todo('a measurable result, such as hours saved per week or number of workflows running')}</p>`,
+<p>The flows remove manual hand-offs between the team's tools: leads, tasks and updates move between the CRM, the project board and email on their own, and a person only steps in where a decision is needed.</p>`,
   },
   {
     slug: 'linkedin-bioster', name: 'LinkedIn Bioster', title: 'LinkedIn Bioster', cat: CAT.web, img: 'linkedin-bioster',
