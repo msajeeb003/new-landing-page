@@ -1,6 +1,7 @@
 # Files that stay on your computer and are NOT uploaded to Vercel.
 # The live site only needs: the .html pages (index, about, contact, services/, projects/), styles.css, main.js,
-# fonts/, images/, cv.pdf, icons, robots.txt, sitemap.xml, llms.txt, 404.html.
+# fonts/, images/, cv.pdf, icons, robots.txt, sitemap.xml, llms.txt, 404.html,
+# and the IndexNow key file (<32 hex characters>.txt).
 
 # Original source photos (large, not used by the site)
 *.jfif

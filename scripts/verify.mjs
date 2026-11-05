@@ -99,6 +99,14 @@ if (!/Sitemap: https:\/\/www\.mostafizur\.me\/sitemap\.xml/.test(robots.text)) f
 for (const bot of ['GPTBot', 'ClaudeBot', 'PerplexityBot', 'Google-Extended']) if (!robots.text.includes(`User-agent: ${bot}`)) fail('/robots.txt', `no ${bot}`);
 const llms = await get('/llms.txt');
 if (llms.status !== 200 || !llms.text.startsWith('# Mostafizur Rahman')) fail('/llms.txt', 'missing or malformed');
+// IndexNow key file (scripts/indexnow.mjs): <32 hex>.txt in the site root, containing only the key
+const { readdirSync } = await import('node:fs');
+const keyFiles = readdirSync(new URL('..', import.meta.url)).filter((f) => /^[0-9a-f]{32}\.txt$/.test(f));
+if (keyFiles.length !== 1) fail('IndexNow', `expected one key file, found ${keyFiles.length}`);
+for (const f of keyFiles) {
+  const k = await get('/' + f);
+  if (k.status !== 200 || k.text.trim() !== f.slice(0, -4)) fail('/' + f, `IndexNow key file not served correctly (HTTP ${k.status})`);
+}
 const nf = await get('/this-page-does-not-exist');
 if (nf.status !== 404 || !nf.text.includes('noindex')) fail('404', `status ${nf.status}`);
 

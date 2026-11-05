@@ -1,6 +1,6 @@
 # SEO & GEO plan — mostafizur.me
 
-Status on 5 Nov 2026. Phase 2 is committed locally on `main` and **not pushed yet**. The only change already live is the canonical/domain fix (commit `dc4a3fa`).
+Status on 5 Nov 2026: everything in the changelog is live on https://www.mostafizur.me. Google Search Console and Bing Webmaster Tools are verified. Bing has read the sitemap (14 pages, no errors), and all 14 pages were submitted through Bing's URL Submission.
 
 ---
 
@@ -40,7 +40,9 @@ On single runs at quieter moments, the new inner pages scored 80–91 for perfor
 | `68b6fab` | New title/description/H1, JSON-LD (Person, WebSite, FAQPage, ProfilePage, Service, SoftwareApplication, CreativeWork, BreadcrumbList), static education, FAQ, 16 new pages, sitemap, llms.txt | `index.html`, `styles.css`, `main.js`, `about.html`, `contact.html`, `services/*`, `projects/*`, `sitemap.xml`, `llms.txt`, `scripts/content.mjs`, `scripts/build.mjs` |
 | `5ab76c5` | AI crawlers named in robots.txt, 308 redirect from the vercel.app duplicate, font caching, CSP without Google Fonts, better 404 page | `robots.txt`, `vercel.json`, `404.html`, `.vercelignore` |
 | `d935280` | Local preview server and site checker | `scripts/serve.mjs`, `scripts/verify.mjs` |
-| (docs) | New link-preview image with the new title, README, this plan | `images/og.jpg`, `og-source/og.html`, `README.md`, `SEO-PLAN.md`, `.vercelignore` |
+| `9a5ab18` | New link-preview image with the new title, README, this plan | `images/og.jpg`, `og-source/og.html`, `README.md`, `SEO-PLAN.md`, `.vercelignore` |
+| `ded2605` | The vercel.app homepage now redirects too | `vercel.json` |
+| (IndexNow) | IndexNow key file and `node scripts/indexnow.mjs`, which tells Bing and Copilot which pages changed | `d5fae8ef4241de774725087c261af3c3.txt`, `scripts/indexnow.mjs`, `scripts/verify.mjs`, `README.md`, `SEO-PLAN.md`, `.vercelignore` |
 
 New URLs (none of the old URLs changed, so no redirects were needed):
 `/about`, `/contact`, `/services`, `/services/ai-automation`, `/services/ai-app-development`, `/services/seo-social-media`, `/projects`, `/projects/signpro`, `/projects/socipro`, `/projects/operations-automation`, `/projects/b2b-lead-generation`, `/projects/seo-content-program`, `/projects/social-content-system`.
@@ -71,6 +73,14 @@ git push origin main
 
 Vercel redeploys in about a minute. Then check that https://www.mostafizur.me/about, /services, /projects/signpro and /llms.txt load, and that https://new-landing-page-coral-zeta.vercel.app/ redirects to www.mostafizur.me.
 
+Then tell Bing which pages changed:
+
+```
+node scripts/indexnow.mjs
+```
+
+Add page paths to send only those, for example `node scripts/indexnow.mjs about projects/signpro`.
+
 ---
 
 ## 5. Off-site plan (Phase 4)
@@ -84,6 +94,8 @@ Vercel redeploys in about a minute. Then check that https://www.mostafizur.me/ab
 
 ### 5.2 Bing Webmaster Tools (day 1, 5 minutes)
 https://www.bing.com/webmasters → **Import from Google Search Console**. This verifies the site and imports the sitemap. Bing's index is also used by Microsoft Copilot and by several AI search tools.
+
+Done on 5 Nov 2026: the sitemap was read (14 pages) and all 14 pages were submitted. From now on, run `node scripts/indexnow.mjs` after each deploy instead of submitting pages by hand. Check **IndexNow** in Bing Webmaster Tools to see what was received.
 
 ### 5.3 Profile consistency (week 1)
 Use the same name, title and link everywhere: **Mostafizur Rahman · AI Builder & Gen AI Engineer · https://www.mostafizur.me**
