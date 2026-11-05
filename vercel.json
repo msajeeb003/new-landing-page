@@ -4,6 +4,17 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "new-landing-page-coral-zeta.vercel.app"
+        }
+      ],
+      "destination": "https://www.mostafizur.me/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
