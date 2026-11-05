@@ -2,7 +2,7 @@
 
 Personal portfolio of **Mostafizur Rahman**, Gen AI Engineer & Automation Specialist.
 
-**Live:** https://mostafizur-ai.vercel.app
+**Live:** https://www.mostafizur.me
 
 ## Stack
 

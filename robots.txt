@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mostafizur-ai.vercel.app/sitemap.xml
+Sitemap: https://www.mostafizur.me/sitemap.xml

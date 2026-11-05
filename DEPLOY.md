@@ -1,10 +1,41 @@
 # Deploying the portfolio to Vercel
 
-Your site is ready to go live at **https://mostafizur-ai.vercel.app**.
-
-`mostafizur.vercel.app` (and `mostafizur-rahman`, `mostafizurrahman`, `mostafizur-portfolio`, `mostafizur-dev`) already belong to other people, so the project is set up as **`mostafizur-ai`**. Other free names checked on 31 Oct 2026: `mostafizur-rahman-ai`, `mostafizurrahman-ai`, `mostafizur-bd`, `mostafizur-genai`, `mostafizur-automation`, `msajeeb`.
+**Live address:** https://www.mostafizur.me (custom domain).
+The Vercel project is `new-landing-page` (backup address: `new-landing-page-coral-zeta.vercel.app`), deployed from GitHub `msajeeb003/new-landing-page`. Every push to `main` redeploys the site.
 
 It's a plain static site (HTML, CSS, JS), so there's **no build step and nothing to install**.
+
+---
+
+## Custom domain: mostafizur.me (Namecheap → Vercel)
+
+In Vercel (*Project → Settings → Domains*), `mostafizur.me` redirects (308) to `www.mostafizur.me`, which serves the site.
+
+The domain is registered at **Namecheap**. Its DNS must point to Vercel. Set this in *Namecheap → Domain List → Manage (mostafizur.me) → Advanced DNS → Host Records*:
+
+| Action | Type | Host | Value | TTL |
+|---|---|---|---|---|
+| **Delete** | A Record | `@` | `185.199.108.153` | — |
+| **Delete** | A Record | `@` | `185.199.109.153` | — |
+| **Delete** | A Record | `@` | `185.199.110.153` | — |
+| **Delete** | A Record | `@` | `185.199.111.153` | — |
+| **Delete** | CNAME Record | `www` | `mostafizur.me` (or `@`) | — |
+| **Add** | A Record | `@` | `76.76.21.21` | Automatic |
+| **Add** | CNAME Record | `www` | `cname.vercel-dns.com.` | Automatic |
+
+The four `185.199.x.153` records are old GitHub Pages settings and must go. Also remove any other record on `@` or `www` (AAAA, URL Redirect, parking page), because it would conflict.
+
+> If Vercel's **"View DNS configuration"** shows different values (newer accounts may show an A value like `216.198.79.1` and a CNAME like `xxxx.vercel-dns-017.com`), use **exactly what Vercel shows**. Both the old and new values work.
+
+After saving, it usually takes **5–30 minutes** (sometimes up to 48 hours). Both domains then turn **"Valid Configuration"** in Vercel, and Vercel adds the free HTTPS certificate automatically.
+
+**To check from a terminal:** `nslookup mostafizur.me` should show `76.76.21.21` (or Vercel's value), and `nslookup www.mostafizur.me` should show the Vercel CNAME.
+
+---
+
+## Original setup notes (vercel.app address)
+
+`mostafizur.vercel.app` (and `mostafizur-rahman`, `mostafizurrahman`, `mostafizur-portfolio`, `mostafizur-dev`) already belong to other people. The instructions below use the project name `mostafizur-ai` as an example; the live project is called `new-landing-page`.
 
 ---
 
