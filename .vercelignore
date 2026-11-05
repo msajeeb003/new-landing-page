@@ -16,6 +16,7 @@ images/spare-thinking.*
 # Build notes and sources (scripts/ generates the HTML; the output is committed)
 scripts/
 og-source/
+reports/
 SEO-PLAN.md
 PORTFOLIO_BUILD_PROMPT*.md
 DEPLOY.md

@@ -6,7 +6,18 @@ Status on 5 Nov 2026: everything in the changelog is live on https://www.mostafi
 
 ## 1. Results (Phase 3)
 
-### Lighthouse, mobile
+### Google PageSpeed Insights, live site (5 Nov 2026)
+
+| | Performance | Accessibility | Best Practices | SEO |
+|---|---|---|---|---|
+| Mobile | **96** | 97 | 100 | 100 |
+| Desktop | **100** | 97 | 100 | 100 |
+
+Mobile: LCP 2.3 s, FCP 1.1 s, TBT 0 ms, CLS 0. The 95+ mobile target is met on Google's test. Full saved report,
+including what's still flagged: [reports/pagespeed-2026-11-05.md](reports/pagespeed-2026-11-05.md).
+Compare future PageSpeed runs with that file. The local numbers below come from a slower computer.
+
+### Lighthouse, mobile (local)
 
 Measured on this computer against a local copy of the site. The computer's speed changed a lot between runs, so the old and new sites were run in turns (old, new, old, new…) and the median is shown.
 
@@ -17,11 +28,11 @@ Measured on this computer against a local copy of the site. The computer's speed
 
 On single runs at quieter moments, the new inner pages scored 80–91 for performance and 96–97 for accessibility. The homepage LCP dropped from about 4.1 s to about 2.6 s.
 
-**Not reached yet: 95+ performance on mobile.** What still holds it back is the design itself: about 20 looping animations, a 1,150-element homepage with large inline SVG logos, and a blurred-glass sticky header. Getting further means design trade-offs, such as fewer looping animations on phones, no header blur on phones, or a lighter logo strip. Those need your OK first.
+Locally the homepage stayed below 95 on mobile, but Google's PageSpeed test (above) gives 96, so no design trade-offs are needed for speed.
 
 **Accessibility 96–97, not 100:** white text on the brand orange (`#F26B21`) has a contrast of 3.0:1, and the minimum is 4.5:1. A darker orange such as `#C2500C` passes at 4.7:1. It's a brand color change, so it's your call.
 
-**Get the real numbers after deploying:** https://pagespeed.web.dev/ → `https://www.mostafizur.me/`. Google's servers give steadier numbers than this computer.
+Re-run https://pagespeed.web.dev/ on `https://www.mostafizur.me/` after big changes, and save each report in `reports/`.
 
 ### Validation
 
@@ -61,7 +72,7 @@ Edit `scripts/content.mjs`, then run `node scripts/build.mjs`.
 5. **Testimonials.** The section is commented out in `index.html` until you have real client quotes.
 6. **Your CV** (`cv-source/cv.html` → `cv.pdf`) still says "Gen AI Engineer · Automation Specialist". Update it to match the site if you're happy with the new title.
 7. **Optional:** the darker button orange for contrast (see section 1).
-8. **Optional:** the design trade-offs for 95+ mobile performance (see section 1).
+8. ~~Optional: design trade-offs for 95+ mobile performance.~~ Not needed: Google's PageSpeed test gives 96 on mobile.
 
 ---
 
