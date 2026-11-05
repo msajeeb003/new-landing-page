@@ -1,5 +1,6 @@
 # Files that stay on your computer and are NOT uploaded to Vercel.
-# The live site only needs: index.html, styles.css, main.js, cv.pdf, images/, icons, robots.txt, sitemap.xml, 404.html.
+# The live site only needs: the .html pages (index, about, contact, services/, projects/), styles.css, main.js,
+# fonts/, images/, cv.pdf, icons, robots.txt, sitemap.xml, llms.txt, 404.html.
 
 # Original source photos (large, not used by the site)
 *.jfif
@@ -11,7 +12,8 @@ Firefly_RemoveBackground.png
 /spare-thinking (1).webp
 images/spare-thinking.*
 
-# Build notes and sources
+# Build notes and sources (scripts/ generates the HTML; the output is committed)
+scripts/
 PORTFOLIO_BUILD_PROMPT*.md
 DEPLOY.md
 README.md
