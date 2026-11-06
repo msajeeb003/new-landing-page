@@ -161,6 +161,97 @@ export const HIRE = {
 };
 
 // ---------------------------------------------------------
+// Blog posts (/blog). Newest first is handled by the build. Facts in each post are
+// checked against the sources listed with it; `checked` is the date they were checked.
+// ---------------------------------------------------------
+export const POSTS = [
+  {
+    slug: 'n8n-vs-zapier-vs-make-ai-lead-qualification',
+    title: 'n8n vs Zapier vs Make.com for AI lead qualification',
+    metaTitle: 'n8n vs Zapier vs Make.com for AI Lead Qualification',
+    metaDesc: 'How n8n, Zapier and Make.com compare for an AI lead-qualification workflow: how each one charges, AI steps, custom code, hosting and when to pick each.',
+    summary: 'How n8n, Zapier and Make.com compare for one AI lead-qualification workflow: what each one bills for, the AI step, custom code, hosting and when to pick each.',
+    date: '2026-11-06', checked: '2026-11-06',
+    keywords: ['n8n vs Zapier vs Make', 'AI lead qualification', 'n8n', 'Zapier', 'Make.com', 'AI automation'],
+    service: 'ai-automation', projects: ['operations-automation', 'eurekaedu'],
+    sources: [
+      { label: 'n8n: plans and pricing (what an execution is)', url: 'https://n8n.io/pricing/' },
+      { label: 'n8n docs: compare editions (Community edition)', url: 'https://docs.n8n.io/deploy/host-n8n/community-edition-features' },
+      { label: 'n8n: AI agents', url: 'https://n8n.io/ai-agents/' },
+      { label: 'Zapier help: how task usage is measured', url: 'https://help.zapier.com/hc/en-us/articles/8496196837261-How-is-task-usage-measured-in-Zapier' },
+      { label: 'Zapier: what is a task (AI step multipliers)', url: 'https://zapier.com/blog/what-is-a-task-in-zapier/' },
+      { label: 'Make: pricing (credits, code execution)', url: 'https://www.make.com/pricing' },
+      { label: 'Make help: credits (AI provider options)', url: 'https://help.make.com/credits' },
+    ],
+    body: `
+<p>A new lead fills in a form. Someone has to read it, decide whether it's a good fit, put it in the CRM and make sure the right person follows up. That's an ideal job for an automation with one AI step in the middle, and n8n, Zapier and Make.com can all run it. They differ in how they charge, how much control you get over the AI step, and who on your team can maintain the result.</p>
+<p>I build automations in all three for remote teams, including at Artech Digital, so this comparison is about one concrete workflow rather than a feature checklist.</p>
+<h2>The workflow we're comparing</h2>
+<p>A typical AI lead-qualification flow looks like this. It's the shape of the flow in my <a href="/projects/operations-automation">operations automation case study</a>.</p>
+<ol>
+  <li><strong>Trigger:</strong> a webhook receives a new lead from a form or landing page.</li>
+  <li><strong>Store:</strong> the lead is created in the CRM, for example HubSpot.</li>
+  <li><strong>Qualify:</strong> an AI model (Claude, in my case study) reads the lead against your criteria and returns a score and a short reason.</li>
+  <li><strong>Route:</strong> good-fit leads become a sales task (for example in Trello) with a follow-up; the rest go to a nurture list.</li>
+  <li><strong>Notify:</strong> the team gets a message, and a person only steps in where a decision is needed.</li>
+</ol>
+<h2>The short answer</h2>
+<div class="table-wrap" role="region" aria-label="Comparison of n8n, Zapier and Make.com" tabindex="0">
+<table>
+  <thead><tr><th scope="col"></th><th scope="col">n8n</th><th scope="col">Zapier</th><th scope="col">Make.com</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">What you pay for</th><td>Executions: one execution is a full run of the workflow, however many steps it has</td><td>Tasks: each successful action step</td><td>Credits: most module actions use 1 credit</td></tr>
+    <tr><th scope="row">AI step cost</th><td>Your model provider's token cost, with your own API key</td><td>AI by Zapier steps count as 1, 3 or 5 tasks, depending on the model tier</td><td>Make's AI Provider: credits based on tokens. Your own provider connection (paid plans): 1 credit per operation, and you pay the provider for tokens</td></tr>
+    <tr><th scope="row">Custom code</th><td>Code node</td><td>Code by Zapier: 1 task per run at standard runtime</td><td>Code module: 2 credits per second of run time</td></tr>
+    <tr><th scope="row">Hosting</th><td>n8n Cloud, or self-host the free Community edition</td><td>Cloud only</td><td>Cloud only</td></tr>
+    <tr><th scope="row">Best fit</th><td>High volume, many steps, data control, AI agents with tools</td><td>Non-technical teams and the widest choice of ready-made app connectors</td><td>Visual branching with routers and filters</td></tr>
+  </tbody>
+</table>
+</div>
+<h2>How the cost adds up per lead</h2>
+<p>The flow above has five or six steps. That matters more than the price list.</p>
+<ul>
+  <li><strong>On Zapier and Make.com, every action step in the run is billed</strong>: a task on Zapier, a credit on Make. The AI step can cost more than a normal step. Ten leads a day is cheap on any of them; thousands of leads a month with extra enrichment steps add up quickly.</li>
+  <li><strong>On n8n's paid plans, the whole run is one execution,</strong> no matter how many steps it has. n8n describes an execution as "a single run of your entire workflow".</li>
+  <li><strong>Self-hosted n8n (the Community edition) is free to run.</strong> You pay for the server and for your AI model's tokens, and you look after updates and uptime yourself.</li>
+</ul>
+<h2>When to pick each</h2>
+<p><strong>Pick n8n when:</strong></p>
+<ul>
+  <li>lead volume is high or the flow has many steps (enrichment, scoring, several routes);</li>
+  <li>you want to keep lead data on your own server;</li>
+  <li>the qualification step needs more than one prompt, such as an AI agent that looks things up with tools before it scores (n8n's AI Agent node connects a model, memory and tools);</li>
+  <li>someone on the team is comfortable with a slightly more technical tool.</li>
+</ul>
+<p><strong>Pick Zapier when:</strong></p>
+<ul>
+  <li>the people who'll maintain the automation aren't technical;</li>
+  <li>you depend on a niche app that only has a ready-made Zapier connector;</li>
+  <li>volume is modest, so per-task billing stays small.</li>
+</ul>
+<p><strong>Pick Make.com when:</strong></p>
+<ul>
+  <li>you want to see every branch of the flow visually, with routers and filters;</li>
+  <li>the flow has several paths but moderate volume;</li>
+  <li>your team already builds scenarios in Make.</li>
+</ul>
+<p>If your team already pays for one of the three and knows it well, that's usually the right choice. Rebuilding a working flow on another platform is rarely worth it unless volume or data rules force the move.</p>
+<h2>What makes AI lead scoring reliable, on any platform</h2>
+<p>The tool matters less than how the AI step is set up.</p>
+<ol>
+  <li><strong>Give the model a fixed rubric.</strong> Spell out what a good-fit lead looks like (industry, company size, budget, timeline) instead of asking "is this a good lead?".</li>
+  <li><strong>Ask for structured output.</strong> Request a score, a fit label and a one-line reason in a fixed JSON format, so the next step can route on it.</li>
+  <li><strong>Check the output before routing.</strong> If the response is missing a field or isn't valid JSON, send the lead to a person instead of guessing.</li>
+  <li><strong>Keep a person in the loop for borderline scores.</strong> Auto-route the clear yes and the clear no; review the middle.</li>
+  <li><strong>Log every decision.</strong> Store the score and the reason in the CRM, so you can see why a lead was routed and improve the rubric over time.</li>
+  <li><strong>Test on real leads before launch.</strong> Run last month's leads through the flow and compare the AI's calls with what your sales team actually decided.</li>
+</ol>
+<h2>Need this built?</h2>
+<p>I build AI lead qualification and other automations in n8n, Zapier and Make.com for teams in the USA, UK and EU. See <a href="/services/ai-automation">AI automation</a>, the <a href="/projects/operations-automation">operations automation case study</a>, or <a href="/hire-ai-developer-bangladesh">how to hire an AI automation expert in Bangladesh</a>.</p>`,
+  },
+];
+
+// ---------------------------------------------------------
 // Services
 // ---------------------------------------------------------
 export const SERVICES = [
@@ -183,7 +274,7 @@ export const SERVICES = [
   <li><strong>Handover documentation</strong> so your team can run and change the workflows after launch.</li>
 </ul>
 <h2>n8n expert in Bangladesh</h2>
-<p>At Artech Digital I build and maintain n8n workflows that connect the team's SaaS tools, CRM and marketing systems. For <a href="/projects/eurekaedu">EurekaEDU</a> I built an n8n pipeline that collects scholarship listings on a schedule, uses Google Gemini to turn each page into structured data, validates every record and posts it to the app through a webhook protected by a shared secret. I also build in Zapier and Make.com, so your team can stay on the tool it already uses.</p>
+<p>At Artech Digital I build and maintain n8n workflows that connect the team's SaaS tools, CRM and marketing systems. For <a href="/projects/eurekaedu">EurekaEDU</a> I built an n8n pipeline that collects scholarship listings on a schedule, uses Google Gemini to turn each page into structured data, validates every record and posts it to the app through a webhook protected by a shared secret. I also build in Zapier and Make.com, so your team can stay on the tool it already uses. For one workflow compared on all three, read <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>.</p>
 <h2>Who it's for</h2>
 <p>Lean teams, agencies and startups in the USA, UK and EU that lose hours every week to copy-paste work between tools. If someone on your team moves the same data between two apps every day, that task is a good first automation: it is easy to measure, and the time saved shows up immediately.</p>
 <h2>Where I've done this</h2>

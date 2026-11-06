@@ -27,6 +27,9 @@ Key facts:
 - [SEO content program](https://www.mostafizur.me/projects/seo-content-program): +25% organic search rankings at ICMG LLC across multiple WordPress sites through keyword research and on-page SEO.
 - [Social content system](https://www.mostafizur.me/projects/social-content-system): +20% audience engagement at Crushvertise from Photoshop and Illustrator visuals for a lead-generation agency.
 
+## Articles
+- [n8n vs Zapier vs Make.com for AI lead qualification](https://www.mostafizur.me/blog/n8n-vs-zapier-vs-make-ai-lead-qualification) (2026-11-06): How n8n, Zapier and Make.com compare for one AI lead-qualification workflow: what each one bills for, the AI step, custom code, hosting and when to pick each.
+
 ## About
 - [About Mostafizur Rahman](https://www.mostafizur.me/about): background, experience, education and tools
 - [FAQ](https://www.mostafizur.me/#faq): who Mostafizur Rahman is, what an AI builder does, how to hire a gen AI engineer, vibe coding, tools

@@ -1625,3 +1625,15 @@ mark.todo { background: var(--sun-soft); color: #6B4700; padding: 2px 6px; borde
   .cta--band { padding: 28px 22px; }
   .cta__actions { display: grid; grid-template-columns: 1fr; }
 }
+
+/* Tables inside articles: scroll inside their own box on small screens, never the page */
+.prose { min-width: 0; } /* lets a wide table scroll inside .table-wrap instead of widening the grid column */
+.prose .table-wrap { max-width: 100%; }
+.prose .table-wrap { overflow-x: auto; border: 1px solid var(--line-strong); border-radius: 16px; background: var(--surface); }
+.prose .table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.prose table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+.prose th, .prose td { padding: 12px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+.prose thead th { color: var(--ink); background: var(--bg); font-weight: 700; }
+.prose tbody th { color: var(--ink); font-weight: 700; }
+.prose tr:last-child > * { border-bottom: 0; }
+@media (max-width: 767px) { .prose table { min-width: 600px; font-size: 14px; } }

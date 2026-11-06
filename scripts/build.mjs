@@ -10,7 +10,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  SITE, SUMMARY, EXPERIENCE, EDUCATION, PROCESS, FAQ, SERVICES, PROJECTS, FREELANCE, DRAFTS, HIRE,
+  SITE, SUMMARY, EXPERIENCE, EDUCATION, PROCESS, FAQ, SERVICES, PROJECTS, FREELANCE, DRAFTS, HIRE, POSTS,
 } from './content.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -148,6 +148,7 @@ const footer = (homeHref = '/') => `<footer class="footer">
       <a href="/" class="is-home">Home</a>
       <a href="/services">Services</a>
       <a href="/projects">Projects</a>
+      <a href="/blog">Blog</a>
       <a href="/about">About</a>
       <a href="/#faq">FAQ</a>
       <a href="/contact">Contact</a>
@@ -401,6 +402,10 @@ const hero = ({ crumbs, eyebrow, h1, lead, actions = '', media = '' }) => `<sect
 const pages = [];
 const servicePage = (s) => `/services/${s.slug}`;
 const projectPage = (p) => `/projects/${p.slug}`;
+const postPage = (p) => `/blog/${p.slug}`;
+const POSTS_SORTED = [...POSTS].sort((a, c) => c.date.localeCompare(a.date));
+const fmtDate = (iso) => new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const readMins = (html) => Math.max(1, Math.round(plain(html).split(' ').filter(Boolean).length / 220));
 const projectBySlug = Object.fromEntries(PROJECTS.map((p) => [p.slug, p]));
 const serviceBySlug = Object.fromEntries(SERVICES.map((s) => [s.slug, s]));
 
@@ -674,6 +679,88 @@ ${related.length ? `
   pages.push(page);
 }
 
+// --- Blog index and articles (only built when there are posts) ---
+if (POSTS_SORTED.length) {
+  const page = {
+    path: '/blog', section: 'blog',
+    title: 'Blog: AI Automation & AI App Building | Mostafizur Rahman',
+    description: 'Articles by AI builder Mostafizur Rahman on AI automation with n8n, Zapier and Make.com, AI agents and building SaaS MVPs with AI.',
+    crumbs: [['Home', '/'], ['Blog']],
+  };
+  page.main = `${hero({
+    crumbs: page.crumbs, eyebrow: '<p class="label">BLOG</p>',
+    h1: 'Blog: AI automation and AI app building',
+    lead: 'Practical write-ups from real builds: n8n, Zapier and Make.com automations, AI agents and SaaS MVPs built with AI.',
+  })}
+
+  <section class="section section--white" aria-labelledby="posts-title">
+    <div class="container">
+      <h2 class="sr-only" id="posts-title">All articles</h2>
+      <ul class="pg-cards" role="list">
+${POSTS_SORTED.map((post) => `        <li class="card card--float pg-card">
+          <p class="pg-meta"><time datetime="${post.date}">${fmtDate(post.date)}</time> · ${readMins(post.body)} min read</p>
+          <h3 class="h3"><a href="${postPage(post)}">${esc(post.title)}</a></h3>
+          <p class="sm">${esc(post.summary)}</p>
+          <a class="text-link" href="${postPage(post)}">Read the article<span class="sr-only">: ${esc(post.title)}</span> <span class="text-link__arrow" aria-hidden="true">→</span></a>
+        </li>`).join('\n')}
+      </ul>
+    </div>
+  </section>
+
+  ${ctaBand()}`;
+  page.schema = [personShort(), website(), webPage(page, 'CollectionPage', { about: personRef, mainEntity: { '@id': `${abs('/blog')}#blog` } }), {
+    '@type': 'Blog', '@id': `${abs('/blog')}#blog`, url: abs('/blog'), name: `${SITE.name}: blog`,
+    description: page.description, inLanguage: 'en', author: personRef, publisher: personRef,
+    blogPost: POSTS_SORTED.map((post) => ({ '@id': `${abs(postPage(post))}#article` })),
+  }, breadcrumb(page)];
+  pages.push(page);
+}
+
+for (const post of POSTS_SORTED) {
+  const page = {
+    path: postPage(post), section: 'blog', title: post.metaTitle, description: post.metaDesc, ogType: 'article',
+    crumbs: [['Home', '/'], ['Blog', '/blog'], [post.title]],
+  };
+  const words = plain(post.body).split(' ').filter(Boolean).length;
+  const svc = serviceBySlug[post.service];
+  const rel = (post.projects || []).map((slug) => projectBySlug[slug]).filter((r) => r && !isDraft(r.slug));
+  page.main = `${hero({
+    crumbs: page.crumbs,
+    eyebrow: `<p class="label">ARTICLE · <time datetime="${post.date}">${fmtDate(post.date).toUpperCase()}</time> · ${readMins(post.body)} MIN READ</p>`,
+    h1: esc(post.title), lead: esc(post.summary),
+  })}
+
+  <section class="section section--white">
+    <div class="container pg-layout">
+      <article class="prose">${post.body}
+<h2>Sources</h2>
+<ul>
+${post.sources.map((src) => `  <li><a href="${src.url}" target="_blank" rel="noopener noreferrer">${esc(src.label)}<span class="sr-only"> (opens in a new tab)</span></a></li>`).join('\n')}
+</ul>
+<p class="pg-meta">Pricing and features checked on ${fmtDate(post.checked)}. Vendors change plans often, so check their pages before you buy.</p>
+      </article>
+      <aside class="pg-aside" aria-label="About the author">
+        <div class="card card--float facts">
+          <h2 class="facts__title">About the author</h2>
+          <p class="sm"><a href="/about">${SITE.name}</a> is a freelance AI builder and Gen AI engineer in Kushtia, Bangladesh. He builds AI apps, AI agents and n8n, Zapier and Make.com automations for teams in the USA, UK and EU.</p>
+          <a class="btn facts__btn" href="/hire-ai-developer-bangladesh">Hire me</a>
+          <p class="facts__more">Related: ${[svc && `<a href="${servicePage(svc)}">${esc(svc.name)}</a>`, ...rel.map((r) => `<a href="${projectPage(r)}">${esc(r.name)}</a>`)].filter(Boolean).join(' · ')}</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  ${ctaBand()}`;
+  page.schema = [personShort(), website(), webPage(page, 'WebPage', { mainEntity: { '@id': `${abs(page.path)}#article` } }), {
+    '@type': 'BlogPosting', '@id': `${abs(page.path)}#article`, headline: post.title, description: post.metaDesc,
+    url: abs(page.path), datePublished: post.date, dateModified: post.modified || post.date,
+    author: personRef, publisher: personRef, mainEntityOfPage: { '@id': `${abs(page.path)}#webpage` },
+    image: abs(SITE.ogImage), inLanguage: 'en', keywords: post.keywords.join(', '), wordCount: words,
+    isPartOf: { '@id': `${abs('/blog')}#blog` }, citation: post.sources.map((src) => src.url),
+  }, breadcrumb(page)];
+  pages.push(page);
+}
+
 // --- Hire an AI developer in Bangladesh ---
 {
   const page = {
@@ -794,7 +881,7 @@ ${related.length ? `
 // ---------------------------------------------------------
 // Write pages
 // ---------------------------------------------------------
-const fileFor = (path) => (['/services', '/projects'].includes(path) ? `${path.slice(1)}/index.html` : `${path.slice(1)}.html`);
+const fileFor = (path) => (['/services', '/projects', '/blog'].includes(path) ? `${path.slice(1)}/index.html` : `${path.slice(1)}.html`);
 const report = [];
 for (const page of pages) {
   const html = shell(page);
@@ -860,7 +947,10 @@ ${SERVICES.map((s) => `- [${s.h1}](${abs(servicePage(s))}): ${s.metaDesc}`).join
 ## Case studies
 ${live(PROJECTS).map((p) => `- [${p.title}](${abs(projectPage(p))}): ${p.summary}`).join('\n')}
 
-## About
+${POSTS_SORTED.length ? `## Articles
+${POSTS_SORTED.map((post) => `- [${post.title}](${abs(postPage(post))}) (${post.date}): ${post.summary}`).join('\n')}
+
+` : ''}## About
 - [About ${SITE.name}](${abs('/about')}): background, experience, education and tools
 - [FAQ](${abs('/#faq')}): who Mostafizur Rahman is, what an AI builder does, how to hire a gen AI engineer, vibe coding, tools
 - [Hire an AI developer in Bangladesh](${abs(HIRE.path)}): what he builds, time zones, how projects start
