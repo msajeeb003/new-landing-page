@@ -70,8 +70,9 @@ Generative AI, AI Automation, n8n, Zapier, Make.com, Prompt Engineering, Large L
 ## Upwork
 
 ### Title [70]
+Keeps your VA angle and adds the words clients search for:
 ```
-AI Builder & Gen AI Engineer | AI Apps, SaaS MVPs & n8n Automation
+Technical VA & AI Automation Expert | n8n, Zapier, Make.com, AI Apps
 ```
 
 ### Overview [5,000]

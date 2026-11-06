@@ -18,6 +18,10 @@ export const SITE = {
   name: 'Mostafizur Rahman',
   alternateName: 'Md Mostafizur Rahman',
   jobTitle: 'AI Builder & Gen AI Engineer',
+  // One consistent descriptor everywhere, so search engines and AI assistants can tell this
+  // Mostafizur Rahman apart from others with the same name.
+  disambiguatingDescription: 'Freelance AI builder and Gen AI engineer based in Kushtia, Bangladesh (GitHub: msajeeb003; website: mostafizur.me). '
+    + 'Builds AI apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU.',
   email: 'mostafizur.contacts@gmail.com',
   locality: 'Kushtia',
   country: 'BD',
@@ -31,7 +35,7 @@ export const SITE = {
     fiverr: 'https://www.fiverr.com/sb4059',
   },
   knowsAbout: [
-    'Generative AI', 'Large language models', 'Prompt engineering', 'AI automation',
+    'Generative AI', 'Large language models', 'Prompt engineering', 'AI automation', 'AI agents', 'Workflow automation',
     'AI app development', 'SaaS development', 'AI-assisted development', 'n8n', 'Zapier',
     'Make.com', 'Claude', 'Google Gemini', 'Search engine optimization',
     'Social media marketing', 'B2B lead generation',
@@ -98,12 +102,14 @@ export const PROCESS = [
 // FAQ (homepage section + FAQPage schema)
 // ---------------------------------------------------------
 export const FAQ = [
+  { q: 'Who is Mostafizur Rahman?',
+    a: 'Mostafizur Rahman is a freelance AI builder and Gen AI engineer based in Kushtia, Bangladesh (GitHub: <a href="https://github.com/msajeeb003" rel="noopener">msajeeb003</a>). He builds AI-powered web apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU, and works as a Junior Full Stack Developer &amp; Executive Assistant at Artech Digital. His projects include <a href="/projects/signpro">SignPro</a>, <a href="/projects/socipro">SociPRO</a> and <a href="/projects/eurekaedu">EurekaEDU</a>.' },
   { q: 'What does an AI builder do?',
     a: 'An AI builder turns an idea or a manual process into working software that uses AI. For me that means two kinds of projects: automations in n8n, Zapier and Make.com with AI steps inside them, and full web apps such as <a href="/projects/signpro">SignPro</a>, an e-signature platform, and <a href="/projects/socipro">SociPRO</a>, an autonomous social media agent.' },
   { q: 'How do I hire a gen AI engineer?',
     a: 'Describe the problem you want solved and the result you expect, then talk to the engineer about how they would measure success. To work with me, send your project details through the <a href="/contact">contact page</a>, email <a href="mailto:mostafizur.contacts@gmail.com">mostafizur.contacts@gmail.com</a>, or hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. Every project starts with a discovery call to agree the goal and the metric.' },
   { q: 'Do you work with clients in the USA, UK and EU?',
-    a: "Yes. I'm based in Kushtia, Bangladesh, and I have worked remotely with US companies since 2021, across US time zones, in English (C1). I'm open to remote projects worldwide and to relocating to the EU." },
+    a: "Yes. I'm based in Kushtia, Bangladesh, and I have worked remotely with US companies since 2021, across US time zones, in English (C1). I'm open to remote projects worldwide and to relocating to the EU. Read <a href=\"/hire-ai-developer-bangladesh\">how hiring an AI developer in Bangladesh works</a>." },
   { q: 'What is vibe coding, and do you use it for client work?',
     a: 'Vibe coding means building software by describing what you want to an AI coding assistant and iterating on what it writes. I use Claude Code and Cursor this way because it lets one person ship what used to need a team. Every build still goes through the same steps as hand-written code: it is tested on real data and handed over with documentation.' },
   { q: 'Which automation and AI tools do you use?',
@@ -115,16 +121,56 @@ export const FAQ = [
 ];
 
 // ---------------------------------------------------------
+// Hire page (/hire-ai-developer-bangladesh): for clients searching "hire an AI developer
+// in Bangladesh" or "AI automation expert in Bangladesh". Real facts only; no prices.
+// ---------------------------------------------------------
+export const HIRE = {
+  path: '/hire-ai-developer-bangladesh',
+  title: 'Hire an AI Developer in Bangladesh | Mostafizur Rahman',
+  description: 'Hire Mostafizur Rahman, a freelance AI developer and AI automation expert in Bangladesh, for AI apps, SaaS MVPs and n8n, Zapier and Make.com work.',
+  h1: 'Hire an AI developer in Bangladesh',
+  lead: "I'm Mostafizur Rahman, a freelance AI builder and Gen AI engineer in Kushtia, Bangladesh. I build AI apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU, and I've worked remotely with US companies since 2021.",
+  projects: ['signpro', 'socipro', 'eurekaedu'],
+  body: `
+<h2>What I can build for you</h2>
+<ul>
+  <li><strong><a href="/services/ai-automation">AI automation</a></strong> in n8n, Zapier and Make.com: workflows that connect your CRM, project board, forms and inbox, with AI steps that read, sort, qualify and draft.</li>
+  <li><strong>AI agents</strong> that run a multi-step job on their own, like <a href="/projects/socipro">SociPRO</a>, which finds trending topics, writes posts with Google Gemini, renders video and queues it for review.</li>
+  <li><strong><a href="/services/ai-app-development">AI apps and SaaS MVPs</a></strong>, built end to end with Claude Code and Cursor: sign-in, dashboards, a database and the core workflow your users pay for.</li>
+</ul>
+<h2>Why teams hire me</h2>
+<ul>
+  <li><strong>Remote work with US companies since 2021</strong>, including Artech Digital, Digital Gregg, ICMG LLC and Crushvertise, across US time zones.</li>
+  <li><strong>Work you can check.</strong> <a href="/projects/signpro">SignPro</a> and <a href="/projects/socipro">SociPRO</a> have live demos and public source code, and <a href="/projects/eurekaedu">EurekaEDU</a> is a live app.</li>
+  <li><strong>Measured results</strong> in earlier roles: +25% organic search rankings at ICMG LLC, +15% qualified leads at Digital Gregg and +20% audience engagement at Crushvertise.</li>
+  <li><strong>Clear communication</strong> in English (C1), with regular check-ins and handover documentation for every build.</li>
+  <li><strong>One person, end to end.</strong> The same person scopes, builds, tests and documents the work, so nothing gets lost between hand-offs.</li>
+</ul>
+<h2>How to start</h2>
+<p>Send a short description of what you want to build or automate through the <a href="/contact">contact page</a> or by email to <a href="mailto:mostafizur.contacts@gmail.com">mostafizur.contacts@gmail.com</a>. I'll reply by email, and we start with a discovery call to agree the goal and the metric we'll measure success by. If you prefer a platform, you can hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or order a fixed-scope gig on <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>.</p>`,
+  faq: [
+    { q: 'How do I hire you?',
+      a: 'Send a short description of the project through the <a href="/contact">contact page</a> or by email to <a href="mailto:mostafizur.contacts@gmail.com">mostafizur.contacts@gmail.com</a>, or hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. We start with a discovery call to agree the goal and how we will measure it.' },
+    { q: 'How much does a project cost?',
+      a: "It depends on the scope. Send your project details and I'll reply with a quote. Fixed-scope work, such as a SaaS MVP, is also available as a gig on <a href=\"https://www.fiverr.com/sb4059\" rel=\"noopener\">Fiverr</a>." },
+    { q: 'Which time zones do you work in?',
+      a: "I'm in Bangladesh (UTC+6) and have worked across US time zones since 2021. I work with clients in the USA, UK and EU, and I'm open to relocating to the EU." },
+    { q: 'What can you build?',
+      a: 'AI automations in n8n, Zapier and Make.com, AI agents, and AI-powered web apps and SaaS MVPs. See <a href="/services/ai-automation">AI automation</a>, <a href="/services/ai-app-development">AI app development</a> and the <a href="/projects">case studies</a>.' },
+  ],
+};
+
+// ---------------------------------------------------------
 // Services
 // ---------------------------------------------------------
 export const SERVICES = [
   {
     slug: 'ai-automation', name: 'AI & automation', icon: 'i-zap', soft: 'var(--accent-soft)', strong: 'var(--accent)',
-    h1: 'AI automation with n8n, Zapier and Make.com',
-    metaTitle: 'AI Automation with n8n, Zapier & Make | Mostafizur Rahman',
-    metaDesc: 'I build n8n, Zapier and Make.com automations with AI steps (Claude, Gemini) that connect your CRM, tools and inbox and remove manual hand-offs.',
+    h1: 'AI automation expert: n8n, Zapier and Make.com',
+    metaTitle: 'AI Automation Expert in Bangladesh: n8n, Zapier & Make',
+    metaDesc: 'AI automation expert in Bangladesh. I build n8n, Zapier and Make.com workflows and AI agents (Claude, Gemini) that remove manual work for your team.',
     card: 'n8n, Zapier and Make.com workflows plus LLM integrations that remove hours of manual work.',
-    lead: 'I build automations that move data between your tools and use AI for the steps that used to need a person: reading, sorting, qualifying and drafting.',
+    lead: "I'm an AI automation expert in Kushtia, Bangladesh. I build automations that move data between your tools and use AI for the steps that used to need a person: reading, sorting, qualifying and drafting.",
     tools: ['n8n', 'Zapier', 'Make.com', 'Claude', 'Google Gemini', 'HubSpot', 'Trello', 'Webhooks & APIs'],
     projects: ['operations-automation', 'socipro', 'b2b-lead-generation'],
     body: `
@@ -132,22 +178,26 @@ export const SERVICES = [
 <ul>
   <li><strong>Workflow automation</strong> in n8n, Zapier and Make.com that connects CRMs such as HubSpot, project boards such as Trello, forms, webhooks and email.</li>
   <li><strong>AI steps inside workflows.</strong> LLMs such as Claude and Google Gemini read incoming requests, qualify leads, summarise long threads and draft replies, so a person only reviews the result.</li>
+  <li><strong>AI agents</strong> that run a multi-step job on their own, like <a href="/projects/socipro">SociPRO</a>, which finds trending topics, writes posts and queues them for review.</li>
   <li><strong>API integrations</strong> where no ready-made connector exists.</li>
   <li><strong>Handover documentation</strong> so your team can run and change the workflows after launch.</li>
 </ul>
+<h2>n8n expert in Bangladesh</h2>
+<p>At Artech Digital I build and maintain n8n workflows that connect the team's SaaS tools, CRM and marketing systems. For <a href="/projects/eurekaedu">EurekaEDU</a> I built an n8n pipeline that collects scholarship listings on a schedule, uses Google Gemini to turn each page into structured data, validates every record and posts it to the app through a webhook protected by a shared secret. I also build in Zapier and Make.com, so your team can stay on the tool it already uses.</p>
 <h2>Who it's for</h2>
 <p>Lean teams, agencies and startups in the USA, UK and EU that lose hours every week to copy-paste work between tools. If someone on your team moves the same data between two apps every day, that task is a good first automation: it is easy to measure, and the time saved shows up immediately.</p>
 <h2>Where I've done this</h2>
 <p>At Artech Digital, a US company, I build and maintain end-to-end automations with n8n, Zapier and Make.com that connect SaaS tools, CRMs and marketing systems, and I integrate Claude and other LLMs into the team's workflows. The <a href="/projects/operations-automation">operations automation case study</a> shows the kind of flow I build there.</p>
 <p>I also apply the same idea to complete products. <a href="/projects/socipro">SociPRO</a> is an autonomous social media agent: it finds trending topics, writes posts with Google Gemini, renders video with FFmpeg and queues publishing on a schedule, with a review step before anything goes live.</p>
 <h2>What you get</h2>
-<p>A working automation, tested on real data, with a short document that explains each step, where it can fail and how to change it. We agree the success metric in the first call, usually hours saved or response time, so you can see whether the automation is paying for itself.</p>`,
+<p>A working automation, tested on real data, with a short document that explains each step, where it can fail and how to change it. We agree the success metric in the first call, usually hours saved or response time, so you can see whether the automation is paying for itself.</p>
+<p>Hiring from the USA, UK or EU? See <a href="/hire-ai-developer-bangladesh">how to hire an AI automation expert in Bangladesh</a>.</p>`,
   },
   {
     slug: 'ai-app-development', name: 'AI app & SaaS development', icon: 'i-app', soft: 'var(--lilac-soft)', strong: 'var(--lilac)',
-    h1: 'AI app and SaaS MVP development',
-    metaTitle: 'AI App & SaaS MVP Developer | Mostafizur Rahman',
-    metaDesc: 'I build AI-powered web apps and SaaS MVPs end to end with AI-assisted development (Claude Code, Cursor), from idea to a launched, tested product.',
+    h1: 'Freelance AI app and SaaS MVP developer',
+    metaTitle: 'Freelance AI App & SaaS MVP Developer | Mostafizur Rahman',
+    metaDesc: 'Freelance AI app developer in Bangladesh. I build AI web apps, AI agents and SaaS MVPs end to end with Claude Code and Cursor, tested and documented.',
     card: 'SaaS, no-code and AI-powered apps, built end-to-end from idea to launched product.',
     lead: 'I build AI-powered web apps and SaaS MVPs end to end, from the first idea to a launched product that real users can sign in to and use.',
     tools: ['Claude Code', 'Cursor', 'React', 'Node.js', 'Express', 'PostgreSQL', 'Supabase', 'Google Gemini', 'Claude', 'Vercel'],
@@ -157,6 +207,7 @@ export const SERVICES = [
 <ul>
   <li><strong>SaaS MVPs</strong> with sign-in, dashboards, a database and the one core workflow your users pay for.</li>
   <li><strong>AI features</strong> on top of LLM APIs such as Claude and Google Gemini: writing and rewriting, classification, summaries and content pipelines.</li>
+  <li><strong>AI agents</strong> that run a multi-step job on their own, such as <a href="/projects/socipro">SociPRO</a>, which finds trending topics, writes posts with Google Gemini and renders videos.</li>
   <li><strong>No-code apps</strong> when they are the faster path to a working product.</li>
   <li><strong>Browser extensions and integrations</strong> that connect your app to the tools people already use.</li>
 </ul>
@@ -167,7 +218,7 @@ export const SERVICES = [
 <p><a href="/projects/signpro">SignPro</a> is a legally binding e-signature platform built with React, Node.js and PostgreSQL. Senders upload PDF or Word documents and request signatures by email or SMS; every signing is sealed with an evidence hash. <a href="/projects/socipro">SociPRO</a> is an autonomous social media agent built with Node.js, Google Gemini, Supabase and FFmpeg. Both have live demos and public source code.</p>
 <p>I also built ${plink('eurekaedu', 'EurekaEDU')}, a scholarship platform whose listings are collected by an n8n and Google Gemini pipeline, and ${plink('linkedin-bioster', 'LinkedIn Bioster')}, an AI app that rewrites LinkedIn headlines and bios.</p>
 <h2>Who it's for</h2>
-<p>Founders who want to test an idea with a real product instead of slides, and teams that need an internal tool built around how they already work.</p>`,
+<p>Founders who want to test an idea with a real product instead of slides, and teams that need an internal tool built around how they already work. Hiring from the USA, UK or EU? See <a href="/hire-ai-developer-bangladesh">how to hire an AI developer in Bangladesh</a>.</p>`,
   },
   {
     slug: 'seo-social-media', name: 'SEO & social media', icon: 'i-trending', soft: 'var(--mint-soft)', strong: 'var(--mint-deep)',

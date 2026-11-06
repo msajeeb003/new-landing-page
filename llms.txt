@@ -2,8 +2,10 @@
 
 > Mostafizur Rahman is an AI builder and Gen AI engineer based in Kushtia, Bangladesh. He builds AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU, and has worked remotely for US companies since 2021.
 
+Identity: Freelance AI builder and Gen AI engineer based in Kushtia, Bangladesh (GitHub: msajeeb003; website: mostafizur.me). Builds AI apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU.
+
 Key facts:
-- Role: AI Builder & Gen AI Engineer (AI app development, AI automation, SaaS MVPs)
+- Role: AI Builder & Gen AI Engineer (AI app development, AI automation, AI agents, SaaS MVPs)
 - Based in: Kushtia, Bangladesh; works remotely with clients in the USA, UK and EU; open to EU relocation
 - Experience: remote work for US companies since 2021; currently Junior Full Stack Developer & Executive Assistant at Artech Digital
 - Results: +25% organic search rankings (ICMG LLC), +15% qualified leads (Digital Gregg), +20% audience engagement (Crushvertise LLC)
@@ -12,8 +14,8 @@ Key facts:
 - Contact: mostafizur.contacts@gmail.com or https://www.mostafizur.me/contact
 
 ## Services
-- [AI automation with n8n, Zapier and Make.com](https://www.mostafizur.me/services/ai-automation): I build n8n, Zapier and Make.com automations with AI steps (Claude, Gemini) that connect your CRM, tools and inbox and remove manual hand-offs.
-- [AI app and SaaS MVP development](https://www.mostafizur.me/services/ai-app-development): I build AI-powered web apps and SaaS MVPs end to end with AI-assisted development (Claude Code, Cursor), from idea to a launched, tested product.
+- [AI automation expert: n8n, Zapier and Make.com](https://www.mostafizur.me/services/ai-automation): AI automation expert in Bangladesh. I build n8n, Zapier and Make.com workflows and AI agents (Claude, Gemini) that remove manual work for your team.
+- [Freelance AI app and SaaS MVP developer](https://www.mostafizur.me/services/ai-app-development): Freelance AI app developer in Bangladesh. I build AI web apps, AI agents and SaaS MVPs end to end with Claude Code and Cursor, tested and documented.
 - [SEO, social media and lead generation](https://www.mostafizur.me/services/seo-social-media): Keyword research, on-page SEO, WordPress, social content and B2B lead generation, with real results: +25% organic rankings, +15% qualified leads.
 
 ## Case studies
@@ -27,7 +29,8 @@ Key facts:
 
 ## About
 - [About Mostafizur Rahman](https://www.mostafizur.me/about): background, experience, education and tools
-- [FAQ](https://www.mostafizur.me/#faq): what an AI builder does, how to hire a gen AI engineer, vibe coding, tools
+- [FAQ](https://www.mostafizur.me/#faq): who Mostafizur Rahman is, what an AI builder does, how to hire a gen AI engineer, vibe coding, tools
+- [Hire an AI developer in Bangladesh](https://www.mostafizur.me/hire-ai-developer-bangladesh): what he builds, time zones, how projects start
 - [Contact](https://www.mostafizur.me/contact): hire for a project
 
 ## Profiles

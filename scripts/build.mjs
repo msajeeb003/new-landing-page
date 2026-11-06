@@ -10,7 +10,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  SITE, SUMMARY, EXPERIENCE, EDUCATION, PROCESS, FAQ, SERVICES, PROJECTS, FREELANCE, DRAFTS,
+  SITE, SUMMARY, EXPERIENCE, EDUCATION, PROCESS, FAQ, SERVICES, PROJECTS, FREELANCE, DRAFTS, HIRE,
 } from './content.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -43,7 +43,12 @@ const personRef = { '@id': PERSON_ID };
 const personFull = () => ({
   '@type': 'Person', '@id': PERSON_ID,
   name: SITE.name, alternateName: SITE.alternateName, givenName: 'Mostafizur', familyName: 'Rahman',
-  jobTitle: SITE.jobTitle, description: SUMMARY,
+  jobTitle: SITE.jobTitle, description: SUMMARY, disambiguatingDescription: SITE.disambiguatingDescription,
+  hasOccupation: {
+    '@type': 'Occupation', name: 'AI Builder & Gen AI Engineer',
+    occupationLocation: { '@type': 'Country', name: 'Bangladesh' },
+    skills: 'AI app development, SaaS MVP development, AI agents, AI automation with n8n, Zapier and Make.com',
+  },
   url: `${SITE.url}/`, image: abs(SITE.image), email: `mailto:${SITE.email}`,
   sameAs: Object.values(SITE.profiles),
   address: { '@type': 'PostalAddress', addressLocality: SITE.locality, addressCountry: SITE.country },
@@ -60,6 +65,7 @@ const personFull = () => ({
 });
 const personShort = () => ({
   '@type': 'Person', '@id': PERSON_ID, name: SITE.name, jobTitle: SITE.jobTitle,
+  disambiguatingDescription: SITE.disambiguatingDescription,
   url: `${SITE.url}/`, sameAs: Object.values(SITE.profiles),
 });
 const website = () => ({
@@ -77,9 +83,9 @@ const breadcrumb = (page) => ({
     '@type': 'ListItem', position: i + 1, name, ...(path ? { item: abs(path) } : {}),
   })),
 });
-const faqPage = (path) => ({
+const faqPage = (path, list = FAQ) => ({
   '@type': 'FAQPage', '@id': `${abs(path)}#faq`, url: abs(path),
-  mainEntity: FAQ.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: plain(f.a) } })),
+  mainEntity: list.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: plain(f.a) } })),
 });
 const AREA = [
   { '@type': 'Country', name: 'United States' }, { '@type': 'Country', name: 'United Kingdom' },
@@ -145,6 +151,7 @@ const footer = (homeHref = '/') => `<footer class="footer">
       <a href="/about">About</a>
       <a href="/#faq">FAQ</a>
       <a href="/contact">Contact</a>
+      <a href="/hire-ai-developer-bangladesh">Hire an AI developer</a>
     </nav>
     ${SOCIALS}
   </div>
@@ -287,15 +294,18 @@ const eduCard = (e) => {
         </article>`;
 };
 
-const faqSection = () => `<section class="section section--white" id="faq" aria-labelledby="faq-title">
+const faqSection = (list = FAQ, {
+  id = 'faq', title = 'Questions clients <span class="accent">ask</span>',
+  lead = 'Straight answers about how I work, the tools I use and how to hire me.',
+} = {}) => `<section class="section section--white" id="${id}" aria-labelledby="${id}-title">
     <div class="container faq-wrap">
       <div class="stack-head" data-stagger>
         <p class="label" data-reveal>FAQ</p>
-        <h2 class="h2" id="faq-title" data-reveal>Questions clients <span class="accent">ask</span></h2>
-        <p class="p" data-reveal>Straight answers about how I work, the tools I use and how to hire me.</p>
+        <h2 class="h2" id="${id}-title" data-reveal>${title}</h2>
+        <p class="p" data-reveal>${lead}</p>
       </div>
       <div class="faq">
-${FAQ.map((f) => `        <details class="card faq__item">
+${list.map((f) => `        <details class="card faq__item">
           <summary class="faq__q"><h3 class="faq__title">${esc(f.q)}</h3>${icon('i-chevron', 'icon faq__icon')}</summary>
           <div class="faq__a"><p>${f.a}</p></div>
         </details>`).join('\n')}
@@ -664,6 +674,63 @@ ${related.length ? `
   pages.push(page);
 }
 
+// --- Hire an AI developer in Bangladesh ---
+{
+  const page = {
+    path: HIRE.path, section: 'hire', title: HIRE.title, description: HIRE.description,
+    crumbs: [['Home', '/'], ['Hire an AI developer']],
+  };
+  const work = HIRE.projects.map((slug) => projectBySlug[slug]).filter((p) => p && !isDraft(p.slug));
+  const extLink = (href, label) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}<span class="sr-only"> (opens in a new tab)</span></a>`;
+  page.main = `${hero({
+    crumbs: page.crumbs, eyebrow: '<p class="label">HIRE AN AI DEVELOPER</p>',
+    h1: esc(HIRE.h1), lead: esc(HIRE.lead),
+    actions: `<div class="pg-actions"><a class="btn btn--arrow" href="/contact">Start a project ${icon('i-arrow', 'icon btn__icon')}</a><a class="btn btn--ghost" href="/projects">View projects</a></div>`,
+  })}
+
+  <section class="section section--white">
+    <div class="container pg-layout">
+      <article class="prose">${HIRE.body}
+      </article>
+      <aside class="pg-aside" aria-label="Hiring details">
+        <div class="card card--float facts">
+          <h2 class="facts__title">At a glance</h2>
+          <dl>
+            <div><dt>Who</dt><dd><a href="/about">${SITE.name}</a>, ${esc(SITE.jobTitle)}</dd></div>
+            <div><dt>Based in</dt><dd>Kushtia, Bangladesh (UTC+6)</dd></div>
+            <div><dt>Works with</dt><dd>Remote teams in the USA, UK and EU</dd></div>
+            <div><dt>Remote since</dt><dd>2021, across US time zones</dd></div>
+            <div><dt>English</dt><dd>C1</dd></div>
+            <div><dt>Hire</dt><dd><a href="/contact">Directly</a> · ${extLink(SITE.profiles.upwork, 'Upwork')} · ${extLink(SITE.profiles.fiverr, 'Fiverr')}</dd></div>
+          </dl>
+          <a class="btn facts__btn" href="/contact">Start a project</a>
+          <p class="facts__more">Services: ${SERVICES.slice(0, 2).map((o) => `<a href="${servicePage(o)}">${esc(o.name)}</a>`).join(' · ')}</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="hire-work-title">
+    <div class="container">
+      <div class="stack-head pg-section-head">
+        <p class="label">RECENT WORK</p>
+        <h2 class="h2" id="hire-work-title">Apps and agents I've built</h2>
+      </div>
+      <ul class="work-grid pg-work-grid" role="list">
+        ${work.map((p) => workCard(p)).join('\n        ')}
+      </ul>
+    </div>
+  </section>
+
+  ${processSection()}
+
+  ${faqSection(HIRE.faq, { id: 'hire-faq', title: 'Hiring <span class="accent">questions</span>', lead: 'What clients ask before hiring an AI developer in Bangladesh.' })}
+
+  ${ctaBand()}`;
+  page.schema = [personFull(), website(), webPage(page, 'WebPage', { about: personRef, mainEntity: personRef }), breadcrumb(page), faqPage(page.path, HIRE.faq)];
+  pages.push(page);
+}
+
 // --- Contact ---
 {
   const page = {
@@ -743,7 +810,7 @@ for (const page of pages) {
 // ---------------------------------------------------------
 const homeSchema = [personFull(), website(), {
   '@type': 'WebPage', '@id': `${SITE.url}/#webpage`, url: `${SITE.url}/`,
-  name: `${SITE.name} | ${SITE.jobTitle}`, inLanguage: 'en', isPartOf: { '@id': WEBSITE_ID }, about: personRef, mainEntity: personRef,
+  name: plain(index.match(/<title>([^<]*)<\/title>/)[1]), inLanguage: 'en', isPartOf: { '@id': WEBSITE_ID }, about: personRef, mainEntity: personRef,
 }, faqPage('/')];
 
 const inject = (html, name, content) => {
@@ -776,8 +843,10 @@ await writeFile(join(ROOT, 'llms.txt'), `# ${SITE.name}
 
 > ${SUMMARY}
 
+Identity: ${SITE.disambiguatingDescription}
+
 Key facts:
-- Role: ${SITE.jobTitle} (AI app development, AI automation, SaaS MVPs)
+- Role: ${SITE.jobTitle} (AI app development, AI automation, AI agents, SaaS MVPs)
 - Based in: Kushtia, Bangladesh; works remotely with clients in the USA, UK and EU; open to EU relocation
 - Experience: remote work for US companies since 2021; currently Junior Full Stack Developer & Executive Assistant at Artech Digital
 - Results: +25% organic search rankings (ICMG LLC), +15% qualified leads (Digital Gregg), +20% audience engagement (Crushvertise LLC)
@@ -793,7 +862,8 @@ ${live(PROJECTS).map((p) => `- [${p.title}](${abs(projectPage(p))}): ${p.summary
 
 ## About
 - [About ${SITE.name}](${abs('/about')}): background, experience, education and tools
-- [FAQ](${abs('/#faq')}): what an AI builder does, how to hire a gen AI engineer, vibe coding, tools
+- [FAQ](${abs('/#faq')}): who Mostafizur Rahman is, what an AI builder does, how to hire a gen AI engineer, vibe coding, tools
+- [Hire an AI developer in Bangladesh](${abs(HIRE.path)}): what he builds, time zones, how projects start
 - [Contact](${abs('/contact')}): hire for a project
 
 ## Profiles
