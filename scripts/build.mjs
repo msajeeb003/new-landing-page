@@ -735,12 +735,12 @@ for (const post of POSTS_SORTED) {
   <section class="section section--white">
     <div class="container pg-layout">
       <article class="prose">${post.body}
-<h2>Sources</h2>
+${post.sources?.length ? `<h2>Sources</h2>
 <ul>
 ${post.sources.map((src) => `  <li><a href="${src.url}" target="_blank" rel="noopener noreferrer">${esc(src.label)}<span class="sr-only"> (opens in a new tab)</span></a></li>`).join('\n')}
 </ul>
-<p class="pg-meta">Pricing and features checked on ${fmtDate(post.checked)}. Vendors change plans often, so check their pages before you buy.</p>
-      </article>
+` : ''}${post.checked ? `<p class="pg-meta">Pricing and features checked on ${fmtDate(post.checked)}. Vendors change plans often, so check their pages before you buy.</p>
+` : ''}      </article>
       <aside class="pg-aside" aria-label="About the author">
         <div class="card card--float facts">
           <h2 class="facts__title">About the author</h2>
@@ -758,7 +758,7 @@ ${post.sources.map((src) => `  <li><a href="${src.url}" target="_blank" rel="noo
     url: abs(page.path), datePublished: post.date, dateModified: post.modified || post.date,
     author: personRef, publisher: personRef, mainEntityOfPage: { '@id': `${abs(page.path)}#webpage` },
     image: abs(SITE.ogImage), inLanguage: 'en', keywords: post.keywords.join(', '), wordCount: words,
-    isPartOf: { '@id': `${abs('/blog')}#blog` }, citation: post.sources.map((src) => src.url),
+    isPartOf: { '@id': `${abs('/blog')}#blog` }, ...(post.sources?.length ? { citation: post.sources.map((src) => src.url) } : {}),
   }, breadcrumb(page)];
   pages.push(page);
 }

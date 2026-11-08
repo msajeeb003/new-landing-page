@@ -28,6 +28,7 @@ Key facts:
 - [Social content system](https://www.mostafizur.me/projects/social-content-system): +20% audience engagement at Crushvertise from Photoshop and Illustrator visuals for a lead-generation agency.
 
 ## Articles
+- [How to find the best AI developer in Bangladesh](https://www.mostafizur.me/blog/how-to-find-the-best-ai-developer-in-bangladesh) (2026-11-08): A practical checklist for hiring the best AI developer in Bangladesh for your project: what to check, what to ask, red flags and where to look.
 - [n8n vs Zapier vs Make.com for AI lead qualification](https://www.mostafizur.me/blog/n8n-vs-zapier-vs-make-ai-lead-qualification) (2026-11-06): How n8n, Zapier and Make.com compare for one AI lead-qualification workflow: what each one bills for, the AI step, custom code, hosting and when to pick each.
 
 ## About

@@ -155,6 +155,8 @@ export const HIRE = {
       a: "It depends on the scope. Send your project details and I'll reply with a quote. Fixed-scope work, such as a SaaS MVP, is also available as a gig on <a href=\"https://www.fiverr.com/sb4059\" rel=\"noopener\">Fiverr</a>." },
     { q: 'Which time zones do you work in?',
       a: "I'm in Bangladesh (UTC+6) and have worked across US time zones since 2021. I work with clients in the USA, UK and EU, and I'm open to relocating to the EU." },
+    { q: 'How do I find the best AI developer in Bangladesh?',
+      a: 'Check for live demos you can click, code you can read, results with numbers, security basics, a clear process and real reviews, and ask how they will work with your time zone. The full checklist is in <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">how to find the best AI developer in Bangladesh</a>, and you can check my work against it in the <a href="/projects">case studies</a>.' },
     { q: 'What can you build?',
       a: 'AI automations in n8n, Zapier and Make.com, AI agents, and AI-powered web apps and SaaS MVPs. See <a href="/services/ai-automation">AI automation</a>, <a href="/services/ai-app-development">AI app development</a> and the <a href="/projects">case studies</a>.' },
   ],
@@ -248,6 +250,71 @@ export const POSTS = [
 </ol>
 <h2>Need this built?</h2>
 <p>I build AI lead qualification and other automations in n8n, Zapier and Make.com for teams in the USA, UK and EU. See <a href="/services/ai-automation">AI automation</a>, the <a href="/projects/operations-automation">operations automation case study</a>, or <a href="/hire-ai-developer-bangladesh">how to hire an AI automation expert in Bangladesh</a>.</p>`,
+  },
+  {
+    slug: 'how-to-find-the-best-ai-developer-in-bangladesh',
+    title: 'How to find the best AI developer in Bangladesh',
+    metaTitle: 'How to Find the Best AI Developer in Bangladesh (2026)',
+    metaDesc: 'A practical checklist for hiring the best AI developer in Bangladesh: what to check in a portfolio, questions to ask, red flags and where to look.',
+    summary: 'A practical checklist for hiring the best AI developer in Bangladesh for your project: what to check, what to ask, red flags and where to look.',
+    date: '2026-11-08',
+    keywords: ['best AI developer in Bangladesh', 'hire AI developer Bangladesh', 'AI automation expert Bangladesh', 'AI developer checklist'],
+    service: 'ai-app-development', projects: ['signpro', 'socipro', 'eurekaedu'],
+    sources: [],
+    body: `
+<p>"Best" depends on what you need built. A developer who is excellent at training machine-learning models may be the wrong hire for an n8n automation, and the reverse. So instead of a ranking, here is a checklist you can use on anyone you're considering.</p>
+<p>I'm a freelance AI developer in Kushtia, Bangladesh myself, so at the end I show how my own work measures up against the same checklist. Use it on me too.</p>
+<h2>First, decide which kind of AI developer you need</h2>
+<ul>
+  <li><strong>AI automation:</strong> workflows in n8n, Zapier or Make.com with AI steps that read, sort, qualify and draft, connected to your CRM, forms and inbox.</li>
+  <li><strong>AI apps and SaaS MVPs:</strong> a full product with sign-in, a database and AI features built on models such as Claude or Google Gemini.</li>
+  <li><strong>Machine-learning models:</strong> training models on your own data, computer vision or forecasting. This is a different skill set: look for an ML engineer with published work in that area.</li>
+</ul>
+<p>My own work is the first two: AI automation, AI agents and AI-powered apps.</p>
+<h2>The checklist: seven things to check</h2>
+<ol>
+  <li><strong>Live demos you can click.</strong> Screenshots and mockups prove little. Ask for a link to something running.</li>
+  <li><strong>Code you can read.</strong> Public repositories, or a screen-share walkthrough of a private one. You'll see how the developer structures and tests their work.</li>
+  <li><strong>Results with numbers.</strong> "Improved efficiency" means nothing; "cut response time from a day to an hour" or "+15% qualified leads" is something you can ask about.</li>
+  <li><strong>Security basics.</strong> Anything that handles user data needs hashed passwords, proper sessions, rate limiting and access rules. Ask how they keep your API keys and customer data safe.</li>
+  <li><strong>Communication and time zones.</strong> Bangladesh is UTC+6: a Dhaka afternoon overlaps with the UK and EU morning. For US teams, ask how the developer handles your working hours, and judge their written English from the first messages.</li>
+  <li><strong>A clear process.</strong> A good developer agrees the goal and how it will be measured before building, tests on real data and hands over documentation.</li>
+  <li><strong>Reviews and references.</strong> Platform reviews on Upwork or Fiverr, LinkedIn recommendations, or a past client you can talk to.</li>
+</ol>
+<h2>Questions to ask on the first call</h2>
+<ol>
+  <li>What's the closest thing you've built to my project, and can I see it running?</li>
+  <li>How will we measure whether this worked?</li>
+  <li>Which tools and AI models would you use, and why those?</li>
+  <li>What could go wrong, and how would you handle it?</li>
+  <li>What will I get at the end: code, documentation, access to every account?</li>
+</ol>
+<h2>Red flags</h2>
+<ul>
+  <li>No live work to show, only screenshots or "confidential" projects.</li>
+  <li>A vague "AI expert" title with no specific tools, models or results.</li>
+  <li>Promises of big outcomes with no plan to measure them.</li>
+  <li>No written scope before work starts.</li>
+  <li>Unclear answers about where your data and API keys will live.</li>
+</ul>
+<h2>Where to look</h2>
+<ul>
+  <li><strong>Upwork and Fiverr:</strong> reviews, contracts and payments run through the platform.</li>
+  <li><strong>LinkedIn:</strong> search by skill (for example "n8n" or "AI automation") and location, then check the work they link to.</li>
+  <li><strong>Bangladesh communities:</strong> Facebook groups for n8n and AI automation, where developers share what they've built.</li>
+  <li><strong>Agency directories</strong> such as Clutch and GoodFirms, if you'd rather hire a company than a freelancer.</li>
+</ul>
+<h2>How my work measures up</h2>
+<ul>
+  <li><strong>Live demos:</strong> <a href="/projects/signpro">SignPro</a> (e-signatures), <a href="/projects/socipro">SociPRO</a> (an AI social media agent) and <a href="/projects/eurekaedu">EurekaEDU</a> (a scholarship platform) are all live.</li>
+  <li><strong>Code:</strong> SignPro and SociPRO have public source code on GitHub.</li>
+  <li><strong>Results with numbers:</strong> +25% organic search rankings at ICMG LLC, +15% qualified leads at Digital Gregg and +20% audience engagement at Crushvertise.</li>
+  <li><strong>Security:</strong> SignPro uses hashed passwords, signed session tokens, API rate limiting and an audit trail; EurekaEDU uses Row Level Security on every database table.</li>
+  <li><strong>Communication:</strong> English (C1), and remote work across US time zones since 2021.</li>
+  <li><strong>Process:</strong> discover, design, build and launch, with the success metric agreed in the first call and handover documentation at the end.</li>
+  <li><strong>Reviews:</strong> see my <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork profile</a>.</li>
+</ul>
+<p>If that fits what you need, see <a href="/hire-ai-developer-bangladesh">how to hire me</a> or send your project details through the <a href="/contact">contact page</a>.</p>`,
   },
 ];
 
