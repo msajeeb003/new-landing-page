@@ -963,6 +963,7 @@ ${POSTS_SORTED.map((post) => `- [${post.title}](${abs(postPage(post))}) (${post.
 - GitHub: ${SITE.profiles.github}
 - Upwork: ${SITE.profiles.upwork}
 - Fiverr: ${SITE.profiles.fiverr}
+- Dev.to: ${SITE.profiles.devto}
 `);
 
 // ---------------------------------------------------------

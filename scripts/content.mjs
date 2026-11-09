@@ -33,6 +33,7 @@ export const SITE = {
     github: 'https://github.com/msajeeb003',
     upwork: 'https://www.upwork.com/freelancers/~01943718b97948812b/',
     fiverr: 'https://www.fiverr.com/sb4059',
+    devto: 'https://dev.to/msajeeb003',
   },
   knowsAbout: [
     'Generative AI', 'Large language models', 'Prompt engineering', 'AI automation', 'AI agents', 'Workflow automation',
