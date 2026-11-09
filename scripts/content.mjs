@@ -107,13 +107,13 @@ export const FAQ = [
   { q: 'What does an AI builder do?',
     a: 'An AI builder turns an idea or a manual process into working software that uses AI. For me that means two kinds of projects: automations in n8n, Zapier and Make.com with AI steps inside them, and full web apps such as <a href="/projects/signpro">SignPro</a>, an e-signature platform, and <a href="/projects/socipro">SociPRO</a>, an autonomous social media agent.' },
   { q: 'How do I hire a gen AI engineer?',
-    a: 'Describe the problem you want solved and the result you expect, then talk to the engineer about how they would measure success. To work with me, send your project details through the <a href="/contact">contact page</a>, email <a href="mailto:mostafizur.contacts@gmail.com">mostafizur.contacts@gmail.com</a>, or hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. Every project starts with a discovery call to agree the goal and the metric.' },
+    a: 'Describe the problem you want solved and the result you expect, then talk to the engineer about how they would measure success. To work with me, send your project details through the <a href="/contact">contact page</a>, email <a href="mailto:mostafizur.contacts@gmail.com">mostafizur.contacts@gmail.com</a>, or hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. Every project starts with a discovery call to agree the goal and the metric. For a checklist, read <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">how to find the best AI developer in Bangladesh</a>.' },
   { q: 'Do you work with clients in the USA, UK and EU?',
     a: "Yes. I'm based in Kushtia, Bangladesh, and I have worked remotely with US companies since 2021, across US time zones, in English (C1). I'm open to remote projects worldwide and to relocating to the EU. Read <a href=\"/hire-ai-developer-bangladesh\">how hiring an AI developer in Bangladesh works</a>." },
   { q: 'What is vibe coding, and do you use it for client work?',
     a: 'Vibe coding means building software by describing what you want to an AI coding assistant and iterating on what it writes. I use Claude Code and Cursor this way because it lets one person ship what used to need a team. Every build still goes through the same steps as hand-written code: it is tested on real data and handed over with documentation.' },
   { q: 'Which automation and AI tools do you use?',
-    a: 'For automation: n8n, Zapier and Make.com, plus direct API integrations. For AI: Claude and Google Gemini. For apps: React, Node.js, PostgreSQL and Supabase. For growth work: HubSpot, Apollo.io, LinkedIn Sales Navigator and WordPress. See <a href="/services">all services</a>.' },
+    a: 'For automation: n8n, Zapier and Make.com, plus direct API integrations. For AI: Claude and Google Gemini. For apps: React, Node.js, PostgreSQL and Supabase. For growth work: HubSpot, Apollo.io, LinkedIn Sales Navigator and WordPress. See <a href="/services">all services</a>, or how the three automation platforms compare in <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>.' },
   { q: 'Can you build a SaaS MVP with AI?',
     a: 'Yes. I build SaaS MVPs end to end, from idea to launched product. <a href="/projects/signpro">SignPro</a> (React, Node.js, PostgreSQL) and <a href="/projects/socipro">SociPRO</a> (Node.js, Google Gemini, Supabase) are two examples with live demos and public code. Read more on <a href="/services/ai-app-development">AI app and SaaS development</a>.' },
   { q: 'What does a project with you look like?',
@@ -146,6 +146,7 @@ export const HIRE = {
   <li><strong>Clear communication</strong> in English (C1), with regular check-ins and handover documentation for every build.</li>
   <li><strong>One person, end to end.</strong> The same person scopes, builds, tests and documents the work, so nothing gets lost between hand-offs.</li>
 </ul>
+<p>Comparing developers? Use this <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">checklist for finding the best AI developer in Bangladesh</a> on me and anyone else you're considering.</p>
 <h2>How to start</h2>
 <p>Send a short description of what you want to build or automate through the <a href="/contact">contact page</a> or by email to <a href="mailto:mostafizur.contacts@gmail.com">mostafizur.contacts@gmail.com</a>. I'll reply by email, and we start with a discovery call to agree the goal and the metric we'll measure success by. If you prefer a platform, you can hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or order a fixed-scope gig on <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>.</p>`,
   faq: [
@@ -158,7 +159,7 @@ export const HIRE = {
     { q: 'How do I find the best AI developer in Bangladesh?',
       a: 'Check for live demos you can click, code you can read, results with numbers, security basics, a clear process and real reviews, and ask how they will work with your time zone. The full checklist is in <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">how to find the best AI developer in Bangladesh</a>, and you can check my work against it in the <a href="/projects">case studies</a>.' },
     { q: 'What can you build?',
-      a: 'AI automations in n8n, Zapier and Make.com, AI agents, and AI-powered web apps and SaaS MVPs. See <a href="/services/ai-automation">AI automation</a>, <a href="/services/ai-app-development">AI app development</a> and the <a href="/projects">case studies</a>.' },
+      a: 'AI automations in n8n, Zapier and Make.com, AI agents, and AI-powered web apps and SaaS MVPs. See <a href="/services/ai-automation">AI automation</a>, <a href="/services/ai-app-development">AI app development</a> and the <a href="/projects">case studies</a>. For real examples, read <a href="/blog/what-an-ai-automation-expert-builds">what an AI automation expert builds</a>.' },
   ],
 };
 
@@ -249,7 +250,7 @@ export const POSTS = [
   <li><strong>Test on real leads before launch.</strong> Run last month's leads through the flow and compare the AI's calls with what your sales team actually decided.</li>
 </ol>
 <h2>Need this built?</h2>
-<p>I build AI lead qualification and other automations in n8n, Zapier and Make.com for teams in the USA, UK and EU. See <a href="/services/ai-automation">AI automation</a>, the <a href="/projects/operations-automation">operations automation case study</a>, or <a href="/hire-ai-developer-bangladesh">how to hire an AI automation expert in Bangladesh</a>.</p>`,
+<p>I build AI lead qualification and other automations in n8n, Zapier and Make.com for teams in the USA, UK and EU. See <a href="/services/ai-automation">AI automation</a>, the <a href="/projects/operations-automation">operations automation case study</a>, <a href="/blog/what-an-ai-automation-expert-builds">four real AI automation workflows</a>, or <a href="/hire-ai-developer-bangladesh">how to hire an AI automation expert in Bangladesh</a>.</p>`,
   },
   {
     slug: 'how-to-find-the-best-ai-developer-in-bangladesh',
@@ -316,6 +317,51 @@ export const POSTS = [
 </ul>
 <p>If that fits what you need, see <a href="/hire-ai-developer-bangladesh">how to hire me</a> or send your project details through the <a href="/contact">contact page</a>.</p>`,
   },
+  {
+    slug: 'what-an-ai-automation-expert-builds',
+    title: 'What an AI automation expert builds: 4 real workflows',
+    metaTitle: 'What an AI Automation Expert Builds: 4 Real Workflows',
+    metaDesc: 'Four real AI automation workflows, from lead qualification to a content agent: what an AI automation expert builds, the tools used and what to expect.',
+    summary: "Four real workflows I've built, from AI lead qualification to an autonomous content agent, and what to expect when you hire an AI automation expert.",
+    date: '2026-11-09',
+    keywords: ['AI automation expert', 'AI automation expert Bangladesh', 'hire AI automation expert', 'n8n expert', 'AI agent developer'],
+    service: 'ai-automation', projects: ['operations-automation', 'eurekaedu', 'socipro'],
+    sources: [],
+    body: `
+<p>"AI automation" covers everything from a two-step zap to an agent that runs a whole content operation. The easiest way to see what an AI automation expert does is to look at real builds. Here are four of mine, from simple to complex, with the tools each one uses.</p>
+<h2>1. AI lead qualification</h2>
+<p><strong>The job:</strong> new leads arrive from forms and need to reach the right person fast, without anyone copying data between tools.</p>
+<p><strong>The flow:</strong> a webhook receives the lead, the lead is created in HubSpot, Claude reads it and qualifies it, and follow-up tasks go to Trello and out through Zapier. A person only steps in where a decision is needed. This is the shape of the flows I build at Artech Digital; see the <a href="/projects/operations-automation">operations automation case study</a>.</p>
+<p><strong>Tools:</strong> n8n, Zapier, Make.com, Claude, HubSpot and Trello.</p>
+<h2>2. A data pipeline that keeps a website full</h2>
+<p><strong>The job:</strong> keep a scholarship platform full of current listings without anyone typing them in.</p>
+<p><strong>The flow:</strong> on a schedule, an n8n workflow pulls scholarships from official national scheme sources, scholarship aggregators and news feeds. Google Gemini extracts the title, deadline, funding and requirements as structured JSON, each record is validated on its own, and the results are posted to the app through a webhook protected by a shared secret. Valid listings publish automatically, and an admin can edit any listing, publish drafts and retire expired scholarships. See <a href="/projects/eurekaedu">EurekaEDU</a>.</p>
+<p><strong>Tools:</strong> n8n, Google Gemini, Next.js and Supabase.</p>
+<h2>3. An autonomous content agent</h2>
+<p><strong>The job:</strong> post every day across several platforms without spending hours on topics, scripts and video editing.</p>
+<p><strong>The flow:</strong> every six hours the agent pulls trending topics from Google Trends and news from NewsData.io, ranks them and has Google Gemini write a script for each top story. It generates an image and a thumbnail, turns them into a slideshow video with FFmpeg, and formats each post for Facebook, Instagram and YouTube. Auto-posting is off by default: posts wait for approval, and each platform is capped at two posts a day. See <a href="/projects/socipro">SociPRO</a>.</p>
+<p><strong>Tools:</strong> Node.js, Google Gemini, FFmpeg, Supabase and node-cron.</p>
+<h2>4. Automation inside a product</h2>
+<p><strong>The job:</strong> get documents signed without the sender chasing people.</p>
+<p><strong>The flow:</strong> <a href="/projects/signpro">SignPro</a> sends signature requests by email or SMS, with the signing spot marked on the page. A companion Chrome extension checks for pending requests and shows a desktop notification with a "Sign Now" button, and senders can connect their own SMTP server so the emails come from their own domain.</p>
+<p><strong>Tools:</strong> Node.js, Nodemailer, Twilio and a Chrome extension (Manifest V3).</p>
+<h2>What these have in common</h2>
+<ul>
+  <li><strong>AI only where judgement is needed.</strong> Moving data is plain automation; the AI step reads, scores, extracts or writes.</li>
+  <li><strong>A person stays in control of the risky step:</strong> approving posts, reviewing leads that need a decision, editing listings.</li>
+  <li><strong>Checks before anything goes live:</strong> validated records, a shared secret on webhooks, and caps on how often things publish.</li>
+</ul>
+<h2>What to expect when you hire an AI automation expert</h2>
+<ol>
+  <li><strong>Discover:</strong> a call about your goals, the manual work to remove and the metric we'll measure success by.</li>
+  <li><strong>Design:</strong> a workflow map, tool choices and review rounds.</li>
+  <li><strong>Build:</strong> automations and integrations, tested on real data, with handover documentation.</li>
+  <li><strong>Launch:</strong> go-live, measurement and a plan for the next iteration.</li>
+</ol>
+<p>A good first candidate is a task someone repeats every day between two tools. It is easy to measure, and the time saved shows up immediately.</p>
+<h2>Want one of these for your team?</h2>
+<p>I'm an AI automation expert in Kushtia, Bangladesh, working with teams in the USA, UK and EU. See <a href="/services/ai-automation">AI automation</a>, compare the platforms in <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>, or read <a href="/hire-ai-developer-bangladesh">how to hire me</a>.</p>`,
+  },
 ];
 
 // ---------------------------------------------------------
@@ -349,6 +395,7 @@ export const SERVICES = [
 <p>I also apply the same idea to complete products. <a href="/projects/socipro">SociPRO</a> is an autonomous social media agent: it finds trending topics, writes posts with Google Gemini, renders video with FFmpeg and queues publishing on a schedule, with a review step before anything goes live.</p>
 <h2>What you get</h2>
 <p>A working automation, tested on real data, with a short document that explains each step, where it can fail and how to change it. We agree the success metric in the first call, usually hours saved or response time, so you can see whether the automation is paying for itself.</p>
+<p>For four real examples, read <a href="/blog/what-an-ai-automation-expert-builds">what an AI automation expert builds</a>.</p>
 <p>Hiring from the USA, UK or EU? See <a href="/hire-ai-developer-bangladesh">how to hire an AI automation expert in Bangladesh</a>.</p>`,
   },
   {
@@ -376,7 +423,7 @@ export const SERVICES = [
 <p><a href="/projects/signpro">SignPro</a> is a legally binding e-signature platform built with React, Node.js and PostgreSQL. Senders upload PDF or Word documents and request signatures by email or SMS; every signing is sealed with an evidence hash. <a href="/projects/socipro">SociPRO</a> is an autonomous social media agent built with Node.js, Google Gemini, Supabase and FFmpeg. Both have live demos and public source code.</p>
 <p>I also built ${plink('eurekaedu', 'EurekaEDU')}, a scholarship platform whose listings are collected by an n8n and Google Gemini pipeline, and ${plink('linkedin-bioster', 'LinkedIn Bioster')}, an AI app that rewrites LinkedIn headlines and bios.</p>
 <h2>Who it's for</h2>
-<p>Founders who want to test an idea with a real product instead of slides, and teams that need an internal tool built around how they already work. Hiring from the USA, UK or EU? See <a href="/hire-ai-developer-bangladesh">how to hire an AI developer in Bangladesh</a>.</p>`,
+<p>Founders who want to test an idea with a real product instead of slides, and teams that need an internal tool built around how they already work. Comparing developers? Use this <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">checklist for finding the best AI developer in Bangladesh</a>. Hiring from the USA, UK or EU? See <a href="/hire-ai-developer-bangladesh">how to hire an AI developer in Bangladesh</a>.</p>`,
   },
   {
     slug: 'seo-social-media', name: 'SEO & social media', icon: 'i-trending', soft: 'var(--mint-soft)', strong: 'var(--mint-deep)',
@@ -529,6 +576,7 @@ export const PROJECTS = [
 </ul>
 <h2>A typical flow</h2>
 <p>The diagram above shows the shape of a typical lead flow: a webhook receives a new lead, the lead is created in HubSpot, Claude reads it and qualifies it, and follow-up tasks go to Trello and out through Zapier. Each step runs without anyone copying data between tabs, and a person only steps in where a decision is needed.</p>
+<p>For how this flow differs on each platform, read <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>.</p>
 <h2>Tools used</h2>
 <p>n8n, Zapier and Make.com for orchestration, Claude for the AI steps, HubSpot as the CRM, Trello for task boards, plus webhooks and direct API calls where a ready-made connector does not exist.</p>
 <h2>Result</h2>
