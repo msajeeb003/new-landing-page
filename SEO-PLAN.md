@@ -30,7 +30,7 @@ On single runs at quieter moments, the new inner pages scored 80–91 for perfor
 
 Locally the homepage stayed below 95 on mobile, but Google's PageSpeed test (above) gives 96, so no design trade-offs are needed for speed.
 
-**Accessibility 96–97, not 100:** white text on the brand orange (`#F26B21`) has a contrast of 3.0:1, and the minimum is 4.5:1. A darker orange such as `#C2500C` passes at 4.7:1. It's a brand color change, so it's your call.
+**Accessibility was 96–97, not 100,** because white text on the old brand orange (`#F26B21`) had a contrast of 3.0:1 against a 4.5:1 minimum. Since 10 Nov 2026 the accent is blue (`#2563EB`, 5.2:1), which removes that cause. Re-run PageSpeed after it is live to confirm the new score.
 
 Re-run https://pagespeed.web.dev/ on `https://www.mostafizur.me/` after big changes, and save each report in `reports/`.
 
@@ -53,6 +53,7 @@ Re-run https://pagespeed.web.dev/ on `https://www.mostafizur.me/` after big chan
 | `d935280` | Local preview server and site checker | `scripts/serve.mjs`, `scripts/verify.mjs` |
 | `9a5ab18` | New link-preview image with the new title, README, this plan | `images/og.jpg`, `og-source/og.html`, `README.md`, `SEO-PLAN.md`, `.vercelignore` |
 | `ded2605` | The vercel.app homepage now redirects too | `vercel.json` |
+| (blue palette) | Site recoloured from orange to blue: accent #2563EB (white-on-accent contrast 5.17:1, was 3.04:1), cool backgrounds, hero t-shirt recoloured to match, new link-preview image. Removed a stray control character from the homepage (tiny box above the contact section, live since 5 Nov); the checker now fails on control characters | styles.css, index.html, images/hero-pointing*, images/og.jpg, og-source/og.html, site.webmanifest, scripts/recolor-shirt.py, scripts/make-images.py, scripts/verify.mjs |
 | (links, article 3) | Fixed the Search Console "Redirect error" (https://mostafizur.me/blog was a stale 6 Nov crawl; it now 308s once to www; validation started 9 Nov). Contextual links to the articles from the homepage FAQ, AI app/automation pages, hire page and operations case study. New article "What an AI automation expert builds: 4 real workflows". Sitemap 20 URLs | scripts/content.mjs, blog/ |
 | (guide) | Article "How to find the best AI developer in Bangladesh" (checklist, questions, red flags, where to look, how my work measures up) + hire-page FAQ linking to it. Targets the "best AI developer in Bangladesh" search without a self-claim | scripts/content.mjs, scripts/build.mjs, blog/ |
 | (blog) | /blog section and first article: n8n vs Zapier vs Make.com for AI lead qualification (BlogPosting markup, sources with check date, linked from the AI automation page and the footer). Dev.to version with canonical link in drafts/ | scripts/content.mjs, scripts/build.mjs, styles.css, blog/ |
@@ -78,7 +79,7 @@ Edit `scripts/content.mjs`, then run `node scripts/build.mjs`.
 4. **"Vibe coder" wording.** It appears in the FAQ and on the AI app development page, but not in the homepage headline. Tell me if you want it more prominent.
 5. **Testimonials.** The section is commented out in `index.html` until you have real client quotes.
 6. **Your CV** (`cv-source/cv.html` → `cv.pdf`) still says "Gen AI Engineer · Automation Specialist". Update it to match the site if you're happy with the new title.
-7. **Optional:** the darker button orange for contrast (see section 1).
+7. ~~Optional: the darker button orange for contrast.~~ Not needed: the accent is now blue and passes contrast.
 8. ~~Optional: design trade-offs for 95+ mobile performance.~~ Not needed: Google's PageSpeed test gives 96 on mobile.
 
 ---

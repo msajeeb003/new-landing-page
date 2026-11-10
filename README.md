@@ -51,6 +51,8 @@ It checks JSON-LD, canonical URLs, one H1 per page, alt text, internal links, th
 
 To regenerate the responsive portrait images (needs Python with Pillow): `python scripts/make-images.py`.
 
+The hero photo's t-shirt was recoloured from orange to the site's blue with `scripts/recolor-shirt.py` (needs numpy too). The script's header explains how to pick another colour; the original orange photo is in git history.
+
 ## Tell Bing about changes (IndexNow)
 
 After a push has finished deploying, tell Bing (and Copilot, Yandex, Seznam, Naver, Yep) which pages changed,
