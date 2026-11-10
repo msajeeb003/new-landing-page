@@ -1,16 +1,31 @@
 """Generate responsive WebP + AVIF versions of the portrait photos.
 Run from the repo root: python scripts/make-images.py  (needs Pillow 11.3+).
 Pass one or more source paths to rebuild only those, e.g.
-python scripts/make-images.py images/hero-pointing.png"""
+python scripts/make-images.py images/hero-thinking.png"""
 import sys
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageEnhance
 
 JOBS = {  # source PNG -> output widths
-    "images/hero-pointing.png": [480, 800, 1200],
+    "images/hero-thinking.png": [480, 800, 1200],
     "images/about-thumbsup.png": [480, 800],
     "images/cta-armscrossed.png": [400, 800],
 }
+
+# Optional tone lift per source: gamma < 1 brightens midtones and shadows but keeps highlights,
+# colour > 1 restores the saturation that brightening washes out. The source PNG stays untouched.
+TONE = {
+    "images/hero-thinking.png": {"gamma": 0.82, "colour": 1.10},
+}
+
+
+def lift(im, gamma, colour):
+    r, g, b, a = im.split()
+    lut = [round(255 * (i / 255) ** gamma) for i in range(256)]
+    rgb = Image.merge("RGB", (r, g, b)).point(lut * 3)
+    rgb = ImageEnhance.Color(rgb).enhance(colour)
+    return Image.merge("RGBA", (*rgb.split(), a))
+
 
 only = {Path(p).as_posix() for p in sys.argv[1:]}
 unknown = only - set(JOBS)
@@ -21,6 +36,8 @@ for src, widths in JOBS.items():
     if only and src not in only:
         continue
     im = Image.open(src).convert("RGBA")
+    if src in TONE:
+        im = lift(im, **TONE[src])
     stem = Path(src).with_suffix("")
     for w in widths:
         h = round(im.height * w / im.width)

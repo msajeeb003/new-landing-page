@@ -7,24 +7,32 @@
      Render (from the repo root, with Chrome installed):
        chrome --headless=new --hide-scrollbars --allow-file-access-from-files --force-device-scale-factor=1
               --window-size=1200,630 --screenshot=og.png og-source/og.html
-     then save og.png as images/og.jpg (JPEG, quality ~86). -->
+     then save og.png as images/og.jpg (JPEG, quality ~86).
+     With a brand-new --user-data-dir the first render can come out about 57px short at the bottom: render twice
+     and check the photo reaches the bottom edge. Bump ?v= on og.jpg in index.html and scripts/content.mjs. -->
 <style>
   @font-face { font-family: 'Sora'; font-weight: 600 800; src: url(../fonts/sora-latin.woff2) format('woff2'); }
   @font-face { font-family: 'DM Sans'; font-weight: 400 700; src: url(../fonts/dm-sans-latin.woff2) format('woff2'); }
   html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
   body {
     position: relative; font-family: 'DM Sans', sans-serif; color: #16193A;
-    background: linear-gradient(120deg, #DCE8FF 0%, #F3F6FF 48%, #EDE6FF 100%);
+    background: linear-gradient(120deg, #ECE6FF 0%, #F8F7FF 46%, #E4F6FF 100%);
   }
   .copy { position: absolute; left: 64px; top: 150px; width: 640px; }
-  h1 { margin: 0; font-family: 'Sora', sans-serif; font-weight: 800; font-size: 74px; line-height: 1.02; letter-spacing: -0.02em; color: #2563EB; }
+  h1 { margin: 0; font-family: 'Sora', sans-serif; font-weight: 800; font-size: 74px; line-height: 1.02; letter-spacing: -0.02em; color: #6D3DF5;
+    background: linear-gradient(100deg, #7C3AED 0%, #5B4BFF 48%, #2563EB 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   .role { margin-top: 26px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.01em; }
   .tools { margin-top: 14px; font-size: 26px; color: #5C6180; }
   .chip { display: inline-flex; align-items: center; gap: 12px; margin-top: 34px; padding: 0 22px; height: 52px; border-radius: 999px; background: #fff; font-size: 21px; font-weight: 700; box-shadow: 0 10px 24px rgba(22, 25, 58, .06); }
   .chip i { width: 14px; height: 14px; border-radius: 50%; background: #3ECF8E; }
-  .url { position: absolute; left: 64px; bottom: 40px; font-size: 20px; font-weight: 700; color: #1D4ED8; letter-spacing: .02em; }
-  .arch { position: absolute; right: 60px; bottom: -40px; width: 400px; height: 500px; border-radius: 200px 200px 28px 28px; background: linear-gradient(180deg, #C9DAFF 0%, #DDE7FF 55%, #E6DDFF 100%); }
-  .photo { position: absolute; right: 10px; bottom: 0; height: 560px; filter: drop-shadow(0 24px 40px rgba(22, 25, 58, .18)); }
+  .url { position: absolute; left: 64px; bottom: 40px; font-size: 20px; font-weight: 700; color: #5B2BE0; letter-spacing: .02em; }
+  .glow { position: absolute; right: -130px; top: -80px; width: 780px; height: 780px;
+    background: radial-gradient(32% 32% at 32% 32%, rgba(167, 139, 250, .62), transparent 100%), radial-gradient(28% 28% at 72% 36%, rgba(103, 232, 249, .50), transparent 100%),
+      radial-gradient(30% 30% at 58% 70%, rgba(110, 231, 183, .40), transparent 100%), radial-gradient(closest-side, rgba(255, 255, 255, .80), transparent 100%); }
+  .arch { position: absolute; right: 60px; bottom: -40px; width: 400px; height: 500px; border-radius: 200px 200px 28px 28px;
+    background: radial-gradient(95% 52% at 50% 10%, rgba(255, 255, 255, .78), rgba(255, 255, 255, 0) 72%), linear-gradient(180deg, #C4B1FF 0%, #D6CAFF 45%, #B3E5FB 100%);
+    box-shadow: 0 40px 90px -30px rgba(109, 61, 245, .45), inset 0 0 0 1px rgba(255, 255, 255, .55); }
+  .photo { position: absolute; right: 10px; bottom: 0; height: 560px; filter: drop-shadow(0 0 26px rgba(167, 139, 250, .55)) drop-shadow(0 22px 38px rgba(22, 25, 58, .20)); }
 </style>
 </head>
 <body>
@@ -35,7 +43,8 @@
     <div class="chip"><i></i>Available for new projects</div>
   </div>
   <div class="url">mostafizur.me</div>
+  <div class="glow"></div>
   <div class="arch"></div>
-  <img class="photo" src="../images/hero-pointing-1200.webp" alt="">
+  <img class="photo" src="../images/hero-thinking-1200.webp" alt="">
 </body>
 </html>

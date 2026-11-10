@@ -27,7 +27,7 @@ export const SITE = {
   country: 'BD',
   countryName: 'Bangladesh',
   image: '/images/about-thumbsup-800.webp',
-  ogImage: '/images/og.jpg?v=2',   // bump ?v= when the image changes, so browsers and social sites refetch it
+  ogImage: '/images/og.jpg?v=3',   // bump ?v= when the image changes, so browsers and social sites refetch it
   profiles: {
     linkedin: 'https://www.linkedin.com/in/mostafiz9221',
     github: 'https://github.com/msajeeb003',
@@ -82,7 +82,7 @@ export const EDUCATION = [
     institute: 'Jhenaidah Polytechnic Institute', location: 'Jhenaidah, Bangladesh', years: '2017 – 2021',
     detail: 'Specialisation: software development, graphic design, data management',
     label: 'CGPA', score: 3.55, scale: 4.0, result: '4-year engineering diploma', photo: 'images/edu-2.jpg',
-    color: 'var(--lilac)', soft: 'var(--lilac-soft)', text: 'var(--lilac-text)' },
+    color: 'var(--blue)', soft: 'var(--blue-soft)', text: 'var(--blue-text)' },
   { type: 'Certification', title: 'Google Prompting Essentials',
     institute: 'Google · Coursera', location: 'Online', years: 'Nov 2025',
     detail: '4 courses: writing prompts, everyday work tasks, data analysis & presentations, AI as a creative or expert partner',
@@ -94,7 +94,7 @@ export const EDUCATION = [
 
 export const PROCESS = [
   { n: 1, title: 'Discover', text: "Call, goals, the manual work to remove, and the metric we'll measure success by.", chip: 'Scope & goals', color: 'var(--accent)', soft: 'var(--accent-soft)', ctext: 'var(--accent-text)' },
-  { n: 2, title: 'Design', text: 'Workflow map, tool choices and visual direction, with review rounds.', chip: 'Blueprint', color: 'var(--lilac)', soft: 'var(--lilac-soft)', ctext: 'var(--lilac-text)' },
+  { n: 2, title: 'Design', text: 'Workflow map, tool choices and visual direction, with review rounds.', chip: 'Blueprint', color: 'var(--blue)', soft: 'var(--blue-soft)', ctext: 'var(--blue-text)' },
   { n: 3, title: 'Build', text: 'Automations, apps and integrations, tested on real data, with handover docs.', chip: 'Tested build', color: 'var(--mint-deep)', soft: 'var(--mint-soft)', ctext: 'var(--mint-text)' },
   { n: 4, title: 'Launch', text: 'Go-live, measurement, and a plan for the next iteration.', chip: 'ongoing', color: 'var(--sky)', soft: 'var(--sky-soft)', ctext: 'var(--sky-text)' },
 ];
@@ -400,7 +400,7 @@ export const SERVICES = [
 <p>Hiring from the USA, UK or EU? See <a href="/hire-ai-developer-bangladesh">how to hire an AI automation expert in Bangladesh</a>.</p>`,
   },
   {
-    slug: 'ai-app-development', name: 'AI app & SaaS development', icon: 'i-app', soft: 'var(--lilac-soft)', strong: 'var(--lilac)',
+    slug: 'ai-app-development', name: 'AI app & SaaS development', icon: 'i-app', soft: 'var(--blue-soft)', strong: 'var(--blue)',
     h1: 'Freelance AI app and SaaS MVP developer',
     metaTitle: 'Freelance AI App & SaaS MVP Developer | Mostafizur Rahman',
     metaDesc: 'Freelance AI app developer in Bangladesh. I build AI web apps, AI agents and SaaS MVPs end to end with Claude Code and Cursor, tested and documented.',
@@ -452,7 +452,7 @@ export const SERVICES = [
 // until the missing details are filled in.
 // ---------------------------------------------------------
 const CAT = {
-  web: { filter: 'web', label: 'SaaS & Web', soft: 'var(--lilac-soft)', text: 'var(--lilac-text)' },
+  web: { filter: 'web', label: 'SaaS & Web', soft: 'var(--blue-soft)', text: 'var(--blue-text)' },
   automation: { filter: 'automation', label: 'AI & Automation', soft: 'var(--accent-soft)', text: 'var(--accent-text)' },
   marketing: { filter: 'marketing', label: 'Marketing', soft: 'var(--sky-soft)', text: 'var(--sky-text)' },
   freelance: { filter: 'freelance', label: 'Freelance', soft: 'var(--mint-soft)', text: 'var(--mint-text)' },

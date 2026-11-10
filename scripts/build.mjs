@@ -343,7 +343,7 @@ const shell = (page) => {
   <meta name="twitter:title" content="${esc(page.title)}">
   <meta name="twitter:description" content="${esc(page.description)}">
   <meta name="twitter:image" content="${abs(SITE.ogImage)}">
-  <meta name="theme-color" content="#F6F8FE">
+  <meta name="theme-color" content="#F8F7FF">
 
   <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">

@@ -3,8 +3,8 @@
   "short_name": "Mostafizur",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#F6F8FE",
-  "theme_color": "#F6F8FE",
+  "background_color": "#F8F7FF",
+  "theme_color": "#F8F7FF",
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },

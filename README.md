@@ -51,7 +51,7 @@ It checks JSON-LD, canonical URLs, one H1 per page, alt text, internal links, th
 
 To regenerate the responsive portrait images (needs Python with Pillow): `python scripts/make-images.py`.
 
-The hero photo's t-shirt was recoloured from orange to the site's blue with `scripts/recolor-shirt.py` (needs numpy too). The script's header explains how to pick another colour; the original orange photo is in git history.
+The hero photo's source is `images/hero-thinking.png` (cut-out, transparent background). The web sizes are brightened slightly by the `TONE` setting in `scripts/make-images.py`; the source file stays untouched.
 
 ## Tell Bing about changes (IndexNow)
 
