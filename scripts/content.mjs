@@ -27,7 +27,7 @@ export const SITE = {
   country: 'BD',
   countryName: 'Bangladesh',
   image: '/images/about-thumbsup-800.webp',
-  ogImage: '/images/og.jpg',
+  ogImage: '/images/og.jpg?v=2',   // bump ?v= when the image changes, so browsers and social sites refetch it
   profiles: {
     linkedin: 'https://www.linkedin.com/in/mostafiz9221',
     github: 'https://github.com/msajeeb003',
