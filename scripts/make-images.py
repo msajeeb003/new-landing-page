@@ -7,7 +7,7 @@ from pathlib import Path
 from PIL import Image, ImageEnhance
 
 JOBS = {  # source PNG -> output widths
-    "images/hero-thinking.png": [480, 800, 1200],
+    "images/hero-thinking.png": [480, 640, 800, 960, 1200],
     "images/about-thumbsup.png": [480, 800],
     "images/cta-armscrossed.png": [400, 800],
 }
