@@ -14,7 +14,7 @@ Key facts:
 - Contact: mostafizur.contacts@gmail.com or https://www.mostafizur.me/contact
 
 ## Services
-- [AI automation expert: n8n, Zapier and Make.com](https://www.mostafizur.me/services/ai-automation): AI automation expert in Bangladesh. I build n8n, Zapier and Make.com workflows and AI agents (Claude, Gemini) that remove manual work for your team.
+- [AI automation expert in Bangladesh: n8n, Zapier and Make.com](https://www.mostafizur.me/services/ai-automation): AI automation expert in Bangladesh. I build n8n, Zapier and Make.com workflows and AI agents (Claude, Gemini) that remove manual work for your team.
 - [Freelance AI app and SaaS MVP developer](https://www.mostafizur.me/services/ai-app-development): Freelance AI app developer in Bangladesh. I build AI web apps, AI agents and SaaS MVPs end to end with Claude Code and Cursor, tested and documented.
 - [SEO, social media and lead generation](https://www.mostafizur.me/services/seo-social-media): Keyword research, on-page SEO, WordPress, social content and B2B lead generation, with real results: +25% organic rankings, +15% qualified leads.
 
@@ -36,6 +36,7 @@ Key facts:
 - [About Mostafizur Rahman](https://www.mostafizur.me/about): background, experience, education and tools
 - [FAQ](https://www.mostafizur.me/#faq): who Mostafizur Rahman is, what an AI builder does, how to hire a gen AI engineer, vibe coding, tools
 - [Hire an AI developer in Bangladesh](https://www.mostafizur.me/hire-ai-developer-bangladesh): what he builds, time zones, how projects start
+- [n8n expert in Bangladesh](https://www.mostafizur.me/n8n-expert-bangladesh): n8n workflows, AI agents and data pipelines, with real builds
 - [Contact](https://www.mostafizur.me/contact): hire for a project
 
 ## Profiles

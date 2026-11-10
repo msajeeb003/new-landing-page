@@ -10,7 +10,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  SITE, SUMMARY, EXPERIENCE, EDUCATION, PROCESS, FAQ, SERVICES, PROJECTS, FREELANCE, DRAFTS, HIRE, POSTS,
+  SITE, SUMMARY, EXPERIENCE, EDUCATION, PROCESS, FAQ, SERVICES, PROJECTS, FREELANCE, DRAFTS, HIRE, N8N, POSTS,
 } from './content.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -763,25 +763,25 @@ ${post.sources.map((src) => `  <li><a href="${src.url}" target="_blank" rel="noo
   pages.push(page);
 }
 
-// --- Hire an AI developer in Bangladesh ---
-{
+// --- Landing pages: hire an AI developer, n8n expert ---
+for (const L of [HIRE, N8N]) {
   const page = {
-    path: HIRE.path, section: 'hire', title: HIRE.title, description: HIRE.description,
-    crumbs: [['Home', '/'], ['Hire an AI developer']],
+    path: L.path, section: 'hire', title: L.title, description: L.description,
+    crumbs: [['Home', '/'], [L.crumb]],
   };
-  const work = HIRE.projects.map((slug) => projectBySlug[slug]).filter((p) => p && !isDraft(p.slug));
+  const work = L.projects.map((slug) => projectBySlug[slug]).filter((p) => p && !isDraft(p.slug));
   const extLink = (href, label) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}<span class="sr-only"> (opens in a new tab)</span></a>`;
   page.main = `${hero({
-    crumbs: page.crumbs, eyebrow: '<p class="label">HIRE AN AI DEVELOPER</p>',
-    h1: esc(HIRE.h1), lead: esc(HIRE.lead),
+    crumbs: page.crumbs, eyebrow: `<p class="label">${L.eyebrow}</p>`,
+    h1: esc(L.h1), lead: esc(L.lead),
     actions: `<div class="pg-actions"><a class="btn btn--arrow" href="/contact">Start a project ${icon('i-arrow', 'icon btn__icon')}</a><a class="btn btn--ghost" href="/projects">View projects</a></div>`,
   })}
 
   <section class="section section--white">
     <div class="container pg-layout">
-      <article class="prose">${HIRE.body}
+      <article class="prose">${L.body}
       </article>
-      <aside class="pg-aside" aria-label="Hiring details">
+      <aside class="pg-aside" aria-label="${L.asideLabel}">
         <div class="card card--float facts">
           <h2 class="facts__title">At a glance</h2>
           <dl>
@@ -799,11 +799,11 @@ ${post.sources.map((src) => `  <li><a href="${src.url}" target="_blank" rel="noo
     </div>
   </section>
 
-  <section class="section" aria-labelledby="hire-work-title">
+  <section class="section" aria-labelledby="${L.faqId}-work-title">
     <div class="container">
       <div class="stack-head pg-section-head">
         <p class="label">RECENT WORK</p>
-        <h2 class="h2" id="hire-work-title">Apps and agents I've built</h2>
+        <h2 class="h2" id="${L.faqId}-work-title">${esc(L.workTitle)}</h2>
       </div>
       <ul class="work-grid pg-work-grid" role="list">
         ${work.map((p) => workCard(p)).join('\n        ')}
@@ -813,10 +813,10 @@ ${post.sources.map((src) => `  <li><a href="${src.url}" target="_blank" rel="noo
 
   ${processSection()}
 
-  ${faqSection(HIRE.faq, { id: 'hire-faq', title: 'Hiring <span class="accent">questions</span>', lead: 'What clients ask before hiring an AI developer in Bangladesh.' })}
+  ${faqSection(L.faq, { id: L.faqId, title: L.faqTitle, lead: L.faqLead })}
 
   ${ctaBand()}`;
-  page.schema = [personFull(), website(), webPage(page, 'WebPage', { about: personRef, mainEntity: personRef }), breadcrumb(page), faqPage(page.path, HIRE.faq)];
+  page.schema = [personFull(), website(), webPage(page, 'WebPage', { about: personRef, mainEntity: personRef }), breadcrumb(page), faqPage(page.path, L.faq)];
   pages.push(page);
 }
 
@@ -956,6 +956,7 @@ ${POSTS_SORTED.map((post) => `- [${post.title}](${abs(postPage(post))}) (${post.
 - [About ${SITE.name}](${abs('/about')}): background, experience, education and tools
 - [FAQ](${abs('/#faq')}): who Mostafizur Rahman is, what an AI builder does, how to hire a gen AI engineer, vibe coding, tools
 - [Hire an AI developer in Bangladesh](${abs(HIRE.path)}): what he builds, time zones, how projects start
+- [n8n expert in Bangladesh](${abs(N8N.path)}): n8n workflows, AI agents and data pipelines, with real builds
 - [Contact](${abs('/contact')}): hire for a project
 
 ## Profiles

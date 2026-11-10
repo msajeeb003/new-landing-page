@@ -114,7 +114,7 @@ export const FAQ = [
   { q: 'What is vibe coding, and do you use it for client work?',
     a: 'Vibe coding means building software by describing what you want to an AI coding assistant and iterating on what it writes. I use Claude Code and Cursor this way because it lets one person ship what used to need a team. Every build still goes through the same steps as hand-written code: it is tested on real data and handed over with documentation.' },
   { q: 'Which automation and AI tools do you use?',
-    a: 'For automation: n8n, Zapier and Make.com, plus direct API integrations. For AI: Claude and Google Gemini. For apps: React, Node.js, PostgreSQL and Supabase. For growth work: HubSpot, Apollo.io, LinkedIn Sales Navigator and WordPress. See <a href="/services">all services</a>, or how the three automation platforms compare in <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>.' },
+    a: 'For automation: <a href="/n8n-expert-bangladesh">n8n</a>, Zapier and Make.com, plus direct API integrations. For AI: Claude and Google Gemini. For apps: React, Node.js, PostgreSQL and Supabase. For growth work: HubSpot, Apollo.io, LinkedIn Sales Navigator and WordPress. See <a href="/services">all services</a>, or how the three automation platforms compare in <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>.' },
   { q: 'Can you build a SaaS MVP with AI?',
     a: 'Yes. I build SaaS MVPs end to end, from idea to launched product. <a href="/projects/signpro">SignPro</a> (React, Node.js, PostgreSQL) and <a href="/projects/socipro">SociPRO</a> (Node.js, Google Gemini, Supabase) are two examples with live demos and public code. Read more on <a href="/services/ai-app-development">AI app and SaaS development</a>.' },
   { q: 'What does a project with you look like?',
@@ -131,11 +131,14 @@ export const HIRE = {
   description: 'Hire Mostafizur Rahman, a freelance AI developer and AI automation expert in Bangladesh, for AI apps, SaaS MVPs and n8n, Zapier and Make.com work.',
   h1: 'Hire an AI developer in Bangladesh',
   lead: "I'm Mostafizur Rahman, a freelance AI builder and Gen AI engineer in Kushtia, Bangladesh. I build AI apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU, and I've worked remotely with US companies since 2021.",
+  crumb: 'Hire an AI developer', eyebrow: 'HIRE AN AI DEVELOPER', asideLabel: 'Hiring details',
+  workTitle: "Apps and agents I've built", faqId: 'hire-faq',
+  faqTitle: 'Hiring <span class="accent">questions</span>', faqLead: 'What clients ask before hiring an AI developer in Bangladesh.',
   projects: ['signpro', 'socipro', 'eurekaedu'],
   body: `
 <h2>What I can build for you</h2>
 <ul>
-  <li><strong><a href="/services/ai-automation">AI automation</a></strong> in n8n, Zapier and Make.com: workflows that connect your CRM, project board, forms and inbox, with AI steps that read, sort, qualify and draft.</li>
+  <li><strong><a href="/services/ai-automation">AI automation</a></strong> in <a href="/n8n-expert-bangladesh">n8n</a>, Zapier and Make.com: workflows that connect your CRM, project board, forms and inbox, with AI steps that read, sort, qualify and draft.</li>
   <li><strong>AI agents</strong> that run a multi-step job on their own, like <a href="/projects/socipro">SociPRO</a>, which finds trending topics, writes posts with Google Gemini, renders video and queues it for review.</li>
   <li><strong><a href="/services/ai-app-development">AI apps and SaaS MVPs</a></strong>, built end to end with Claude Code and Cursor: sign-in, dashboards, a database and the core workflow your users pay for.</li>
 </ul>
@@ -161,6 +164,53 @@ export const HIRE = {
       a: 'Check for live demos you can click, code you can read, results with numbers, security basics, a clear process and real reviews, and ask how they will work with your time zone. The full checklist is in <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">how to find the best AI developer in Bangladesh</a>, and you can check my work against it in the <a href="/projects">case studies</a>.' },
     { q: 'What can you build?',
       a: 'AI automations in n8n, Zapier and Make.com, AI agents, and AI-powered web apps and SaaS MVPs. See <a href="/services/ai-automation">AI automation</a>, <a href="/services/ai-app-development">AI app development</a> and the <a href="/projects">case studies</a>. For real examples, read <a href="/blog/what-an-ai-automation-expert-builds">what an AI automation expert builds</a>.' },
+  ],
+};
+
+// ---------------------------------------------------------
+// n8n page (/n8n-expert-bangladesh): one page whose URL, title and H1 match the search
+// "n8n expert in Bangladesh". Real facts only; the n8n product facts were checked on n8n.io on 6 Nov 2026.
+// ---------------------------------------------------------
+export const N8N = {
+  path: '/n8n-expert-bangladesh',
+  title: 'n8n Expert in Bangladesh | Mostafizur Rahman',
+  description: 'n8n expert in Bangladesh: I build n8n workflows, AI agents and data pipelines with Claude and Gemini for teams in the USA, UK and EU. See real builds.',
+  h1: 'n8n expert in Bangladesh',
+  lead: "I'm Mostafizur Rahman, an n8n expert and AI builder in Kushtia, Bangladesh. I build n8n workflows, AI agents and data pipelines that connect your tools and remove manual work, for teams in the USA, UK and EU.",
+  crumb: 'n8n expert', eyebrow: 'N8N AUTOMATION', asideLabel: 'n8n service details',
+  workTitle: "n8n and automation builds", faqId: 'n8n-faq',
+  faqTitle: 'n8n <span class="accent">questions</span>', faqLead: 'What clients ask before hiring an n8n expert in Bangladesh.',
+  projects: ['eurekaedu', 'operations-automation', 'socipro'],
+  body: `
+<h2>What I build with n8n</h2>
+<ul>
+  <li><strong>Workflow automation</strong> that connects CRMs such as HubSpot, project boards such as Trello, forms, webhooks and email, so nobody copies data between tabs.</li>
+  <li><strong>AI steps and AI agents.</strong> Claude or Google Gemini read, qualify, extract and draft inside the workflow. n8n's AI Agent node connects a model, memory and tools for jobs that need more than one prompt.</li>
+  <li><strong>Data pipelines</strong> that collect information on a schedule, structure it with AI, validate it and post it to your app or database.</li>
+  <li><strong>Webhooks and API integrations</strong> for tools that have no ready-made n8n node.</li>
+  <li><strong>Handover documentation</strong> that explains each step, where it can fail and how to change it.</li>
+</ul>
+<h2>n8n work I've done</h2>
+<p><strong>A pipeline that keeps a website full.</strong> For <a href="/projects/eurekaedu">EurekaEDU</a>, a scholarship platform, an n8n workflow runs on a schedule and pulls scholarships from official national scheme sources, scholarship aggregators and news feeds. Google Gemini extracts the title, deadline, funding and requirements as structured JSON, each record is validated on its own, and the results are posted to the app through a webhook protected by a shared secret. Valid listings publish automatically.</p>
+<p><strong>AI lead qualification.</strong> At Artech Digital, a US company, I build and maintain n8n workflows that connect the team's SaaS tools, CRM and marketing systems. A typical lead flow: a webhook receives the lead, it is created in HubSpot, Claude reads and qualifies it, and follow-up tasks go to Trello. See the <a href="/projects/operations-automation">operations automation case study</a>.</p>
+<h2>Why teams choose n8n</h2>
+<ul>
+  <li><strong>One run, one execution.</strong> On n8n's paid plans a whole workflow run counts as one execution, however many steps it has. Tools that bill per step get expensive as a flow grows.</li>
+  <li><strong>Self-hosting.</strong> The Community edition can run on your own server, so sensitive data stays with you.</li>
+  <li><strong>Room for code.</strong> When a ready-made node is not enough, a Code node or a direct API call fills the gap.</li>
+</ul>
+<p>Not sure n8n is the right tool? Read <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>. I build in all three, so your team can stay on the tool it already uses.</p>
+<h2>How to start</h2>
+<p>Send a short description of the manual task you want to remove through the <a href="/contact">contact page</a> or by email to <a href="mailto:mostafizur.contacts@gmail.com">mostafizur.contacts@gmail.com</a>. We start with a discovery call to agree the goal and the metric, usually hours saved or response time. You can also hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. For the wider service, see <a href="/services/ai-automation">AI automation</a>.</p>`,
+  faq: [
+    { q: 'Do you work with n8n Cloud or self-hosted n8n?',
+      a: 'Both. I build on n8n Cloud or on a self-hosted Community edition, depending on where your team wants its data and who will maintain the server.' },
+    { q: 'Can you add AI to an existing n8n workflow?',
+      a: 'Yes. Common additions are a step where Claude or Google Gemini reads and qualifies incoming requests, extracts structured data from pages or documents, or drafts a reply for a person to review.' },
+    { q: 'How do I hire an n8n expert in Bangladesh?',
+      a: 'Send your project details through the <a href="/contact">contact page</a>, or hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. I am in Bangladesh (UTC+6) and have worked across US time zones since 2021. More on <a href="/hire-ai-developer-bangladesh">how hiring works</a>.' },
+    { q: 'How much does an n8n workflow cost?',
+      a: "It depends on the number of steps, the tools involved and how much AI is needed. Send the task you want automated and I'll reply with a quote." },
   ],
 };
 
@@ -251,7 +301,7 @@ export const POSTS = [
   <li><strong>Test on real leads before launch.</strong> Run last month's leads through the flow and compare the AI's calls with what your sales team actually decided.</li>
 </ol>
 <h2>Need this built?</h2>
-<p>I build AI lead qualification and other automations in n8n, Zapier and Make.com for teams in the USA, UK and EU. See <a href="/services/ai-automation">AI automation</a>, the <a href="/projects/operations-automation">operations automation case study</a>, <a href="/blog/what-an-ai-automation-expert-builds">four real AI automation workflows</a>, or <a href="/hire-ai-developer-bangladesh">how to hire an AI automation expert in Bangladesh</a>.</p>`,
+<p>I build AI lead qualification and other automations in n8n, Zapier and Make.com for teams in the USA, UK and EU. See <a href="/services/ai-automation">AI automation</a>, my <a href="/n8n-expert-bangladesh">n8n work</a>, the <a href="/projects/operations-automation">operations automation case study</a>, <a href="/blog/what-an-ai-automation-expert-builds">four real AI automation workflows</a>, or <a href="/hire-ai-developer-bangladesh">how to hire an AI automation expert in Bangladesh</a>.</p>`,
   },
   {
     slug: 'how-to-find-the-best-ai-developer-in-bangladesh',
@@ -361,7 +411,7 @@ export const POSTS = [
 </ol>
 <p>A good first candidate is a task someone repeats every day between two tools. It is easy to measure, and the time saved shows up immediately.</p>
 <h2>Want one of these for your team?</h2>
-<p>I'm an AI automation expert in Kushtia, Bangladesh, working with teams in the USA, UK and EU. See <a href="/services/ai-automation">AI automation</a>, compare the platforms in <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>, or read <a href="/hire-ai-developer-bangladesh">how to hire me</a>.</p>`,
+<p>I'm an AI automation expert in Kushtia, Bangladesh, working with teams in the USA, UK and EU. See <a href="/services/ai-automation">AI automation</a>, my <a href="/n8n-expert-bangladesh">n8n work</a>, compare the platforms in <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>, or read <a href="/hire-ai-developer-bangladesh">how to hire me</a>.</p>`,
   },
 ];
 
@@ -371,7 +421,7 @@ export const POSTS = [
 export const SERVICES = [
   {
     slug: 'ai-automation', name: 'AI & automation', icon: 'i-zap', soft: 'var(--accent-soft)', strong: 'var(--accent)',
-    h1: 'AI automation expert: n8n, Zapier and Make.com',
+    h1: 'AI automation expert in Bangladesh: n8n, Zapier and Make.com',
     metaTitle: 'AI Automation Expert in Bangladesh: n8n, Zapier & Make',
     metaDesc: 'AI automation expert in Bangladesh. I build n8n, Zapier and Make.com workflows and AI agents (Claude, Gemini) that remove manual work for your team.',
     card: 'n8n, Zapier and Make.com workflows plus LLM integrations that remove hours of manual work.',
@@ -387,8 +437,8 @@ export const SERVICES = [
   <li><strong>API integrations</strong> where no ready-made connector exists.</li>
   <li><strong>Handover documentation</strong> so your team can run and change the workflows after launch.</li>
 </ul>
-<h2>n8n expert in Bangladesh</h2>
-<p>At Artech Digital I build and maintain n8n workflows that connect the team's SaaS tools, CRM and marketing systems. For <a href="/projects/eurekaedu">EurekaEDU</a> I built an n8n pipeline that collects scholarship listings on a schedule, uses Google Gemini to turn each page into structured data, validates every record and posts it to the app through a webhook protected by a shared secret. I also build in Zapier and Make.com, so your team can stay on the tool it already uses. For one workflow compared on all three, read <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>.</p>
+<h2>n8n, Zapier or Make.com?</h2>
+<p>I build in all three, so your team can stay on the tool it already uses. For n8n work, including self-hosted setups and AI agents, see <a href="/n8n-expert-bangladesh">n8n expert in Bangladesh</a>. For one workflow compared on all three, read <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>.</p>
 <h2>Who it's for</h2>
 <p>Lean teams, agencies and startups in the USA, UK and EU that lose hours every week to copy-paste work between tools. If someone on your team moves the same data between two apps every day, that task is a good first automation: it is easy to measure, and the time saved shows up immediately.</p>
 <h2>Where I've done this</h2>

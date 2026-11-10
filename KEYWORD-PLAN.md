@@ -175,3 +175,42 @@ Decided on 6 Nov 2026:
 Still open:
 1. **A studio or brand name** for directories (GoodFirms, Clutch), or skip directories.
 2. **Real numbers** for any case study (users, hours saved, documents signed) when you have them.
+
+---
+
+## 7. Diagnosis, 10 Nov 2026: why the site is not on page one yet
+
+Checked: live site health (21 pages pass `verify.mjs`, all indexable, canonicals correct), on-page comparison with the
+pages that rank, Google autocomplete for 50 seed keywords, the Dev.to copy, and Search Console data up to 9 Nov.
+Rank trackers and search engines block automated checks from this machine, so positions come from the 6 Nov Google
+results and Search Console, not from a fresh scrape.
+
+| # | Cause | Evidence | Fix | Who |
+|---|---|---|---|---|
+| 1 | **The site is 5 days old in Google** | First indexed 5 Nov 2026; the keyword titles and hire page are from 6 Nov; 10 of 21 pages indexed on 9 Nov | Time. New pages usually take 2-8 weeks to settle into their positions | wait |
+| 2 | **No other site links to it** | No mention of mostafizur.me found anywhere except your own GitHub and Dev.to profiles. Competitors that rank have LinkedIn, Medium, Reddit, Substack, directory and client links | Profiles, Dev.to/Medium articles, n8n templates, directories, reviews (Parts B and C) | you |
+| 3 | **Dev.to copy competes with your article** | The Dev.to post's canonical still points to dev.to, and the paste lost its links back to the site. A second post titled "Hi" is empty | Set the canonical URL, re-paste the body from the .txt file, delete "Hi" | you |
+| 4 | **No exact-match page for "n8n expert in Bangladesh"** | Both personal sites ranking for it have a page with that exact phrase as URL, title and H1 (one has only 409 words). You had one section on a page aimed at a different keyword | New page `/n8n-expert-bangladesh` (done 10 Nov) | done |
+| 5 | **"in Bangladesh" missing from the automation page H1** | H1 was "AI automation expert: n8n, Zapier and Make.com" | H1 now "AI automation expert in Bangladesh: n8n, Zapier and Make.com" (done 10 Nov) | done |
+| 6 | **Name clash** | "Mostafizur Rahman AI" returns a UK Chief AI Technologist, professors and the cricketer | Same descriptor on every profile; already in schema and FAQ | ongoing |
+
+Not causes (checked and fine): speed (95 mobile / 100 desktop), mobile layout, robots.txt, noindex, canonicals, sitemap,
+structured data, content length (your pages have as many or more words than the personal sites that rank).
+
+### Keyword set after this round
+
+| Priority | Keyword | Google suggests it | Target page |
+|---|---|---|---|
+| 1 | n8n expert in Bangladesh | yes | /n8n-expert-bangladesh |
+| 1 | AI automation expert in Bangladesh | yes | /services/ai-automation |
+| 1 | Mostafizur Rahman AI builder (name) | n/a | / and /about |
+| 2 | hire AI developer in Bangladesh / AI developer Bangladesh | yes ("ai developer bangladesh") | /hire-ai-developer-bangladesh |
+| 2 | AI automation agency Bangladesh / ai automation bd | yes | /services/ai-automation (you are a freelancer, so this is a stretch) |
+| 2 | best AI developer in Bangladesh | no (AI-assistant question) | /blog/how-to-find-the-best-ai-developer-in-bangladesh |
+| 3 | hire n8n expert / n8n automation expert / hire AI agent developer | yes, worldwide | Upwork, Fiverr, Contra profiles (marketplaces own page one) |
+| 3 | n8n vs Zapier vs Make | yes | /blog/n8n-vs-zapier-vs-make-ai-lead-qualification |
+| skip | AI builder, best AI builder | yes, but tool searches | none |
+| skip | n8n course / n8n jobs / AI developer salary Bangladesh | yes, but learners and job seekers, not clients | none |
+
+No Google demand found (no suggestions): "freelance AI developer Bangladesh", "Zapier expert Bangladesh",
+"SaaS developer Bangladesh", "MVP developer Bangladesh". Not worth separate pages.
