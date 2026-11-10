@@ -27,3 +27,17 @@ green (5.34:1).
 
 Mobile performance was 96 on 5 Nov and 95 in both runs today; one point is normal run-to-run variation.
 Mobile LCP (2.4 s) is still just under the 2.5 s limit, so it remains the number to watch.
+
+## Later the same day: new hero photo and aurora palette (3:10 PM run)
+
+Report: https://pagespeed.web.dev/analysis/https-www-mostafizur-me/t3hhmt7cvm?form_factor=mobile
+
+| | Performance | Accessibility | Best Practices | SEO |
+|---|---|---|---|---|
+| **Mobile** | 95 | 100 | 100 | 100 |
+| **Desktop** | 100 | 100 | 100 | 100 |
+
+Mobile: FCP 1.2 s, LCP 2.4 s, TBT 80 ms, CLS 0. Desktop: FCP 0.3 s, LCP 0.4 s, TBT 0 ms, CLS 0.001.
+
+Right after the photo swap, mobile LCP was 2.5 s: the new photo is more detailed, and the phone downloaded the 800px
+file (46 KB). Adding 640px and 960px versions with accurate `sizes` cut the photo's download from 390 ms to 170 ms.
