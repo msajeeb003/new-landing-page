@@ -30,7 +30,7 @@ On single runs at quieter moments, the new inner pages scored 80–91 for perfor
 
 Locally the homepage stayed below 95 on mobile, but Google's PageSpeed test (above) gives 96, so no design trade-offs are needed for speed.
 
-**Accessibility was 96–97, not 100,** because white text on the old brand orange (`#F26B21`) had a contrast of 3.0:1 against a 4.5:1 minimum. Since 10 Nov 2026 the accent is blue (`#2563EB`, 5.2:1), which removes that cause. Re-run PageSpeed after it is live to confirm the new score.
+**Accessibility was 96–97, not 100,** because white text on the old brand orange (`#F26B21`) had a contrast of 3.0:1 against a 4.5:1 minimum. Since 10 Nov 2026 the accent is blue (`#2563EB`, 5.2:1), which removes that cause. Confirmed on 10 Nov 2026: accessibility is 100 on mobile and desktop ([reports/pagespeed-2026-11-10.md](reports/pagespeed-2026-11-10.md)).
 
 Re-run https://pagespeed.web.dev/ on `https://www.mostafizur.me/` after big changes, and save each report in `reports/`.
 
