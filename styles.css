@@ -748,7 +748,7 @@ main > section { scroll-margin-top: 110px; }
 .projects-card__heart .icon { width: 12px; height: 12px; stroke-width: 2.6; }
 .projects-card__num { font-family: var(--font-display); font-size: 30px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
 .projects-card__sub { font-size: 13px; color: var(--ink-soft); }
-.projects-card__sub strong { color: var(--mint-deep); }
+.projects-card__sub strong { color: var(--mint-text); }
 
 .results__copy { display: flex; flex-direction: column; gap: 28px; align-items: flex-start; }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; max-width: 480px; }
