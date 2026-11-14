@@ -22,7 +22,7 @@ export const SITE = {
   // Mostafizur Rahman apart from others with the same name.
   disambiguatingDescription: 'Freelance AI builder and Gen AI engineer based in Kushtia, Bangladesh (GitHub: msajeeb003; website: mostafizur.me). '
     + 'Builds AI apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU.',
-  email: 'mostafizur.contacts@gmail.com',
+  email: 'hello@mostafizur.me',
   locality: 'Kushtia',
   country: 'BD',
   countryName: 'Bangladesh',
@@ -108,7 +108,7 @@ export const FAQ = [
   { q: 'What does an AI builder do?',
     a: 'An AI builder turns an idea or a manual process into working software that uses AI. For me that means two kinds of projects: automations in n8n, Zapier and Make.com with AI steps inside them, and full web apps such as <a href="/projects/signpro">SignPro</a>, an e-signature platform, and <a href="/projects/socipro">SociPRO</a>, an autonomous social media agent.' },
   { q: 'How do I hire a gen AI engineer?',
-    a: 'Describe the problem you want solved and the result you expect, then talk to the engineer about how they would measure success. To work with me, send your project details through the <a href="/contact">contact page</a>, email <a href="mailto:mostafizur.contacts@gmail.com">mostafizur.contacts@gmail.com</a>, or hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. Every project starts with a discovery call to agree the goal and the metric. For a checklist, read <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">how to find the best AI developer in Bangladesh</a>.' },
+    a: 'Describe the problem you want solved and the result you expect, then talk to the engineer about how they would measure success. To work with me, send your project details through the <a href="/contact">contact page</a>, email <a href="mailto:hello@mostafizur.me">hello@mostafizur.me</a>, or hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. Every project starts with a discovery call to agree the goal and the metric. For a checklist, read <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">how to find the best AI developer in Bangladesh</a>.' },
   { q: 'Do you work with clients in the USA, UK and EU?',
     a: "Yes. I'm based in Kushtia, Bangladesh, and I have worked remotely with US companies since 2021, across US time zones, in English (C1). I'm open to remote projects worldwide and to relocating to the EU. Read <a href=\"/hire-ai-developer-bangladesh\">how hiring an AI developer in Bangladesh works</a>." },
   { q: 'What is vibe coding, and do you use it for client work?',
@@ -152,10 +152,10 @@ export const HIRE = {
 </ul>
 <p>Comparing developers? Use this <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">checklist for finding the best AI developer in Bangladesh</a> on me and anyone else you're considering.</p>
 <h2>How to start</h2>
-<p>Send a short description of what you want to build or automate through the <a href="/contact">contact page</a> or by email to <a href="mailto:mostafizur.contacts@gmail.com">mostafizur.contacts@gmail.com</a>. I'll reply by email, and we start with a discovery call to agree the goal and the metric we'll measure success by. If you prefer a platform, you can hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or order a fixed-scope gig on <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>.</p>`,
+<p>Send a short description of what you want to build or automate through the <a href="/contact">contact page</a> or by email to <a href="mailto:hello@mostafizur.me">hello@mostafizur.me</a>. I'll reply by email, and we start with a discovery call to agree the goal and the metric we'll measure success by. If you prefer a platform, you can hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or order a fixed-scope gig on <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>.</p>`,
   faq: [
     { q: 'How do I hire you?',
-      a: 'Send a short description of the project through the <a href="/contact">contact page</a> or by email to <a href="mailto:mostafizur.contacts@gmail.com">mostafizur.contacts@gmail.com</a>, or hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. We start with a discovery call to agree the goal and how we will measure it.' },
+      a: 'Send a short description of the project through the <a href="/contact">contact page</a> or by email to <a href="mailto:hello@mostafizur.me">hello@mostafizur.me</a>, or hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. We start with a discovery call to agree the goal and how we will measure it.' },
     { q: 'How much does a project cost?',
       a: "It depends on the scope. Send your project details and I'll reply with a quote. Fixed-scope work, such as a SaaS MVP, is also available as a gig on <a href=\"https://www.fiverr.com/sb4059\" rel=\"noopener\">Fiverr</a>." },
     { q: 'Which time zones do you work in?',
@@ -201,7 +201,7 @@ export const N8N = {
 </ul>
 <p>Not sure n8n is the right tool? Read <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>. I build in all three, so your team can stay on the tool it already uses.</p>
 <h2>How to start</h2>
-<p>Send a short description of the manual task you want to remove through the <a href="/contact">contact page</a> or by email to <a href="mailto:mostafizur.contacts@gmail.com">mostafizur.contacts@gmail.com</a>. We start with a discovery call to agree the goal and the metric, usually hours saved or response time. You can also hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. For the wider service, see <a href="/services/ai-automation">AI automation</a>.</p>`,
+<p>Send a short description of the manual task you want to remove through the <a href="/contact">contact page</a> or by email to <a href="mailto:hello@mostafizur.me">hello@mostafizur.me</a>. We start with a discovery call to agree the goal and the metric, usually hours saved or response time. You can also hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. For the wider service, see <a href="/services/ai-automation">AI automation</a>.</p>`,
   faq: [
     { q: 'Do you work with n8n Cloud or self-hosted n8n?',
       a: 'Both. I build on n8n Cloud or on a self-hosted Community edition, depending on where your team wants its data and who will maintain the server.' },

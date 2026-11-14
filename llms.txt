@@ -11,7 +11,7 @@ Key facts:
 - Results: +25% organic search rankings (ICMG LLC), +15% qualified leads (Digital Gregg), +20% audience engagement (Crushvertise LLC)
 - Education: BSc in Computer Science & Engineering, Dhaka International University (2026); Google Prompting Essentials certificate (2025)
 - Tools: Claude Code, Cursor, Claude, Google Gemini, n8n, Zapier, Make.com, React, Node.js, PostgreSQL, Supabase, Python
-- Contact: mostafizur.contacts@gmail.com or https://www.mostafizur.me/contact
+- Contact: hello@mostafizur.me or https://www.mostafizur.me/contact
 
 ## Services
 - [AI automation expert in Bangladesh: n8n, Zapier and Make.com](https://www.mostafizur.me/services/ai-automation): AI automation expert in Bangladesh. I build n8n, Zapier and Make.com workflows and AI agents (Claude, Gemini) that remove manual work for your team.

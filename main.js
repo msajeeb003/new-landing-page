@@ -318,7 +318,7 @@
     } catch (err) {
       console.warn('Contact form:', err.message);
       setSending(false);
-      showError(`Sorry, your message couldn't be sent right now. Please email me directly at ${form.dataset.to}.`);
+      showError(`Sorry, your message couldn't be sent right now. Please email me directly at ${form.dataset.email || form.dataset.to}.`);
     }
   });
 
