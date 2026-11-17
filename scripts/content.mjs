@@ -76,7 +76,7 @@ export const EDUCATION = [
   { type: 'Degree', title: 'BSc in Computer Science & Engineering',
     institute: 'Dhaka International University', location: 'Dhaka, Bangladesh', years: '2022 – 2026',
     detail: 'Focus: programming, algorithms, software development, web technologies',
-    label: 'CGPA', score: 3.49, scale: 4.0, result: 'Graduated April 2026', photo: 'images/edu-1.jpg',
+    label: 'CGPA', score: 3.47, scale: 4.0, result: 'Graduated April 2026', photo: 'images/edu-1.jpg',
     color: 'var(--accent)', soft: 'var(--accent-soft)', text: 'var(--accent-text)' },
   { type: 'Diploma', title: 'Diploma in Engineering — Computer Technology',
     institute: 'Jhenaidah Polytechnic Institute', location: 'Jhenaidah, Bangladesh', years: '2017 – 2021',
