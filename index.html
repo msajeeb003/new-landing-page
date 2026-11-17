@@ -527,46 +527,49 @@
         <p class="p head-row__p" data-reveal>Clear milestones, regular check-ins, no surprises. Here's the path from first call to launch.</p>
       </div>
 
+      <!-- Same markup as steps() in scripts/build.mjs (inner pages): keep the two in sync. -->
       <div class="steps" data-inview>
-      <span class="steps__line" aria-hidden="true"></span>
       <ol class="steps__grid" role="list">
-        <li class="step-wrap" style="--i:0">
+        <li class="step-wrap" style="--i:0;--c:var(--accent);--c-next:var(--blue);--soft:var(--accent-soft);--text:var(--accent-text)">
           <article class="card card--float step">
-            <span class="step__num" style="background:var(--accent)">1</span>
+            <span class="step__num">1</span>
+            <span class="step__wire" aria-hidden="true"><i></i></span>
             <div class="step__body">
               <h3 class="h3">Discover</h3>
               <p class="sm">Call, goals, the manual work to remove, and the metric we'll measure success by.<span class="step__dur-inline"> · Scope &amp; goals</span></p>
-              <span class="chip step__chip" style="--soft:var(--accent-soft);--text:var(--accent-text)">Scope &amp; goals</span>
+              <span class="chip step__chip">Scope &amp; goals</span>
             </div>
           </article>
         </li>
-        <li class="step-wrap" style="--i:1">
+        <li class="step-wrap" style="--i:1;--c:var(--blue);--c-next:var(--mint-deep);--soft:var(--blue-soft);--text:var(--blue-text)">
           <article class="card card--float step">
-            <span class="step__num" style="background:var(--blue)">2</span>
+            <span class="step__num">2</span>
+            <span class="step__wire" aria-hidden="true"><i></i></span>
             <div class="step__body">
               <h3 class="h3">Design</h3>
               <p class="sm">Workflow map, tool choices and visual direction, with review rounds.<span class="step__dur-inline"> · Blueprint</span></p>
-              <span class="chip step__chip" style="--soft:var(--blue-soft);--text:var(--blue-text)">Blueprint</span>
+              <span class="chip step__chip">Blueprint</span>
             </div>
           </article>
         </li>
-        <li class="step-wrap" style="--i:2">
+        <li class="step-wrap" style="--i:2;--c:var(--mint-deep);--c-next:var(--sky);--soft:var(--mint-soft);--text:var(--mint-text)">
           <article class="card card--float step">
-            <span class="step__num" style="background:var(--mint-deep)">3</span>
+            <span class="step__num">3</span>
+            <span class="step__wire" aria-hidden="true"><i></i></span>
             <div class="step__body">
               <h3 class="h3">Build</h3>
               <p class="sm">Automations, apps and integrations, tested on real data, with handover docs.<span class="step__dur-inline"> · Tested build</span></p>
-              <span class="chip step__chip" style="--soft:var(--mint-soft);--text:var(--mint-text)">Tested build</span>
+              <span class="chip step__chip">Tested build</span>
             </div>
           </article>
         </li>
-        <li class="step-wrap" style="--i:3">
+        <li class="step-wrap" style="--i:3;--c:var(--sky);--soft:var(--sky-soft);--text:var(--sky-text)">
           <article class="card card--float step">
-            <span class="step__num" style="background:var(--sky)">4</span>
+            <span class="step__num">4</span>
             <div class="step__body">
               <h3 class="h3">Launch</h3>
               <p class="sm">Go-live, measurement, and a plan for the next iteration.<span class="step__dur-inline"> · ongoing</span></p>
-              <span class="chip step__chip" style="--soft:var(--sky-soft);--text:var(--sky-text)">ongoing</span>
+              <span class="chip step__chip step__chip--live loop">ongoing</span>
             </div>
           </article>
         </li>

@@ -563,20 +563,70 @@ main > section { scroll-margin-top: 110px; }
 .svc-next .icon { width: 20px; height: 20px; transition: transform 300ms var(--ease-out); }
 .svc-pitch { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
 
-/* PROCESS */
-.steps { position: relative; }
-.steps__line {
-  position: absolute; left: 60px; right: 60px; top: 46px;
-  border-top: 2px dashed #E6D4C8;
+/* PROCESS — four cards on a wire.
+   Each card sets its own colours inline (--c, --c-next, --soft, --text) and owns the wire
+   that runs from its badge to the next one. What you see here is the finished state;
+   the "run" (M10 in the motion section, driven by main.js) animates up to it. */
+.steps {
+  position: relative;
+  --ring-t: 520ms;   /* how long a step "works" (ring traces its badge) */
+  --send-t: 520ms;   /* how long the bead takes to reach the next step */
+  --wire-t: 520ms; --wire-ease: var(--ease-in-out);
 }
-.steps__grid { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-.step { padding: 26px; display: flex; flex-direction: column; gap: 12px; height: 100%; }
+.steps__grid { --gap: 22px; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+/* Earlier cards sit above later ones, so a wire can cross into the next card */
+.step-wrap { position: relative; z-index: calc(10 - var(--i, 0)); }
+.step {
+  --pad: 26px; --num: 44px; --num-r: 14px; --wire-gap: 12px;
+  position: relative; padding: var(--pad);
+  display: flex; flex-direction: column; gap: 12px; height: 100%;
+}
 .step__num {
-  width: 44px; height: 44px; border-radius: 14px; flex: none;
+  position: relative;
+  width: var(--num); height: var(--num); border-radius: var(--num-r); flex: none;
   display: grid; place-items: center;
-  color: #fff; font-family: var(--font-display); font-size: 18px; font-weight: 800;
+  background-color: var(--c, var(--accent)); color: #fff;
+  font-family: var(--font-display); font-size: 18px; font-weight: 800;
+}
+/* Status ring around the badge (only shown while a step is working) */
+.step__num::after {
+  content: ""; position: absolute; inset: -6px; padding: 2px;
+  border-radius: calc(var(--num-r) + 6px);
+  background: conic-gradient(var(--c, var(--accent)) var(--ring, 360deg), transparent 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; pointer-events: none;
+}
+/* Wire: starts just after this badge, ends just before the next one */
+.step__wire {
+  --wire-dir: 90deg; --wire-off: scaleX(0); --wire-from: translateX(-100%);
+  position: absolute; pointer-events: none;
+  top: calc(var(--pad) + var(--num) / 2 - 1px); height: 2px;
+  left: calc(var(--pad) + var(--num) + var(--wire-gap));
+  right: calc(var(--wire-gap) - var(--gap) - var(--pad));
+}
+.step__wire::before, .step__wire::after { content: ""; position: absolute; inset: 0; border-radius: 2px; }
+.step__wire::before { background: linear-gradient(var(--wire-dir), var(--line-strong) 50%, transparent 0) 0 0 / 12px 12px; }  /* dashed track */
+.step__wire::after  { background: linear-gradient(var(--wire-dir), var(--c), var(--c-next)); transform-origin: 0 0; }       /* coloured fill */
+/* Bead that travels the wire: <i> spans the wire, the bead sits at its far end */
+.step__wire i { position: absolute; inset: 0; opacity: 0; transform: var(--wire-from); }
+.step__wire i::after {
+  content: ""; position: absolute; right: -5px; top: -4px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #fff; border: 2.5px solid var(--c);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 16%, transparent), 0 3px 10px color-mix(in srgb, var(--c) 40%, transparent);
+}
+/* Coloured outline + glow of the step being worked on */
+.step::after {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit;
+  border: 1.5px solid color-mix(in srgb, var(--c, var(--accent)) 60%, transparent);
+  box-shadow: 0 24px 44px -20px color-mix(in srgb, var(--c, var(--accent)) 55%, transparent);
+  opacity: 0; pointer-events: none;
 }
 .step__body { display: flex; flex-direction: column; gap: 12px; }
+.step__chip { transform-origin: 0 50%; }
+.step__chip--live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .step__dur-inline { display: none; }
 
 /* WHY ME */
@@ -927,7 +977,6 @@ html:not(.js) .work-more { display: none; }
   .about__stage, .collage { width: 100%; max-width: 560px; margin-inline: auto; }
   .results__copy { order: -1; }
 
-  .steps__line { display: none; }
   .steps__grid { grid-template-columns: repeat(2, 1fr); }
 
   .edu-card { grid-template-columns: 220px 1fr 140px; gap: 20px; }
@@ -948,6 +997,11 @@ html:not(.js) .work-more { display: none; }
 
 @media (max-width: 1199px) {
   .nav__links { gap: 22px; }
+}
+
+/* Process on tablet (2 × 2): the wire from step 2 would have to wrap to the next row, so it is left out */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .step-wrap:nth-child(2n) .step__wire { display: none; }
 }
 
 /* Nav collapses to the menu button below desktop so the full name never crowds the links */
@@ -1038,10 +1092,16 @@ html:not(.js) .work-more { display: none; }
   .svc .icon-badge--60 { --size: 48px; }
   .svc .icon-badge--60 .icon { width: 22px; height: 22px; }
 
-  /* Process */
-  .steps__grid { grid-template-columns: 1fr; gap: 12px; }
-  .step { flex-direction: row; align-items: flex-start; gap: 14px; padding: 16px; }
-  .step__num { width: 40px; height: 40px; border-radius: 12px; font-size: 16px; }
+  /* Process: one column, badge on the left, the wire runs down from badge to badge */
+  .steps__grid { grid-template-columns: 1fr; --gap: 12px; }
+  .step { --pad: 16px; --num: 40px; --num-r: 12px; --wire-gap: 8px; flex-direction: row; align-items: flex-start; gap: 14px; }
+  .step__num { font-size: 16px; }
+  .step__wire {
+    --wire-dir: 180deg; --wire-off: scaleY(0); --wire-from: translateY(-100%);
+    top: calc(var(--pad) + var(--num) + var(--wire-gap)); bottom: calc(var(--wire-gap) - var(--gap) - var(--pad));
+    left: calc(var(--pad) + var(--num) / 2 - 1px); right: auto; width: 2px; height: auto;
+  }
+  .step__wire i::after { right: auto; top: auto; left: -4px; bottom: -5px; }
   .step__body { gap: 4px; }
   .step__chip { display: none; }
   .step__dur-inline { display: inline; }
@@ -1269,7 +1329,7 @@ html:not(.js) .work-more { display: none; }
 .btn__icon, .text-link__arrow { transition: transform var(--dur-fast) var(--ease-out); }
 .work-card { transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out); }
 .work-card__img { transition: transform var(--dur-base) var(--ease-out); }
-.svc, .step, .quote { transition: transform 240ms var(--ease-out); }
+.svc, .quote { transition: transform 240ms var(--ease-out); }
 .logo-item { transition: transform 260ms cubic-bezier(.34, 1.56, .64, 1), box-shadow 260ms var(--ease-out); }
 .logo-item .brand { transition: transform 360ms cubic-bezier(.34, 1.56, .64, 1); }
 
@@ -1303,7 +1363,7 @@ html:not(.js) .work-more { display: none; }
   .work-card:hover { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(22, 25, 58, .16); }
   .work-card:hover .work-card__img { transform: scale(1.05); }
 
-  .svc:hover, .step:hover, .quote:hover { transform: translateY(-4px); }
+  .svc:hover, .quote:hover { transform: translateY(-4px); }
 
   /* Logos: lift + glow in their own brand colour, icon gives a small spin */
   .logo-item[style*="--brand"]:hover {
@@ -1317,21 +1377,74 @@ html:not(.js) .work-more { display: none; }
   .text-link:hover .text-link__arrow { transform: translateX(4px); }
 }
 
-/* --- M10 Process --- */
-.js .steps__line { clip-path: inset(0 100% 0 0); }
-.js .steps.is-in .steps__line { clip-path: inset(0 0 0 0); transition: clip-path 900ms var(--ease-in-out); }
+/* --- M10 Process: the row runs like a workflow ---
+   main.js arms the row (.is-armed) and then moves each step through three states:
+   pending (ghost badge, dashed wire), .is-active (working: a ring traces the badge)
+   and .is-done (badge filled, chip out, wire coloured). .is-sending sends the bead down
+   the wire, .is-tick is the small pulse of the idle pass, .is-scrub means a card is hovered.
+   --d is a per-step delay main.js sets so changes ripple from card to card. */
+@property --ring { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+@keyframes ring-trace  { from { --ring: 0deg; } to { --ring: 360deg; } }
+@keyframes ring-ripple { from { opacity: .8; transform: scale(.94); } to { opacity: 0; transform: scale(1.3); } }
+@keyframes num-tick    { 40% { transform: scale(1.1); } }
+@keyframes wire-flow   { to { background-position: 12px 12px; } }
+@keyframes wire-send {
+  0%   { transform: var(--wire-from); opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: none; opacity: 0; }
+}
+@keyframes live {
+  0%        { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 50%, transparent); }
+  70%, 100% { box-shadow: 0 0 0 7px color-mix(in srgb, currentColor 0%, transparent); }
+}
+
+/* Cards rise in, then their wires fade in */
 .js .step-wrap { opacity: 0; transform: translateY(24px); }
 .js .steps.is-in .step-wrap {
   opacity: 1; transform: none;
   transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
-  transition-delay: calc(300ms + var(--i) * 120ms);
+  transition-delay: calc(120ms + var(--i) * 110ms);
 }
-.js .step__num { transform: scale(.6); }
-.js .steps.is-in .step__num {
-  transform: none;
-  transition: transform 450ms cubic-bezier(.34, 1.56, .64, 1);
-  transition-delay: calc(300ms + var(--i) * 120ms + 300ms);
+.js .step__wire { opacity: 0; }
+.js .steps.is-in .step__wire { opacity: 1; transition: opacity 500ms var(--ease-out) calc(420ms + var(--i) * 110ms); }
+
+/* Once the first run is over (hovering), changes are quicker */
+.steps.is-ran { --ring-t: 420ms; --wire-t: 260ms; --wire-ease: var(--ease-out); }
+
+/* Badge: ghost until its step is reached, slightly larger while it works */
+.step__num {
+  transition: background-color 300ms var(--ease-out) var(--d, 0ms), color 300ms var(--ease-out) var(--d, 0ms),
+              transform 420ms cubic-bezier(.34, 1.56, .64, 1) var(--d, 0ms);
 }
+.steps.is-armed .step-wrap:not(.is-done):not(.is-active) .step__num { background-color: var(--soft); color: var(--text); }
+.step-wrap.is-active .step__num { transform: scale(1.06); }
+.step-wrap.is-tick .step__num { animation: num-tick 600ms var(--ease-out); }
+
+/* Ring: traces the badge while the step works, ripples away when it is done */
+.step-wrap.is-active .step__num::after { --ring: 360deg; opacity: 1; animation: ring-trace var(--ring-t) var(--ease-in-out) var(--d, 0ms) both; }
+.step-wrap.is-done .step__num::after {
+  --ring: 360deg; opacity: 0; transform: scale(1.28);
+  transition: opacity 520ms var(--ease-out), transform 520ms var(--ease-out);
+}
+.step-wrap.is-tick .step__num::after { animation: ring-ripple 600ms var(--ease-out); }
+
+/* Card: outline in the step's colour while it works; steps still to come dim while hovering */
+.step { transition: opacity 320ms var(--ease-out) var(--d, 0ms); }
+.step::after { transition: opacity 320ms var(--ease-out) var(--d, 0ms); }
+.step-wrap.is-active .step::after { opacity: 1; }
+.steps.is-scrub .step-wrap:not(.is-done):not(.is-active) .step { opacity: .5; }
+
+/* Wire: dashes flow while it waits, the colour draws in behind the bead */
+.steps.is-armed.is-in .step-wrap:not(.is-done) .step__wire::before { animation: wire-flow 900ms linear infinite; }
+.step__wire::after { transition: transform var(--wire-t) var(--wire-ease) var(--d, 0ms); }
+.steps.is-armed .step-wrap:not(.is-done) .step__wire::after { transform: var(--wire-off); }
+.step-wrap.is-sending .step__wire i { animation: wire-send var(--send-t) var(--ease-in-out) both; }
+
+/* Chip: each step's output, pops in when the step is done (first run only) */
+.step__chip { transition: opacity 240ms var(--ease-out), transform 480ms cubic-bezier(.34, 1.56, .64, 1); }
+.steps.is-armed:not(.is-ran) .step-wrap:not(.is-done) .step__chip { opacity: 0; transform: translateY(6px) scale(.8); }
+.step__chip--live::before { animation: live 2.2s var(--ease-out) infinite; }
 
 /* --- M11 Mobile menu --- */
 @media (max-width: 1023px) {
@@ -1495,7 +1608,8 @@ html:not(.js) .work-more { display: none; }
   .js .hero [data-load], .js [data-count], .js .step-wrap, .js [data-photo] .stage__arch,
   .js [data-photo] .stage__portrait, .js .bars__label { opacity: 1 !important; transform: none !important; }
   .js .step__num, .js .bars__bar, .js .edu-list__rail, .js .edu-dot { transform: none !important; }
-  .js .steps__line { clip-path: none !important; }
+  .js .step__wire { opacity: 1 !important; }
+  .step-wrap.is-active .step__num::after { animation: none !important; }  /* full ring straight away */
   .js .donut { --sweep: 360deg !important; opacity: 1 !important; transform: none !important; }
   .js .squiggle path { stroke-dashoffset: 0 !important; animation: none !important; }
   .js .site-header .logo__mark, .js .site-header .logo__text { opacity: 1 !important; transform: none !important; }

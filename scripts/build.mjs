@@ -178,19 +178,26 @@ const crumbsHtml = (crumbs) => `<nav class="crumbs" aria-label="Breadcrumb">
 
 const chips = (list) => `<ul class="pg-chips" role="list">${list.map((t) => `<li class="chip chip--year">${esc(t)}</li>`).join('')}</ul>`;
 
+// Process row. Each card carries its own colours (--c, --soft, --text) and, except the last,
+// a wire to the next badge (--c-next is where its gradient ends). main.js runs the row like
+// a workflow; without JS it simply shows the finished state.
+// The homepage has a hand-written copy of this markup in index.html: keep the two in sync.
 const steps = () => `<div class="steps" data-inview>
-      <span class="steps__line" aria-hidden="true"></span>
       <ol class="steps__grid" role="list">
-${PROCESS.map((s, i) => `        <li class="step-wrap" style="--i:${i}">
+${PROCESS.map((s, i) => {
+    const next = PROCESS[i + 1];
+    return `        <li class="step-wrap" style="--i:${i};--c:${s.color};${next ? `--c-next:${next.color};` : ''}--soft:${s.soft};--text:${s.ctext}">
           <article class="card card--float step">
-            <span class="step__num" style="background:${s.color}">${s.n}</span>
+            <span class="step__num">${s.n}</span>${next ? `
+            <span class="step__wire" aria-hidden="true"><i></i></span>` : ''}
             <div class="step__body">
               <h3 class="h3">${s.title}</h3>
               <p class="sm">${esc(s.text)}<span class="step__dur-inline"> · ${esc(s.chip)}</span></p>
-              <span class="chip step__chip" style="--soft:${s.soft};--text:${s.ctext}">${esc(s.chip)}</span>
+              <span class="chip step__chip${s.live ? ' step__chip--live loop' : ''}">${esc(s.chip)}</span>
             </div>
           </article>
-        </li>`).join('\n')}
+        </li>`;
+  }).join('\n')}
       </ol>
       </div>`;
 

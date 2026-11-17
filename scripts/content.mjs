@@ -96,7 +96,7 @@ export const PROCESS = [
   { n: 1, title: 'Discover', text: "Call, goals, the manual work to remove, and the metric we'll measure success by.", chip: 'Scope & goals', color: 'var(--accent)', soft: 'var(--accent-soft)', ctext: 'var(--accent-text)' },
   { n: 2, title: 'Design', text: 'Workflow map, tool choices and visual direction, with review rounds.', chip: 'Blueprint', color: 'var(--blue)', soft: 'var(--blue-soft)', ctext: 'var(--blue-text)' },
   { n: 3, title: 'Build', text: 'Automations, apps and integrations, tested on real data, with handover docs.', chip: 'Tested build', color: 'var(--mint-deep)', soft: 'var(--mint-soft)', ctext: 'var(--mint-text)' },
-  { n: 4, title: 'Launch', text: 'Go-live, measurement, and a plan for the next iteration.', chip: 'ongoing', color: 'var(--sky)', soft: 'var(--sky-soft)', ctext: 'var(--sky-text)' },
+  { n: 4, title: 'Launch', text: 'Go-live, measurement, and a plan for the next iteration.', chip: 'ongoing', live: true, color: 'var(--sky)', soft: 'var(--sky-soft)', ctext: 'var(--sky-text)' },
 ];
 
 // ---------------------------------------------------------

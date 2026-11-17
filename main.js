@@ -373,6 +373,120 @@
     revealTargets.forEach((el) => { el.classList.add('is-in'); el.dispatchEvent(new CustomEvent('inview')); });
   }
 
+  /* --- M10 Process: the row runs like a workflow ---
+     Once the row is properly on screen, each step "works" (a ring traces its badge),
+     finishes (its chip pops in) and hands over to the next one (a bead travels the wire).
+     After that a bead passes through every few seconds, and hovering a card rewinds
+     the row to that step. All visuals live in styles.css (M10); this only sets classes. */
+  $$('.steps').forEach((steps) => {
+    const nodes = $$('.step-wrap', steps);
+    if (!nodes.length) return;
+    const last = nodes.length - 1;
+    const cssMs = (name, fallback) => parseFloat(getComputedStyle(steps).getPropertyValue(name)) || fallback;
+    const WORK = cssMs('--ring-t', 520);   // a step working
+    const SEND = cssMs('--send-t', 520);   // the bead reaching the next step
+    const RIPPLE = 110;                    // hover: delay from one card to the next
+    const IDLE_EVERY = 6000;               // idle pass interval
+    const canHover = matchMedia('(hover: hover)');
+
+    let done = 0;            // steps before this index are finished
+    let ran = false;         // first run is over
+    let hovered = -1;        // card under the pointer
+    let onScreen = false;
+    let quietUntil = 0;      // no idle pass before this time (the row has just changed)
+    let timers = [];
+
+    const later = (fn, delay) => timers.push(setTimeout(fn, delay));
+    const stop = () => { timers.forEach(clearTimeout); timers = []; };
+    const replay = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
+
+    // Steps before `to` are done, `active` (if any) is the one being worked on.
+    // With `ripple`, the change spreads card by card away from where the row was.
+    const show = (to, active = -1, ripple = false) => {
+      nodes.forEach((n, i) => {
+        const distance = to > done ? i - done : done - 1 - i;
+        n.style.setProperty('--d', `${ripple ? Math.max(0, distance) * RIPPLE : 0}ms`);
+        n.classList.toggle('is-done', i < to);
+        n.classList.toggle('is-active', i === active);
+      });
+      done = to;
+    };
+
+    const send = (i) => {
+      const wire = $('.step__wire', nodes[i]);
+      if (wire && wire.offsetParent) replay(nodes[i], 'is-sending');   // skip wires the layout hides
+    };
+    const settle = () => { quietUntil = performance.now() + 2500; };
+    const rest = () => { settle(); steps.classList.remove('is-scrub'); show(nodes.length, -1, true); };
+    const scrub = (i) => { stop(); settle(); steps.classList.add('is-scrub'); show(i, i, true); };
+
+    const finish = () => {
+      stop();
+      ran = true;
+      steps.classList.add('is-ran');
+      if (hovered >= 0) scrub(hovered); else rest();
+    };
+    const work = (i) => {
+      show(i, i);                          // step i is working
+      later(() => {
+        if (i === last) { finish(); return; }
+        show(i + 1);                       // done: its chip pops in, the wire fills behind the bead
+        send(i);
+        later(() => work(i + 1), SEND);
+      }, WORK);
+    };
+
+    // Idle pass: a bead runs through the finished row, each badge ticks as it arrives.
+    const idlePass = () => {
+      if (!ran || reduce || hovered >= 0 || !onScreen || document.hidden || performance.now() < quietUntil) return;
+      stop();
+      nodes.forEach((n, i) => later(() => {
+        replay(n, 'is-tick');
+        if (i < last) send(i);
+      }, i * SEND));
+    };
+    steps.addEventListener('animationend', (e) => {
+      const node = e.target.closest('.step-wrap');
+      if (!node) return;
+      if (e.animationName === 'wire-send') node.classList.remove('is-sending');
+      if (e.animationName === 'num-tick') node.classList.remove('is-tick');
+    });
+
+    // Hover rewinds the row to that step; a hover during the first run waits for it to finish.
+    nodes.forEach((n, i) => n.addEventListener('mouseenter', () => {
+      if (!canHover.matches) return;
+      hovered = i;
+      if (ran) scrub(i);
+    }));
+    steps.addEventListener('mouseleave', () => {
+      if (hovered < 0) return;
+      hovered = -1;
+      if (ran) rest();
+    });
+
+    steps.classList.add('is-armed');
+    setInterval(idlePass, IDLE_EVERY);
+    if (reduce) { finish(); return; }
+
+    // Start once the cards have been revealed, have had time to rise in,
+    // and most of the row is on screen (so the run is actually seen).
+    let revealedAt = steps.classList.contains('is-in') ? performance.now() : null;
+    let mostlyVisible = !('IntersectionObserver' in window);
+    let started = false;
+    const tryStart = () => {
+      if (started || revealedAt === null || !mostlyVisible) return;
+      started = true;
+      later(() => work(0), Math.max(150, 800 - (performance.now() - revealedAt)));
+    };
+    steps.addEventListener('inview', () => { revealedAt = performance.now(); tryStart(); }, { once: true });
+    if (mostlyVisible) { onScreen = true; tryStart(); return; }
+    new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting;
+      if (entry.intersectionRatio >= 0.6) mostlyVisible = true;
+      tryStart();
+    }, { threshold: [0, 0.6] }).observe(steps);
+  });
+
   /* --- Platform logos: endless marquee (static wrapped row under reduced motion / no JS) --- */
   const logoViewport = $('.logos__viewport');
   if (logoViewport && !reduce) {
