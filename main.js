@@ -342,7 +342,8 @@
     setTimeout(() => {
       const start = performance.now();
       const tick = (now) => {
-        const t = Math.min(1, (now - start) / duration);
+        // Clamp to 0..1: the first frame's timestamp can be earlier than `start`, which made numbers go negative.
+        const t = Math.max(0, Math.min(1, (now - start) / duration));
         write(target * (1 - Math.pow(1 - t, 3))); // ease-out cubic
         if (t < 1) requestAnimationFrame(tick);
       };

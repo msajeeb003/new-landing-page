@@ -79,7 +79,7 @@ Technical VA & AI Automation Expert | n8n, Zapier, Make.com, AI Apps
 The first two lines show in search results, so they say what you do and for whom.
 ```
 I build AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for teams in the USA, UK and EU.
-I've worked remotely with US companies since 2021, across US time zones, in English (C1).
+I've worked remotely with US companies since 2021, across US time zones, in English (B2).
 
 WHAT I CAN BUILD FOR YOU
 • AI web apps and SaaS MVPs: React, Node.js, PostgreSQL and Supabase, built with Claude Code and Cursor

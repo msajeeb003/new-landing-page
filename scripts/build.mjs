@@ -631,7 +631,8 @@ ${related.length ? `
     crumbs: page.crumbs, eyebrow: '<p class="label">ABOUT ME</p>',
     h1: `About <span class="accent">Mostafizur Rahman</span>`,
     lead: "I'm an AI builder and Gen AI engineer from Kushtia, Bangladesh. I build AI-powered apps, SaaS MVPs and automations for remote teams in the USA, UK and EU.",
-    actions: `<div class="pg-actions"><a class="btn btn--arrow" href="/contact">Work with me ${icon('i-arrow', 'icon btn__icon')}</a><a class="btn btn--ghost" href="/cv.pdf" download="Mostafizur-Rahman-CV.pdf">Download CV</a></div>`,
+    actions: `<div class="pg-actions"><a class="btn btn--arrow" href="/contact">Work with me ${icon('i-arrow', 'icon btn__icon')}</a><a class="btn btn--ghost" href="/cv.pdf" download="Mostafizur-Rahman-CV.pdf">Download CV</a></div>
+          <p class="sm open-roles">Also open to full-time roles in the EU, with relocation.</p>`,
     media: `<div class="pg-portrait"><div class="stage__arch pg-portrait__arch" aria-hidden="true"></div><picture>
           <source type="image/avif" srcset="/images/about-thumbsup-480.avif 480w, /images/about-thumbsup-800.avif 800w" sizes="(max-width: 767px) 70vw, 360px">
           <source type="image/webp" srcset="/images/about-thumbsup-480.webp 480w, /images/about-thumbsup-800.webp 800w" sizes="(max-width: 767px) 70vw, 360px">
@@ -674,7 +675,7 @@ ${related.length ? `
             <div><dt>Experience</dt><dd>4+ years of remote work since 2021, six roles</dd></div>
             <div><dt>Education</dt><dd>BSc in Computer Science &amp; Engineering, Dhaka International University (2026)</dd></div>
             <div><dt>Certification</dt><dd>Google Prompting Essentials (Nov 2025)</dd></div>
-            <div><dt>Languages</dt><dd>Bengali (native), English (C1)</dd></div>
+            <div><dt>Languages</dt><dd>Bengali (native), English (B2, EF SET certificate)</dd></div>
             <div><dt>Profiles</dt><dd><a href="${SITE.profiles.linkedin}" rel="noopener">LinkedIn</a> · <a href="${SITE.profiles.github}" rel="noopener">GitHub</a> · <a href="${SITE.profiles.upwork}" rel="noopener">Upwork</a> · <a href="${SITE.profiles.fiverr}" rel="noopener">Fiverr</a></dd></div>
           </dl>
           <a class="btn facts__btn" href="/contact">Contact me</a>
@@ -796,7 +797,7 @@ for (const L of [HIRE, N8N]) {
             <div><dt>Based in</dt><dd>Kushtia, Bangladesh (UTC+6)</dd></div>
             <div><dt>Works with</dt><dd>Remote teams in the USA, UK and EU</dd></div>
             <div><dt>Remote since</dt><dd>2021, across US time zones</dd></div>
-            <div><dt>English</dt><dd>C1</dd></div>
+            <div><dt>English</dt><dd>B2</dd></div>
             <div><dt>Hire</dt><dd><a href="/contact">Directly</a> · ${extLink(SITE.profiles.upwork, 'Upwork')} · ${extLink(SITE.profiles.fiverr, 'Fiverr')}</dd></div>
           </dl>
           <a class="btn facts__btn" href="/contact">Start a project</a>

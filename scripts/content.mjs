@@ -110,7 +110,7 @@ export const FAQ = [
   { q: 'How do I hire a gen AI engineer?',
     a: 'Describe the problem you want solved and the result you expect, then talk to the engineer about how they would measure success. To work with me, send your project details through the <a href="/contact">contact page</a>, email <a href="mailto:hello@mostafizur.me">hello@mostafizur.me</a>, or hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. Every project starts with a discovery call to agree the goal and the metric. For a checklist, read <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">how to find the best AI developer in Bangladesh</a>.' },
   { q: 'Do you work with clients in the USA, UK and EU?',
-    a: "Yes. I'm based in Kushtia, Bangladesh, and I have worked remotely with US companies since 2021, across US time zones, in English (C1). I'm open to remote projects worldwide and to relocating to the EU. Read <a href=\"/hire-ai-developer-bangladesh\">how hiring an AI developer in Bangladesh works</a>." },
+    a: "Yes. I'm based in Kushtia, Bangladesh, and I have worked remotely with US companies since 2021, across US time zones, in English (B2). I'm open to remote projects worldwide and to relocating to the EU. Read <a href=\"/hire-ai-developer-bangladesh\">how hiring an AI developer in Bangladesh works</a>." },
   { q: 'What is vibe coding, and do you use it for client work?',
     a: 'Vibe coding means building software by describing what you want to an AI coding assistant and iterating on what it writes. I use Claude Code and Cursor this way because it lets one person ship what used to need a team. Every build still goes through the same steps as hand-written code: it is tested on real data and handed over with documentation.' },
   { q: 'Which automation and AI tools do you use?',
@@ -147,7 +147,7 @@ export const HIRE = {
   <li><strong>Remote work with US companies since 2021</strong>, including Artech Digital, Digital Gregg, ICMG LLC and Crushvertise, across US time zones.</li>
   <li><strong>Work you can check.</strong> <a href="/projects/signpro">SignPro</a> and <a href="/projects/socipro">SociPRO</a> have live demos and public source code, and <a href="/projects/eurekaedu">EurekaEDU</a> is a live app.</li>
   <li><strong>Measured results</strong> in earlier roles: +25% organic search rankings at ICMG LLC, +15% qualified leads at Digital Gregg and +20% audience engagement at Crushvertise.</li>
-  <li><strong>Clear communication</strong> in English (C1), with regular check-ins and handover documentation for every build.</li>
+  <li><strong>Clear communication</strong> in English (B2), with regular check-ins and handover documentation for every build.</li>
   <li><strong>One person, end to end.</strong> The same person scopes, builds, tests and documents the work, so nothing gets lost between hand-offs.</li>
 </ul>
 <p>Comparing developers? Use this <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">checklist for finding the best AI developer in Bangladesh</a> on me and anyone else you're considering.</p>
@@ -362,7 +362,7 @@ export const POSTS = [
   <li><strong>Code:</strong> SignPro and SociPRO have public source code on GitHub.</li>
   <li><strong>Results with numbers:</strong> +25% organic search rankings at ICMG LLC, +15% qualified leads at Digital Gregg and +20% audience engagement at Crushvertise.</li>
   <li><strong>Security:</strong> SignPro uses hashed passwords, signed session tokens, API rate limiting and an audit trail; EurekaEDU uses Row Level Security on every database table.</li>
-  <li><strong>Communication:</strong> English (C1), and remote work across US time zones since 2021.</li>
+  <li><strong>Communication:</strong> English (B2), and remote work across US time zones since 2021.</li>
   <li><strong>Process:</strong> discover, design, build and launch, with the success metric agreed in the first call and handover documentation at the end.</li>
   <li><strong>Reviews:</strong> see my <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork profile</a>.</li>
 </ul>
