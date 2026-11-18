@@ -22,7 +22,7 @@ AI Builder & Gen AI Engineer | AI apps, SaaS MVPs and n8n, Zapier & Make.com aut
 
 ### About [2,600]
 ```
-I'm Mostafizur Rahman, an AI builder and Gen AI engineer based in Kushtia, Bangladesh. I build AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU.
+I'm Mostafizur Rahman, an AI builder and Gen AI engineer based in Bangladesh. I build AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU.
 
 I've worked remotely for US companies since 2021. Today I'm a Junior Full Stack Developer & Executive Assistant at Artech Digital, building web apps, automations and LLM integrations. Earlier roles brought +25% organic search rankings (ICMG LLC), +15% qualified leads (Digital Gregg) and +20% audience engagement (Crushvertise).
 
@@ -159,7 +159,7 @@ Use these everywhere a platform asks for a name, title, bio and website.
 
 - **Name:** `Mostafizur Rahman`
 - **Website:** `https://www.mostafizur.me`
-- **Location:** `Kushtia, Bangladesh`
+- **Location:** `Bangladesh`
 
 ### Tagline / headline [40] (Product Hunt headline, Peerlist and Contra headline, Wellfound one-liner)
 ```
@@ -173,7 +173,7 @@ AI builder & Gen AI engineer in Bangladesh. I build AI apps, SaaS MVPs and n8n/Z
 
 ### Medium bio [600] (Peerlist "About", Contra "About", Wellfound bio)
 ```
-I'm an AI builder and Gen AI engineer based in Kushtia, Bangladesh. I build AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU. I've worked remotely for US companies since 2021; today I build web apps, automations and LLM integrations at Artech Digital. Recent builds: SignPro, a legally binding e-signature platform; SociPRO, an autonomous social media agent; and EurekaEDU, a scholarship platform. Portfolio: https://www.mostafizur.me
+I'm an AI builder and Gen AI engineer based in Bangladesh. I build AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU. I've worked remotely for US companies since 2021; today I build web apps, automations and LLM integrations at Artech Digital. Recent builds: SignPro, a legally binding e-signature platform; SociPRO, an autonomous social media agent; and EurekaEDU, a scholarship platform. Portfolio: https://www.mostafizur.me
 ```
 
 ### Dev.to extra fields

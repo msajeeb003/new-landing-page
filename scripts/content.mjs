@@ -20,10 +20,9 @@ export const SITE = {
   jobTitle: 'AI Builder & Gen AI Engineer',
   // One consistent descriptor everywhere, so search engines and AI assistants can tell this
   // Mostafizur Rahman apart from others with the same name.
-  disambiguatingDescription: 'Freelance AI builder and Gen AI engineer based in Kushtia, Bangladesh (GitHub: msajeeb003; website: mostafizur.me). '
+  disambiguatingDescription: 'Freelance AI builder and Gen AI engineer based in Bangladesh (GitHub: msajeeb003; website: mostafizur.me). '
     + 'Builds AI apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU.',
   email: 'hello@mostafizur.me',
-  locality: 'Kushtia',
   country: 'BD',
   countryName: 'Bangladesh',
   image: '/images/about-thumbsup-800.webp',
@@ -47,7 +46,7 @@ export const SITE = {
 };
 
 // One-paragraph, quotable summary reused in llms.txt and the About page.
-export const SUMMARY = 'Mostafizur Rahman is an AI builder and Gen AI engineer based in Kushtia, Bangladesh. '
+export const SUMMARY = 'Mostafizur Rahman is an AI builder and Gen AI engineer based in Bangladesh. '
   + 'He builds AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU, '
   + 'and has worked remotely for US companies since 2021.';
 
@@ -55,17 +54,17 @@ export const SUMMARY = 'Mostafizur Rahman is an AI builder and Gen AI engineer b
 // Experience (same facts as the CV and the homepage)
 // ---------------------------------------------------------
 export const EXPERIENCE = [
-  { role: 'Junior Full Stack Developer & Executive Assistant', org: 'Artech Digital', where: 'USA (remote)', dates: 'Aug 2025 – Present',
+  { role: 'Junior Full Stack Developer & Executive Assistant', org: 'Artech Digital', where: 'USA (remote)', country: 'us', dates: 'Aug 2025 – Present',
     text: 'Joined as a Virtual Assistant and was promoted. Builds web apps and SaaS products with Claude and other LLMs, and end-to-end automations in n8n, Zapier and Make.com.' },
-  { role: 'Virtual Assistant – Lead Generation & Marketing Head', org: 'Digital Gregg', where: 'USA (remote)', dates: 'Dec 2024 – May 2025',
+  { role: 'Virtual Assistant – Lead Generation & Marketing Head', org: 'Digital Gregg', where: 'USA (remote)', country: 'us', dates: 'Dec 2024 – May 2025',
     text: 'Grew qualified leads by 15% for white-label partnerships with LinkedIn Sales Navigator and Apollo.io; ran HubSpot campaigns and a Trello CRM pipeline.' },
-  { role: 'Content Manager', org: 'ICMG LLC', where: 'USA (remote)', dates: 'Jan 2024 – Dec 2024',
+  { role: 'Content Manager', org: 'ICMG LLC', where: 'USA (remote)', country: 'us', dates: 'Jan 2024 – Dec 2024',
     text: 'Improved organic search rankings by 25% with keyword research and on-page SEO across multiple WordPress sites.' },
-  { role: 'Social Media Manager', org: 'Crushvertise LLC', where: 'Austin, Texas (remote)', dates: 'Mar 2022 – Sep 2023',
+  { role: 'Social Media Manager', org: 'Crushvertise LLC', where: 'Austin, Texas, USA (remote)', country: 'us', dates: 'Mar 2022 – Sep 2023',
     text: 'Lifted audience engagement by 20% with visual content made in Photoshop and Illustrator for a lead-generation agency.' },
-  { role: 'Market Researcher', org: 'Avoraus International', where: 'Rajasthan, India (remote)', dates: 'Dec 2021 – Feb 2022',
+  { role: 'Market Researcher', org: 'Avoraus International', where: 'Rajasthan, India (remote)', country: 'in', dates: 'Dec 2021 – Feb 2022',
     text: 'Researched healthcare and life-science markets and compiled reports for strategic decisions.' },
-  { role: 'Virtual Assistant', org: 'Frontier', where: 'San Francisco, USA (remote)', dates: 'Jul 2021 – Aug 2021',
+  { role: 'Virtual Assistant', org: 'Frontier', where: 'San Francisco, USA (remote)', country: 'us', dates: 'Jul 2021 – Aug 2021',
     text: 'Managed data and communications on a technology-driven recruitment platform.' },
 ];
 
@@ -76,7 +75,7 @@ export const EDUCATION = [
   { type: 'Degree', title: 'BSc in Computer Science & Engineering',
     institute: 'Dhaka International University', location: 'Dhaka, Bangladesh', years: '2022 – 2026',
     detail: 'Focus: programming, algorithms, software development, web technologies',
-    label: 'CGPA', score: 3.47, scale: 4.0, result: 'Graduated April 2026', photo: 'images/edu-1.jpg',
+    label: 'CGPA', score: 3.46, scale: 4.0, result: 'Graduated April 2026', photo: 'images/edu-1.jpg',
     color: 'var(--accent)', soft: 'var(--accent-soft)', text: 'var(--accent-text)' },
   { type: 'Diploma', title: 'Diploma in Engineering — Computer Technology',
     institute: 'Jhenaidah Polytechnic Institute', location: 'Jhenaidah, Bangladesh', years: '2017 – 2021',
@@ -104,13 +103,13 @@ export const PROCESS = [
 // ---------------------------------------------------------
 export const FAQ = [
   { q: 'Who is Mostafizur Rahman?',
-    a: 'Mostafizur Rahman is a freelance AI builder and Gen AI engineer based in Kushtia, Bangladesh (GitHub: <a href="https://github.com/msajeeb003" rel="noopener">msajeeb003</a>). He builds AI-powered web apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU, and works as a Junior Full Stack Developer &amp; Executive Assistant at Artech Digital. His projects include <a href="/projects/signpro">SignPro</a>, <a href="/projects/socipro">SociPRO</a> and <a href="/projects/eurekaedu">EurekaEDU</a>.' },
+    a: 'Mostafizur Rahman is a freelance AI builder and Gen AI engineer based in Bangladesh (GitHub: <a href="https://github.com/msajeeb003" rel="noopener">msajeeb003</a>). He builds AI-powered web apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU, and works as a Junior Full Stack Developer &amp; Executive Assistant at Artech Digital. His projects include <a href="/projects/signpro">SignPro</a>, <a href="/projects/socipro">SociPRO</a> and <a href="/projects/eurekaedu">EurekaEDU</a>.' },
   { q: 'What does an AI builder do?',
     a: 'An AI builder turns an idea or a manual process into working software that uses AI. For me that means two kinds of projects: automations in n8n, Zapier and Make.com with AI steps inside them, and full web apps such as <a href="/projects/signpro">SignPro</a>, an e-signature platform, and <a href="/projects/socipro">SociPRO</a>, an autonomous social media agent.' },
   { q: 'How do I hire a gen AI engineer?',
     a: 'Describe the problem you want solved and the result you expect, then talk to the engineer about how they would measure success. To work with me, send your project details through the <a href="/contact">contact page</a>, email <a href="mailto:hello@mostafizur.me">hello@mostafizur.me</a>, or hire me on <a href="https://www.upwork.com/freelancers/~01943718b97948812b/" rel="noopener">Upwork</a> or <a href="https://www.fiverr.com/sb4059" rel="noopener">Fiverr</a>. Every project starts with a discovery call to agree the goal and the metric. For a checklist, read <a href="/blog/how-to-find-the-best-ai-developer-in-bangladesh">how to find the best AI developer in Bangladesh</a>.' },
   { q: 'Do you work with clients in the USA, UK and EU?',
-    a: "Yes. I'm based in Kushtia, Bangladesh, and I have worked remotely with US companies since 2021, across US time zones, in English (B2). I'm open to remote projects worldwide and to relocating to the EU. Read <a href=\"/hire-ai-developer-bangladesh\">how hiring an AI developer in Bangladesh works</a>." },
+    a: "Yes. I'm based in Bangladesh, and I have worked remotely with US companies since 2021, across US time zones, in English (B2). I'm open to remote projects worldwide and to relocating to the EU. Read <a href=\"/hire-ai-developer-bangladesh\">how hiring an AI developer in Bangladesh works</a>." },
   { q: 'What is vibe coding, and do you use it for client work?',
     a: 'Vibe coding means building software by describing what you want to an AI coding assistant and iterating on what it writes. I use Claude Code and Cursor this way because it lets one person ship what used to need a team. Every build still goes through the same steps as hand-written code: it is tested on real data and handed over with documentation.' },
   { q: 'Which automation and AI tools do you use?',
@@ -130,7 +129,7 @@ export const HIRE = {
   title: 'Hire an AI Developer in Bangladesh | Mostafizur Rahman',
   description: 'Hire Mostafizur Rahman, a freelance AI developer and AI automation expert in Bangladesh, for AI apps, SaaS MVPs and n8n, Zapier and Make.com work.',
   h1: 'Hire an AI developer in Bangladesh',
-  lead: "I'm Mostafizur Rahman, a freelance AI builder and Gen AI engineer in Kushtia, Bangladesh. I build AI apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU, and I've worked remotely with US companies since 2021.",
+  lead: "I'm Mostafizur Rahman, a freelance AI builder and Gen AI engineer in Bangladesh. I build AI apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU, and I've worked remotely with US companies since 2021.",
   crumb: 'Hire an AI developer', eyebrow: 'HIRE AN AI DEVELOPER', asideLabel: 'Hiring details',
   workTitle: "Apps and agents I've built", faqId: 'hire-faq',
   faqTitle: 'Hiring <span class="accent">questions</span>', faqLead: 'What clients ask before hiring an AI developer in Bangladesh.',
@@ -176,7 +175,7 @@ export const N8N = {
   title: 'n8n Expert in Bangladesh | Mostafizur Rahman',
   description: 'n8n expert in Bangladesh: I build n8n workflows, AI agents and data pipelines with Claude and Gemini for teams in the USA, UK and EU. See real builds.',
   h1: 'n8n expert in Bangladesh',
-  lead: "I'm Mostafizur Rahman, an n8n expert and AI builder in Kushtia, Bangladesh. I build n8n workflows, AI agents and data pipelines that connect your tools and remove manual work, for teams in the USA, UK and EU.",
+  lead: "I'm Mostafizur Rahman, an n8n expert and AI builder in Bangladesh. I build n8n workflows, AI agents and data pipelines that connect your tools and remove manual work, for teams in the USA, UK and EU.",
   crumb: 'n8n expert', eyebrow: 'N8N AUTOMATION', asideLabel: 'n8n service details',
   workTitle: "n8n and automation builds", faqId: 'n8n-faq',
   faqTitle: 'n8n <span class="accent">questions</span>', faqLead: 'What clients ask before hiring an n8n expert in Bangladesh.',
@@ -315,7 +314,7 @@ export const POSTS = [
     sources: [],
     body: `
 <p>"Best" depends on what you need built. A developer who is excellent at training machine-learning models may be the wrong hire for an n8n automation, and the reverse. So instead of a ranking, here is a checklist you can use on anyone you're considering.</p>
-<p>I'm a freelance AI developer in Kushtia, Bangladesh myself, so at the end I show how my own work measures up against the same checklist. Use it on me too.</p>
+<p>I'm a freelance AI developer in Bangladesh myself, so at the end I show how my own work measures up against the same checklist. Use it on me too.</p>
 <h2>First, decide which kind of AI developer you need</h2>
 <ul>
   <li><strong>AI automation:</strong> workflows in n8n, Zapier or Make.com with AI steps that read, sort, qualify and draft, connected to your CRM, forms and inbox.</li>
@@ -411,7 +410,7 @@ export const POSTS = [
 </ol>
 <p>A good first candidate is a task someone repeats every day between two tools. It is easy to measure, and the time saved shows up immediately.</p>
 <h2>Want one of these for your team?</h2>
-<p>I'm an AI automation expert in Kushtia, Bangladesh, working with teams in the USA, UK and EU. See <a href="/services/ai-automation">AI automation</a>, my <a href="/n8n-expert-bangladesh">n8n work</a>, compare the platforms in <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>, or read <a href="/hire-ai-developer-bangladesh">how to hire me</a>.</p>`,
+<p>I'm an AI automation expert in Bangladesh, working with teams in the USA, UK and EU. See <a href="/services/ai-automation">AI automation</a>, my <a href="/n8n-expert-bangladesh">n8n work</a>, compare the platforms in <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>, or read <a href="/hire-ai-developer-bangladesh">how to hire me</a>.</p>`,
   },
 ];
 
@@ -425,7 +424,7 @@ export const SERVICES = [
     metaTitle: 'AI Automation Expert in Bangladesh: n8n, Zapier & Make',
     metaDesc: 'AI automation expert in Bangladesh. I build n8n, Zapier and Make.com workflows and AI agents (Claude, Gemini) that remove manual work for your team.',
     card: 'n8n, Zapier and Make.com workflows plus LLM integrations that remove hours of manual work.',
-    lead: "I'm an AI automation expert in Kushtia, Bangladesh. I build automations that move data between your tools and use AI for the steps that used to need a person: reading, sorting, qualifying and drafting.",
+    lead: "I'm an AI automation expert in Bangladesh. I build automations that move data between your tools and use AI for the steps that used to need a person: reading, sorting, qualifying and drafting.",
     tools: ['n8n', 'Zapier', 'Make.com', 'Claude', 'Google Gemini', 'HubSpot', 'Trello', 'Webhooks & APIs'],
     projects: ['operations-automation', 'socipro', 'b2b-lead-generation'],
     body: `

@@ -662,6 +662,8 @@ main > section { scroll-margin-top: 110px; }
 .exp-card__head { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .exp-co { font-size: 15px; font-weight: 700; line-height: 1.4; color: var(--ink); }
 .exp-co span { font-size: 14px; font-weight: 400; color: var(--ink-soft); }
+/* Country flag beside a job location (home experience cards and the About page) */
+.flag { display: inline-block; width: 20px; height: 14px; margin-right: 6px; vertical-align: -2px; border-radius: 3px; box-shadow: 0 0 0 1px rgba(22, 25, 58, .14); }
 .exp-meta { display: flex; flex-wrap: wrap; gap: 8px; }
 .exp-promoted .icon { width: 14px; height: 14px; }
 .exp-path {
