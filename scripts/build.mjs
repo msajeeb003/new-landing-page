@@ -91,8 +91,7 @@ const faqPage = (path, list = FAQ) => ({
   mainEntity: list.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: plain(f.a) } })),
 });
 const AREA = [
-  { '@type': 'Country', name: 'United States' }, { '@type': 'Country', name: 'United Kingdom' },
-  { '@type': 'Place', name: 'European Union' },
+  { '@type': 'Country', name: 'United States' }, { '@type': 'Place', name: 'Worldwide' },
 ];
 
 // ---------------------------------------------------------
@@ -486,7 +485,7 @@ for (const s of SERVICES) {
           <h2 class="facts__title">At a glance</h2>
           <dl>
             <div><dt>Provider</dt><dd><a href="/about">${SITE.name}</a>, ${esc(SITE.jobTitle)}</dd></div>
-            <div><dt>For</dt><dd>Remote teams in the USA, UK and EU</dd></div>
+            <div><dt>For</dt><dd>US and international teams</dd></div>
             <div><dt>Tools</dt><dd>${chips(s.tools)}</dd></div>
           </dl>
           <a class="btn facts__btn" href="/contact">Start a project</a>
@@ -626,7 +625,7 @@ ${related.length ? `
   const page = {
     path: '/about', section: 'about',
     title: 'About Mostafizur Rahman, AI Builder in Bangladesh',
-    description: 'Mostafizur Rahman is an AI builder and Gen AI engineer in Bangladesh, building AI apps and automations for US, UK and EU teams since 2021.',
+    description: 'Mostafizur Rahman is an AI builder and Gen AI engineer in Bangladesh, building AI apps and automations for US and international teams since 2021.',
     crumbs: [['Home', '/'], ['About']],
   };
   const edu = EDUCATION.map((e) => `<li><h3 class="h3">${esc(e.title)}</h3><p class="pg-meta">${esc(e.institute)} · ${esc(e.years)}</p><p>${esc(e.detail)}. ${esc(e.label === 'CGPA' ? `CGPA ${e.score.toFixed(2)} of ${e.scale.toFixed(2)}` : e.result)}.</p></li>`).join('\n          ');
@@ -634,7 +633,7 @@ ${related.length ? `
   page.main = `${hero({
     crumbs: page.crumbs, eyebrow: '<p class="label">ABOUT ME</p>',
     h1: `About <span class="accent">Mostafizur Rahman</span>`,
-    lead: "I'm an AI builder and Gen AI engineer from Bangladesh. I build AI-powered apps, SaaS MVPs and automations for remote teams in the USA, UK and EU.",
+    lead: "I'm an AI builder and Gen AI engineer from Bangladesh. I build AI-powered apps, SaaS MVPs and automations for US and international teams.",
     actions: `<div class="pg-actions"><a class="btn btn--arrow" href="/contact">Work with me ${icon('i-arrow', 'icon btn__icon')}</a><a class="btn btn--ghost" href="/cv.pdf" download="Mostafizur-Rahman-CV.pdf">Download CV</a></div>
           <p class="sm open-roles">Also open to full-time roles in the EU, with relocation.</p>`,
     media: `<div class="pg-portrait"><div class="stage__arch pg-portrait__arch" aria-hidden="true"></div><picture>
@@ -675,7 +674,7 @@ ${related.length ? `
             <div><dt>Name</dt><dd>${SITE.name}</dd></div>
             <div><dt>Role</dt><dd>${esc(SITE.jobTitle)}</dd></div>
             <div><dt>Based in</dt><dd>Bangladesh. Works remotely; open to EU relocation</dd></div>
-            <div><dt>Clients</dt><dd>Remote teams in the USA, UK and EU</dd></div>
+            <div><dt>Clients</dt><dd>US and international teams</dd></div>
             <div><dt>Experience</dt><dd>4+ years of remote work since 2021, six roles</dd></div>
             <div><dt>Education</dt><dd>BSc in Computer Science &amp; Engineering, Dhaka International University (2026)</dd></div>
             <div><dt>Certification</dt><dd>Google Prompting Essentials (Nov 2025)</dd></div>
@@ -756,7 +755,7 @@ ${post.sources.map((src) => `  <li><a href="${src.url}" target="_blank" rel="noo
       <aside class="pg-aside" aria-label="About the author">
         <div class="card card--float facts">
           <h2 class="facts__title">About the author</h2>
-          <p class="sm"><a href="/about">${SITE.name}</a> is a freelance AI builder and Gen AI engineer in Bangladesh. He builds AI apps, AI agents and n8n, Zapier and Make.com automations for teams in the USA, UK and EU.</p>
+          <p class="sm"><a href="/about">${SITE.name}</a> is a freelance AI builder and Gen AI engineer in Bangladesh. He builds AI apps, AI agents and n8n, Zapier and Make.com automations for US and international teams.</p>
           <a class="btn facts__btn" href="/hire-ai-developer-bangladesh">Hire me</a>
           <p class="facts__more">Related: ${[svc && `<a href="${servicePage(svc)}">${esc(svc.name)}</a>`, ...rel.map((r) => `<a href="${projectPage(r)}">${esc(r.name)}</a>`)].filter(Boolean).join(' · ')}</p>
         </div>
@@ -799,7 +798,7 @@ for (const L of [HIRE, N8N]) {
           <dl>
             <div><dt>Who</dt><dd><a href="/about">${SITE.name}</a>, ${esc(SITE.jobTitle)}</dd></div>
             <div><dt>Based in</dt><dd>Bangladesh (UTC+6)</dd></div>
-            <div><dt>Works with</dt><dd>Remote teams in the USA, UK and EU</dd></div>
+            <div><dt>Works with</dt><dd>US and international teams</dd></div>
             <div><dt>Remote since</dt><dd>2021, across US time zones</dd></div>
             <div><dt>English</dt><dd>B2</dd></div>
             <div><dt>Hire</dt><dd><a href="/contact">Directly</a> · ${extLink(SITE.profiles.upwork, 'Upwork')} · ${extLink(SITE.profiles.fiverr, 'Fiverr')}</dd></div>
@@ -967,7 +966,7 @@ Identity: ${SITE.disambiguatingDescription}
 
 Key facts:
 - Role: ${SITE.jobTitle} (AI app development, AI automation, AI agents, SaaS MVPs)
-- Based in: Bangladesh; works remotely with clients in the USA, UK and EU; open to EU relocation
+- Based in: Bangladesh; works remotely with US and international teams; open to EU relocation
 - Experience: remote work for US companies since 2021; currently Junior Full Stack Developer & Executive Assistant at Artech Digital
 - Results: +25% organic search rankings (ICMG LLC), +15% qualified leads (Digital Gregg), +20% audience engagement (Crushvertise LLC)
 - Education: BSc in Computer Science & Engineering, Dhaka International University (2026); Google Prompting Essentials certificate (2025)

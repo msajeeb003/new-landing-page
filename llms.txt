@@ -1,12 +1,12 @@
 # Mostafizur Rahman
 
-> Mostafizur Rahman is an AI builder and Gen AI engineer based in Bangladesh. He builds AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU, and has worked remotely for US companies since 2021.
+> Mostafizur Rahman is an AI builder and Gen AI engineer based in Bangladesh. He builds AI-powered web apps, SaaS MVPs and n8n, Zapier and Make.com automations for US and international teams, and has worked remotely for US companies since 2021.
 
-Identity: Freelance AI builder and Gen AI engineer based in Bangladesh (GitHub: msajeeb003; website: mostafizur.me). Builds AI apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for remote teams in the USA, UK and EU.
+Identity: Freelance AI builder and Gen AI engineer based in Bangladesh (GitHub: msajeeb003; website: mostafizur.me). Builds AI apps, SaaS MVPs, AI agents and n8n, Zapier and Make.com automations for US and international teams.
 
 Key facts:
 - Role: AI Builder & Gen AI Engineer (AI app development, AI automation, AI agents, SaaS MVPs)
-- Based in: Bangladesh; works remotely with clients in the USA, UK and EU; open to EU relocation
+- Based in: Bangladesh; works remotely with US and international teams; open to EU relocation
 - Experience: remote work for US companies since 2021; currently Junior Full Stack Developer & Executive Assistant at Artech Digital
 - Results: +25% organic search rankings (ICMG LLC), +15% qualified leads (Digital Gregg), +20% audience engagement (Crushvertise LLC)
 - Education: BSc in Computer Science & Engineering, Dhaka International University (2026); Google Prompting Essentials certificate (2025)
@@ -28,6 +28,7 @@ Key facts:
 - [Social content system](https://www.mostafizur.me/projects/social-content-system): +20% audience engagement at Crushvertise from Photoshop and Illustrator visuals for a lead-generation agency.
 
 ## Articles
+- [How to build AI lead qualification in n8n with Claude and HubSpot](https://www.mostafizur.me/blog/n8n-ai-lead-qualification-claude-hubspot) (2026-11-22): A step-by-step n8n build that scores inbound leads with Claude, saves them in HubSpot, routes clear decisions automatically and sends uncertain leads to a person.
 - [What an AI automation expert builds: 4 real workflows](https://www.mostafizur.me/blog/what-an-ai-automation-expert-builds) (2026-11-09): Four real workflows I've built, from AI lead qualification to an autonomous content agent, and what to expect when you hire an AI automation expert.
 - [How to find the best AI developer in Bangladesh](https://www.mostafizur.me/blog/how-to-find-the-best-ai-developer-in-bangladesh) (2026-11-08): A practical checklist for hiring the best AI developer in Bangladesh for your project: what to check, what to ask, red flags and where to look.
 - [n8n vs Zapier vs Make.com for AI lead qualification](https://www.mostafizur.me/blog/n8n-vs-zapier-vs-make-ai-lead-qualification) (2026-11-06): How n8n, Zapier and Make.com compare for one AI lead-qualification workflow: what each one bills for, the AI step, custom code, hosting and when to pick each.
