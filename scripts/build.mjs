@@ -6,6 +6,7 @@
 // (between <!-- build:NAME --> and <!-- /build:NAME --> markers).
 // Commit the output: Vercel serves these files as-is, with no build step.
 // =========================================================
+import { createHash } from 'node:crypto';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -366,6 +367,7 @@ const shell = (page) => {
   <link rel="stylesheet" href="/styles.css">
   <script>document.documentElement.classList.add('js');</script>
   <script src="/main.js" defer></script>
+  <script src="/_vercel/insights/script.js" defer></script>
   ${jsonLd(page.schema)}
 </head>
 <body class="page">
@@ -568,7 +570,7 @@ for (const p of PROJECTS) {
   page.main = `${hero({
     crumbs: page.crumbs,
     eyebrow: `<span class="chip" style="--soft:${p.cat.soft};--text:${p.cat.text}">${esc(p.cat.label)}</span>`,
-    h1: esc(p.title).replace(/(\S+-\S+)/g, '<span class="nowrap">$1</span>'), lead: esc(p.summary),
+    h1: esc(p.h1 || p.title).replace(/(\S+-\S+)/g, '<span class="nowrap">$1</span>'), lead: esc(p.summary),
     actions: btns.length ? `<div class="pg-actions">${btns.join('')}</div>` : '',
     media: `<figure class="pg-cover card card--float"><img src="/images/work/${p.img}-1280.webp" srcset="/images/work/${p.img}-640.webp 640w, /images/work/${p.img}-1280.webp 1280w" sizes="(max-width: 1023px) 92vw, 600px" alt="${esc(p.alt)}" width="1280" height="800" fetchpriority="high" decoding="async"></figure>`,
   })}
@@ -894,12 +896,29 @@ for (const L of [HIRE, N8N]) {
 // Write pages
 // ---------------------------------------------------------
 const fileFor = (path) => (['/services', '/projects', '/blog'].includes(path) ? `${path.slice(1)}/index.html` : `${path.slice(1)}.html`);
+// Sitemap dates: a page keeps its date until its title, description or main content changes.
+// scripts/lastmod.json stores the date and a fingerprint of that content for each page.
+const LASTMOD_FILE = join(ROOT, 'scripts', 'lastmod.json');
+const lastmod = JSON.parse(await readFile(LASTMOD_FILE, 'utf8').catch(() => '{}'));
+const fingerprint = (html) => {
+  const head = [/<title>([^<]*)<\/title>/, /<meta name="description" content="([^"]*)"/].map((re) => html.match(re)?.[1] || '').join(' ');
+  const main = (html.split(/<main\b[^>]*>/)[1] || html).split('</main>')[0]
+    .replace(/<!--[\s\S]*?-->/g, ' ').replace(/<(script|style|svg)\b[\s\S]*?<\/\1>/g, ' ');
+  return createHash('sha256').update(`${head} ${plain(main)}`).digest('hex').slice(0, 16);
+};
+const stamp = (path, html) => {
+  const hash = fingerprint(html);
+  const prev = lastmod[path];
+  lastmod[path] = { date: prev?.hash === hash ? prev.date : TODAY, hash };
+};
+
 const report = [];
 for (const page of pages) {
   const html = shell(page);
   const out = join(ROOT, fileFor(page.path));
   await mkdir(dirname(out), { recursive: true });
   await writeFile(out, html);
+  if (!page.noindex) stamp(page.path, html);
   const main = html.split('<main id="main">')[1].split('</main>')[0];
   report.push({ path: page.path, words: plain(main).split(' ').length, title: page.title.length, desc: page.description.length, noindex: !!page.noindex, todos: (main.match(/ADD REAL DETAIL/g) || []).length });
 }
@@ -924,6 +943,8 @@ home = inject(home, 'work', `        ${[...PROJECTS, FREELANCE].map((p) => workC
 home = inject(home, 'faq', `  ${faqSection()}\n  `);
 home = inject(home, 'footer', footer('#home'));
 await writeFile(join(ROOT, 'index.html'), home);
+stamp('/', home);
+await writeFile(LASTMOD_FILE, `${JSON.stringify(lastmod, null, 1)}\n`);
 
 // ---------------------------------------------------------
 // sitemap.xml and llms.txt
@@ -933,7 +954,7 @@ await writeFile(join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${indexable.map((p) => `  <url>
     <loc>${abs(p)}</loc>
-    <lastmod>${TODAY}</lastmod>
+    <lastmod>${lastmod[p].date}</lastmod>
   </url>`).join('\n')}
 </urlset>
 `);

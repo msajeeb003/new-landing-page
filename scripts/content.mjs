@@ -172,8 +172,8 @@ export const HIRE = {
 // ---------------------------------------------------------
 export const N8N = {
   path: '/n8n-expert-bangladesh',
-  title: 'n8n Expert in Bangladesh | Mostafizur Rahman',
-  description: 'n8n expert in Bangladesh: I build n8n workflows, AI agents and data pipelines with Claude and Gemini for teams in the USA, UK and EU. See real builds.',
+  title: 'n8n Expert in Bangladesh: AI Workflows & Agents',
+  description: 'n8n expert in Bangladesh building AI lead qualification, CRM sync and data workflows with Claude and Gemini. See real builds and request a quote.',
   h1: 'n8n expert in Bangladesh',
   lead: "I'm Mostafizur Rahman, an n8n expert and AI builder in Bangladesh. I build n8n workflows, AI agents and data pipelines that connect your tools and remove manual work, for teams in the USA, UK and EU.",
   crumb: 'n8n expert', eyebrow: 'N8N AUTOMATION', asideLabel: 'n8n service details',
@@ -221,8 +221,8 @@ export const POSTS = [
   {
     slug: 'n8n-vs-zapier-vs-make-ai-lead-qualification',
     title: 'n8n vs Zapier vs Make.com for AI lead qualification',
-    metaTitle: 'n8n vs Zapier vs Make.com for AI Lead Qualification',
-    metaDesc: 'How n8n, Zapier and Make.com compare for an AI lead-qualification workflow: how each one charges, AI steps, custom code, hosting and when to pick each.',
+    metaTitle: 'n8n vs Zapier vs Make for AI Lead Qualification (2026)',
+    metaDesc: 'How n8n, Zapier and Make.com compare for AI lead qualification: pricing per lead, AI steps, custom code, hosting and which one to pick.',
     summary: 'How n8n, Zapier and Make.com compare for one AI lead-qualification workflow: what each one bills for, the AI step, custom code, hosting and when to pick each.',
     date: '2026-11-06', checked: '2026-11-06',
     keywords: ['n8n vs Zapier vs Make', 'AI lead qualification', 'n8n', 'Zapier', 'Make.com', 'AI automation'],
@@ -600,7 +600,7 @@ export const PROJECTS = [
 <h2>Tools used</h2>
 <p>Next.js 15 (App Router, Server Components and Server Actions) with React 19 and TypeScript; Supabase for the PostgreSQL database and sign-in; Tailwind CSS and Framer Motion for the interface. n8n runs the data pipeline and Google Gemini turns raw scholarship pages into structured records. Zod validates every form and API request, and DOMPurify cleans any HTML content. It is deployed on Vercel.</p>
 <h2>How I built it</h2>
-<p>The listings come from an automated pipeline instead of manual data entry. On a schedule, an n8n workflow pulls scholarships from official national scheme sources, scholarship aggregators and news feeds. Google Gemini extracts the title, deadline, funding and requirements as structured JSON, each record is validated on its own, and the results are posted to a webhook protected by a shared secret. Valid listings publish automatically, so the site stays current without anyone typing them in, and a built-in admin CMS can edit any listing, publish drafts and retire expired scholarships.</p>
+<p>The listings come from an automated pipeline instead of manual data entry. On a schedule, an n8n workflow pulls scholarships from official national scheme sources, scholarship aggregators and news feeds. Google Gemini extracts the title, deadline, funding and requirements as structured JSON, each record is validated on its own, and the results are posted to a webhook protected by a shared secret. Valid listings publish automatically, so the site stays current without anyone typing them in, and a built-in admin CMS can edit any listing, publish drafts and retire expired scholarships. More on this kind of work: <a href="/n8n-expert-bangladesh">n8n expert in Bangladesh</a>.</p>
 <p>Security is part of the design. Row Level Security on every database table means the public can only read published listings and each user can only see their own saved items. Middleware guards the dashboard and admin areas, the admin role is checked again on the server for every action, and secret keys never reach the browser.</p>
 <h2>Result</h2>
 <p>EurekaEDU is live. Students can search and compare scholarships, browse universities and degree programs by country, practise IELTS and plan their visa steps without an account. Signing up adds saved scholarships, an application journey tracker and a CV builder.</p>`,
@@ -608,8 +608,9 @@ export const PROJECTS = [
   {
     slug: 'operations-automation', name: 'Operations automation engine', title: 'Operations automation engine', cat: CAT.automation, img: 'automation',
     alt: 'n8n workflow: a webhook lead goes to HubSpot, Claude AI qualifies it, then Trello and Zapier follow up',
-    metaTitle: 'n8n, Zapier & Make Automation Case Study | Mostafizur Rahman',
-    metaDesc: 'How I build n8n, Zapier and Make.com automations at Artech Digital that connect CRMs, SaaS tools and marketing systems, with Claude for AI steps.',
+    h1: 'n8n, Zapier and Make.com operations automation',
+    metaTitle: 'n8n Operations Automation Case Study | Mostafizur Rahman',
+    metaDesc: 'How I build n8n, Zapier and Make.com automations that connect CRMs, SaaS tools and marketing systems, with Claude handling the AI steps.',
     summary: 'n8n, Zapier and Make.com flows at Artech Digital that connect CRMs, SaaS tools and marketing systems, removing manual hand-offs.',
     stack: ['n8n', 'Zapier', 'Make.com', 'Claude', 'HubSpot', 'Trello'],
     schemaType: 'CreativeWork', service: 'ai-automation', related: ['socipro', 'b2b-lead-generation'],
@@ -626,7 +627,7 @@ export const PROJECTS = [
 </ul>
 <h2>A typical flow</h2>
 <p>The diagram above shows the shape of a typical lead flow: a webhook receives a new lead, the lead is created in HubSpot, Claude reads it and qualifies it, and follow-up tasks go to Trello and out through Zapier. Each step runs without anyone copying data between tabs, and a person only steps in where a decision is needed.</p>
-<p>For how this flow differs on each platform, read <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>.</p>
+<p>For how this flow differs on each platform, read <a href="/blog/n8n-vs-zapier-vs-make-ai-lead-qualification">n8n vs Zapier vs Make.com for AI lead qualification</a>. For more of my n8n builds, see <a href="/n8n-expert-bangladesh">n8n expert in Bangladesh</a>.</p>
 <h2>Tools used</h2>
 <p>n8n, Zapier and Make.com for orchestration, Claude for the AI steps, HubSpot as the CRM, Trello for task boards, plus webhooks and direct API calls where a ready-made connector does not exist.</p>
 <h2>Result</h2>

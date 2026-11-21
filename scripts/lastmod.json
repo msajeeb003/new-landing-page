@@ -1,0 +1,86 @@
+{
+ "/": {
+  "date": "2026-11-18",
+  "hash": "0e4fb7587b3cc5b1"
+ },
+ "/services": {
+  "date": "2026-11-10",
+  "hash": "15d6ba6f93443cc9"
+ },
+ "/services/ai-automation": {
+  "date": "2026-11-18",
+  "hash": "57267647b4d182eb"
+ },
+ "/services/ai-app-development": {
+  "date": "2026-11-09",
+  "hash": "411d3dd162e563c2"
+ },
+ "/services/seo-social-media": {
+  "date": "2026-11-05",
+  "hash": "573921e89bc98dfb"
+ },
+ "/projects": {
+  "date": "2026-11-06",
+  "hash": "c511eb7f86a6f8d5"
+ },
+ "/projects/signpro": {
+  "date": "2026-11-06",
+  "hash": "239731b88f300a68"
+ },
+ "/projects/socipro": {
+  "date": "2026-11-06",
+  "hash": "e3faeaa47264b336"
+ },
+ "/projects/eurekaedu": {
+  "date": "2026-11-22",
+  "hash": "d38409e09638ee52"
+ },
+ "/projects/operations-automation": {
+  "date": "2026-11-22",
+  "hash": "eb8b49bcd40a426f"
+ },
+ "/projects/b2b-lead-generation": {
+  "date": "2026-11-05",
+  "hash": "57f4a47d77aa1f59"
+ },
+ "/projects/seo-content-program": {
+  "date": "2026-11-05",
+  "hash": "80b20c458e36b7d5"
+ },
+ "/projects/social-content-system": {
+  "date": "2026-11-05",
+  "hash": "e60911b3cc0fc35d"
+ },
+ "/about": {
+  "date": "2026-11-18",
+  "hash": "79ae198d6ca14c0c"
+ },
+ "/blog": {
+  "date": "2026-11-09",
+  "hash": "496ba7f9d506d909"
+ },
+ "/blog/what-an-ai-automation-expert-builds": {
+  "date": "2026-11-18",
+  "hash": "b59e12fa8a37e1cd"
+ },
+ "/blog/how-to-find-the-best-ai-developer-in-bangladesh": {
+  "date": "2026-11-18",
+  "hash": "610eea5997550fb6"
+ },
+ "/blog/n8n-vs-zapier-vs-make-ai-lead-qualification": {
+  "date": "2026-11-22",
+  "hash": "53fef616d5cd2a17"
+ },
+ "/hire-ai-developer-bangladesh": {
+  "date": "2026-11-18",
+  "hash": "1e4f614b62a01dbc"
+ },
+ "/n8n-expert-bangladesh": {
+  "date": "2026-11-22",
+  "hash": "3991fcacd00da088"
+ },
+ "/contact": {
+  "date": "2026-11-18",
+  "hash": "413b9ca0b011d64f"
+ }
+}
