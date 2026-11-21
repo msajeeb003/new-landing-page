@@ -1200,9 +1200,14 @@
           <p class="p" data-reveal>You know about me. Now let's talk about you. Open to remote projects worldwide and EU relocation.</p>
         </div>
 
-        <!-- Contact form: messages are delivered to data-to by FormSubmit (formsubmit.co), no account needed.
-             The very first submission sends an "Activate form" email to that address; click it once. -->
-        <form class="cta-form" novalidate data-to="mostafizur.contacts@gmail.com" action="https://formsubmit.co/mostafizur.contacts@gmail.com" data-email="hello@mostafizur.me" method="POST">
+        <!-- Contact form: delivered by Web3Forms (web3forms.com). The access_key value below decides which
+             inbox gets the messages; it is meant to be public. To change the inbox, create a new key in the
+             Web3Forms dashboard and replace the value. While it is empty, nothing can be delivered and
+             the form offers the message as a ready-made email to data-email instead (see main.js). -->
+        <form class="cta-form" novalidate action="https://api.web3forms.com/submit" data-email="hello@mostafizur.me" method="POST">
+          <input type="hidden" name="access_key" value="f577a053-9abf-4643-8b78-a40f3ae405e6">
+          <input type="hidden" name="subject" value="New portfolio inquiry">
+          <input type="hidden" name="from_name" value="mostafizur.me contact form">
           <div class="cta-form__fields">
             <div class="cta-form__grid">
               <div class="cta-field">
@@ -1218,8 +1223,9 @@
               <label class="cta-form__label" for="cta-msg">PROJECT DETAILS</label>
               <textarea class="cta-form__input cta-form__textarea" id="cta-msg" name="message" rows="3" placeholder="What do you need help with?" maxlength="3000" required></textarea>
             </div>
-            <!-- Spam trap: hidden from people, bots fill it in -->
-            <input class="cta-form__hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <!-- Spam traps: hidden from people, bots fill them in (botcheck is the one Web3Forms checks) -->
+            <input class="cta-form__hp" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input class="cta-form__hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
             <button class="btn cta-form__send" type="submit">
               <svg class="icon cta-form__plane" aria-hidden="true"><use href="#i-send"/></svg>
               <span class="cta-form__send-text">Send message</span>

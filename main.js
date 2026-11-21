@@ -214,8 +214,12 @@
 
   /* ---------------------------------------------------------
      CTA — contact form (M21)
-     Sends name, email and message to your inbox through FormSubmit (formsubmit.co).
-     First use: FormSubmit emails an "Activate form" link to data-to. Click it once.
+     Sends name, email and message to your inbox through Web3Forms (web3forms.com).
+     The inbox is decided by the access key in the form's hidden access_key field
+     (index.html); the key is meant to be public.
+     If the key is missing, or the service fails or takes too long, the visitor is
+     offered the same message as a ready-made email in their own mail app, so it is
+     never lost.
      --------------------------------------------------------- */
   (function initForm() {
   const form = $('.cta-form');
@@ -224,14 +228,16 @@
   const nameIn = $('#cta-name');
   const emailIn = $('#cta-email');
   const msgIn = $('#cta-msg');
-  const honey = $('.cta-form__hp', form);
+  const traps = $$('.cta-form__hp', form);
   const errorEl = $('#cta-error');
   const sendBtn = $('.cta-form__send');
   const sendText = $('.cta-form__send-text', sendBtn);
   const success = $('.cta-form__success');
   const successText = $('.cta-form__success-text', success);
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  const ENDPOINT = `https://formsubmit.co/ajax/${form.dataset.to}`;
+  const ENDPOINT = form.getAttribute('action');   // https://api.web3forms.com/submit
+  const SEND_TIMEOUT = 20000;                      // stop waiting for the service after 20 seconds
+  const publicEmail = form.dataset.email;
   const inputs = [nameIn, emailIn, msgIn];
 
   const rules = [
@@ -250,6 +256,16 @@
     el.classList.add('is-shaking');
   };
   const showError = (text) => { errorEl.textContent = text; };
+
+  // Sending failed: keep what they typed and offer it as a pre-filled email instead.
+  const showSendFailed = (name, email, message) => {
+    const link = document.createElement('a');
+    link.href = `mailto:${publicEmail}?subject=${encodeURIComponent(`Project inquiry from ${name}`)}`
+      + `&body=${encodeURIComponent(`${message}\n\n${name}\n${email}`)}`;
+    link.textContent = 'Send it from your email app instead';
+    errorEl.textContent = '';
+    errorEl.append("Sorry, the form couldn't send your message. ", link, ' (your message is already filled in).');
+  };
 
   inputs.forEach((el) => {
     el.addEventListener('animationend', () => el.classList.remove('is-shaking'));
@@ -291,34 +307,45 @@
     const email = emailIn.value.trim();
     const message = msgIn.value.trim();
 
-    // Bots fill the hidden field: pretend it worked, send nothing.
-    if (honey.value) { finish(name); return; }
+    // Bots fill the hidden fields: pretend it worked, send nothing.
+    if (traps.some((t) => (t.type === 'checkbox' ? t.checked : t.value))) { finish(name); return; }
+
+    // No access key in the page: nothing can deliver the message, so offer the email straight away.
+    const accessKey = (form.elements.access_key?.value || '').trim();
+    if (!accessKey) {
+      console.warn('Contact form: no Web3Forms access key set (hidden access_key field in index.html).');
+      showSendFailed(name, email, message);
+      return;
+    }
 
     setSending(true);
     sendBtn.classList.add('is-pressed');
     setTimeout(() => sendBtn.classList.remove('is-pressed'), 120);
 
+    const giveUp = new AbortController();
+    const giveUpTimer = setTimeout(() => giveUp.abort(), SEND_TIMEOUT);
     try {
-      const res = await fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name, email, message,
-          _subject: `New portfolio inquiry from ${name}`,
-          _replyto: email,
-          _template: 'table',
-          _honey: '',
-        }),
-      });
+      // Sent as form data (as Web3Forms' own snippet does): the browser then needs no extra
+      // pre-check request, so there is one less thing that can be blocked.
+      const body = new FormData();
+      Object.entries({
+        access_key: accessKey,
+        subject: `New portfolio inquiry from ${name}`,
+        from_name: form.elements.from_name?.value || 'Website contact form',
+        name, email, message,   // "email" also becomes the reply-to address
+      }).forEach(([field, value]) => body.append(field, value));
+      const res = await fetch(ENDPOINT, { method: 'POST', headers: { Accept: 'application/json' }, body, signal: giveUp.signal });
       const data = await res.json().catch(() => ({}));
       const ok = res.ok && String(data.success) === 'true';
-      if (!ok) throw new Error(data.message || `HTTP ${res.status}`);
+      if (!ok) throw new Error(data.message || data.body?.message || `HTTP ${res.status}`);
       sendBtn.classList.add('is-flying');
       setTimeout(() => finish(name), reduce ? 0 : 400);
     } catch (err) {
-      console.warn('Contact form:', err.message);
+      console.warn('Contact form:', giveUp.signal.aborted ? `no answer after ${SEND_TIMEOUT / 1000}s` : err.message);
       setSending(false);
-      showError(`Sorry, your message couldn't be sent right now. Please email me directly at ${form.dataset.email || form.dataset.to}.`);
+      showSendFailed(name, email, message);
+    } finally {
+      clearTimeout(giveUpTimer);
     }
   });
 

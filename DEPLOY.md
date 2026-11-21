@@ -107,8 +107,8 @@ From then on, every push to GitHub updates the live site automatically.
 
 1. **Open the site:** https://mostafizur-ai.vercel.app. Click around: menu, filters, "View all work", Download CV.
 
-2. **Activate the contact form (one time only).**
-   Send yourself a test message through the form. FormSubmit emails **mostafizur.contacts@gmail.com** an **"Activate Form"** link: click it, and check Spam if you don't see it. After that, every message reaches your inbox. The first test shows an error until you've activated; that's expected.
+2. **Check the contact form.**
+   Messages are delivered by [Web3Forms](https://web3forms.com). The inbox is set by the access key in the form's hidden `access_key` field in `index.html` (run `node scripts/build.mjs` after changing it, so the contact page gets it too). Send yourself a test message: it should arrive within a minute (check Spam the first time). If the key is empty or the service is down, the form offers the visitor a ready-made email to hello@mostafizur.me instead.
 
 3. **Check the link preview** (what people see when you share the link):
    - LinkedIn: https://www.linkedin.com/post-inspector/ → paste your URL
@@ -140,6 +140,6 @@ Buy the domain, then in Vercel go to **Settings → Domains → Add** and follow
 
 ## Notes
 
-- **Security:** `vercel.json` sends strict security headers, including a Content-Security-Policy that only allows your own files, Google Fonts and FormSubmit. If you later add something from another site (an analytics script, an embedded video), add that site to the matching part of the policy in `vercel.json`, or the browser will block it.
+- **Security:** `vercel.json` sends strict security headers, including a Content-Security-Policy that only allows your own files, the contact form service (Web3Forms) and the visitor counter. If you later add something from another site (an analytics script, an embedded video), add that site to the matching part of the policy in `vercel.json`, or the browser will block it.
 - **The small inline script** in `index.html` (`document.documentElement.classList.add('js')`) is allowed by an exact fingerprint (hash) in the policy. If you edit that one line, the hash in `vercel.json` must be updated too.
 - **Caching:** images are cached for 7 days. If you replace an image but keep the same file name, visitors may see the old one for a while. Renaming the file (for example `og-v2.jpg`) makes the change show immediately.

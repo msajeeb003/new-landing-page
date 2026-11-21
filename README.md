@@ -12,7 +12,7 @@ Plain, fast and dependency-free:
 - **CSS** — `styles.css` with design tokens, responsive layout and a motion system (respects `prefers-reduced-motion`)
 - **JavaScript** — `main.js`, vanilla, no frameworks; every page works and is readable without it
 - **Fonts** — Sora and DM Sans, self-hosted in `fonts/`
-- **Contact form** — delivered by email through [FormSubmit](https://formsubmit.co)
+- **Contact form** — delivered by email through [Web3Forms](https://web3forms.com) (access key in the form's hidden `access_key` field in `index.html`)
 - **Hosting** — Vercel (static, no build step), configured in `vercel.json`
 
 ## Editing content

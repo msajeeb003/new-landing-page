@@ -914,6 +914,7 @@ html:not(.js) .work-more { display: none; }
 .cta-form__send:disabled { transform: none; }
 .cta-form__error { min-height: 0; font-size: 13px; font-weight: 600; color: #FF8A8A; }
 .cta-form__error:empty { display: none; }
+.cta-form__error a { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
 .cta-form__success { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: #fff; min-height: 56px; }
 .cta-form__success .icon { width: 22px; height: 22px; color: var(--mint); }
 .cta-form__success:focus { outline: none; }
